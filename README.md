@@ -10,9 +10,9 @@
 
 - ruby '3.0.1'
 - 'rails', '~> 6.0.3'
-- DB: postgresql
 - 'webpacker', '~> 4.0'
-
+- node 14.18.0
+- DB: postgresql
 ## 使用Gem
 
 - devise
