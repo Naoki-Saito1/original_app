@@ -13,9 +13,14 @@
 - 'webpacker', '~> 4.0'
 - node 14.18.0
 - DB: postgresql
+
+## 主な機能
+
+- AWS EC2
+- お気に入り機能
 ## 使用Gem
 
-- devise
+
 - rails_admin
 - cancancan
 - rexml
