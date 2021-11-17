@@ -26,12 +26,16 @@
 - rexml
 - devise-i18n
 - carrierwave
-- 'twitter'
 - mini_magick
-- font-awesome-sass
 - kaminari 
-- ransack
 
+
+
+## カリキュラム意外
+
+- font-awesome-sass
+- 'twitter'
+- ransack
 ## 実行手順
 
 ````
@@ -57,16 +61,13 @@ https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8
 
 ## ER図
 
-![卒業課題遷移図-ページ1 drawio (1)](https://user-images.githubusercontent.com/84219791/141983625-1893b856-e4ad-4fd5-b9c4-b5c1a63dc0b1.png)
-
+![image](https://user-images.githubusercontent.com/84219791/142196567-f76a3d16-7520-43a6-be9e-85cc2bc4d725.png)
 
 ## 画面遷移図
 
-![卒業課題遷移図-ページ3 drawio (1)-ページ3 drawio](https://user-images.githubusercontent.com/84219791/141983925-1cab9454-368c-41e9-a427-e7dea9f93d0d.png)
-
+![image](https://user-images.githubusercontent.com/84219791/142196454-bc51e39a-4190-4cf7-8fe1-415d59216228.png)
 
 
 ## ワイヤーフレーム
 
-
-![スクリーンショット 2021-11-16 21 07 03](https://user-images.githubusercontent.com/84219791/141983324-69a14116-0ce5-45ab-b857-5c94d57ce8f6.png)
+![image](https://user-images.githubusercontent.com/84219791/142196246-bff18ae5-fa4e-4c40-b4d6-642677d93aba.png)
