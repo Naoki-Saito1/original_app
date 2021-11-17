@@ -26,10 +26,11 @@
 - rexml
 - devise-i18n
 - carrierwave
+- 'twitter'
 - mini_magick
 - font-awesome-sass
 - kaminari 
-
+- ransack
 
 ## 実行手順
 
