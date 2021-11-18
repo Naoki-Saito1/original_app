@@ -41,7 +41,6 @@
 ## カリキュラム意外
 
 - font-awesome-sass
-- 'twitter'
 - ransack
 ## 実行手順
 
