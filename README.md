@@ -64,8 +64,7 @@ $ rails s
 https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8yRo/edit?usp=sharing
 
 ## ER図
-
-![image](https://user-images.githubusercontent.com/84219791/142196567-f76a3d16-7520-43a6-be9e-85cc2bc4d725.png)
+![image](https://user-images.githubusercontent.com/84219791/142345583-94f2ca3d-be9d-4831-bfb6-5536ea10705a.png)
 
 ## 画面遷移図
 
