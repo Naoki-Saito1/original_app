@@ -1,9 +1,11 @@
 # README
 
 # 製品概要
+開発した背景：僕はプログラミングスクールに入りRubyonRailsを学び成果物を作成しようと考えたころいくつか疑問が生まれました。実際どんなものが作れるのか？
+インターネットで検索しても解決につながる記事は見つかりませんでした。成果物の作成に悩んでいるかた、また言語によってどんなものが作れるのか知りたい方そんな方々の少しでも役に立つことができればと思ったのがきっかけです。
+問題点と解決策
+成果物の案に悩んでいる、言語によってどんなものが作れるかわからない、成果物を就活後眠らせてしまう、自分の成果物を少しでも世間に広めたい、アウトプットしながら就職活動がしたい、そんな方々の悩みを解決するためのアプリケーションとなっています。
 
-ポートフォリオ作成やプログラミング言語たくさんあるけどどんなものが作れるんだろ？と思ったことはありませんか？そんな方々におすすめなのがこのプログラミンナ！
-またせっかく作ったオリジナルアプリケーションも就職活動後フォルダに眠ってしまっているかたも多いのではないでしょうか？ぜひプログラミンナに投稿して今後のエンジニアの役に立てましょう！！
 
 
 ##   開発環境
@@ -43,7 +45,7 @@
 ## 実行手順
 
 ````
-$ https://github.com/Saito2109/original_app.git
+$ git clone https://github.com/Saito2109/original_app.git
 $ cd original_app
 $ bundle install
 $ rails db:create db:migrate
@@ -64,7 +66,7 @@ $ rails s
 https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8yRo/edit?usp=sharing
 
 ## ER図
-![image](https://user-images.githubusercontent.com/84219791/142345583-94f2ca3d-be9d-4831-bfb6-5536ea10705a.png)
+![image](https://user-images.githubusercontent.com/84219791/142384799-a4d8785d-2ae4-461b-8e3b-8e7edd5cedd2.png)
 
 ## 画面遷移図
 
