@@ -57,11 +57,11 @@ $ rails s
 
 
 
-(カタログ設計)
-(テーブル定義書)
-(ER図)
-(画面遷移図)
-(ワイヤーフレーム)
+- (カタログ設計)
+- (テーブル定義書)
+- (ER図)
+- (画面遷移図)
+- (ワイヤーフレーム)
 
 https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8yRo/edit?usp=sharing
 
@@ -70,9 +70,9 @@ https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8
 
 ## 画面遷移図
 
-![image](https://user-images.githubusercontent.com/84219791/142196454-bc51e39a-4190-4cf7-8fe1-415d59216228.png)
+![image](https://user-images.githubusercontent.com/84219791/142686156-0a841d8c-58d8-4556-bfd0-a94ba2e6c7e0.png)
 
 
 ## ワイヤーフレーム
 
-![image](https://user-images.githubusercontent.com/84219791/142196246-bff18ae5-fa4e-4c40-b4d6-642677d93aba.png)
+![image](https://user-images.githubusercontent.com/84219791/142685997-8241f6dd-bc15-432c-bdec-6eec27683261.png)
