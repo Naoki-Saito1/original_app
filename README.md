@@ -67,7 +67,7 @@ https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8
 
 ## ER図
 
-![image](https://user-images.githubusercontent.com/84219791/142912394-4e771c5c-db2a-4b09-b99f-15717886e143.png)
+![image](https://user-images.githubusercontent.com/84219791/142912943-ef4d3961-d472-4e95-8502-1bb4356ff4f7.png)
 
 ## 画面遷移図
 
