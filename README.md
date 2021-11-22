@@ -66,11 +66,12 @@ $ rails s
 https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8yRo/edit?usp=sharing
 
 ## ER図
-![image](https://user-images.githubusercontent.com/84219791/142416642-8a1ca0bf-0ea9-4436-b787-07611871864c.png)
+
+![image](https://user-images.githubusercontent.com/84219791/142912394-4e771c5c-db2a-4b09-b99f-15717886e143.png)
 
 ## 画面遷移図
 
-![image](https://user-images.githubusercontent.com/84219791/142686156-0a841d8c-58d8-4556-bfd0-a94ba2e6c7e0.png)
+![image](https://user-images.githubusercontent.com/84219791/142912274-8d2e4391-1f01-41cb-bfe4-6e6415616459.png)
 
 
 ## ワイヤーフレーム
