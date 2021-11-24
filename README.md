@@ -67,7 +67,7 @@ https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8
 
 ## ER図
 
-![image](https://user-images.githubusercontent.com/84219791/142912943-ef4d3961-d472-4e95-8502-1bb4356ff4f7.png)
+![image](https://user-images.githubusercontent.com/84219791/143212819-87b88dab-ed11-4c50-8126-7eb6cb1c424b.png)
 
 ## 画面遷移図
 
@@ -76,4 +76,4 @@ https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8
 
 ## ワイヤーフレーム
 
-![image](https://user-images.githubusercontent.com/84219791/142685997-8241f6dd-bc15-432c-bdec-6eec27683261.png)
+![image](https://user-images.githubusercontent.com/84219791/143213004-622473f4-2bc4-437c-8acd-c6df9be4f25f.png)
