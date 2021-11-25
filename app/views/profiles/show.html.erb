@@ -6,43 +6,38 @@
   <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
 <% end %>
 </div>
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
 
+<div class="profile-name">
+  <p>
+    <%= @profile.name %>
+  </p>
+</div>
+
+<div class="profile-info">
 <p>
-  <strong>Gender:</strong>
+<% if  @profile.gender.present? %> 
   <%= @profile.gender %>
+<% end %>
+<% if  @profile.birth_date.present? %> 
+         /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
+<% end %>
+<% if @profile.address.present? %>
+        <%= @profile.address %>
+<% end %>
 </p>
-
+</div>
 <p>
-  <strong>Birth date:</strong>
- <% if  @profile.birth_date.present? %> 
-        <%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳 
-      <% end %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @profile.address %>
-</p>
-
-<p>
-  <strong>Status:</strong>
   <%= @profile.status %>
 </p>
 
 <p>
-  <strong>Detail:</strong>
   <%= @profile.detail %>
 </p>
 
 <p>
-  <strong>Body:</strong>
   <%= @profile.body %>
 </p>
-
+<div class="sns">
 <p>
   <strong>Twitter:</strong>
   <%= @profile.twitter %>
@@ -57,7 +52,7 @@
   <strong>Qiita:</strong>
   <%= @profile.qiita %>
 </p>
-
+</div>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
