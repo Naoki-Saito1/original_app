@@ -12,16 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.hidden_field :icon_cache %>
-    <%= form.file_field :image, id: 'user_img'  %>
- 
   <div class="post-image-prev">
     <% if profile.image? %>
       <%= image_tag profile.image.thumb.url, alt: "post-image", id: "img_prev", size: "150" %>
     <% else %>
       <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "150" %>
     <% end %>
+  </div>
+    <%= form.label :image %>
+    <%= form.hidden_field :icon_cache %>
+    <%= form.file_field :image, assets: 'image/jpeg, image/gif, image/png', id: "user_img" %>
+ 
+  
     <script type="text/javascript">
       $(function() {
         function readURL(input) {
@@ -38,7 +40,6 @@
         });
       });
     </script>
-  </div>
   </div>
 
   <div class="field">

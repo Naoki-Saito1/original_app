@@ -1,9 +1,11 @@
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @profile.image.url; %>
-</p>
-
+<div class="profile_image">
+<% if @profile.image? %>
+  <%= image_tag @profile.image.url, style:'width:200px', class: "icon" %>
+<% else %>
+  <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
+<% end %>
+</div>
 <p>
   <strong>Name:</strong>
   <%= @profile.name %>
@@ -16,7 +18,9 @@
 
 <p>
   <strong>Birth date:</strong>
-  <%= @profile.birth_date %>
+ <% if  @profile.birth_date.present? %> 
+        <%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳 
+      <% end %>
 </p>
 
 <p>
