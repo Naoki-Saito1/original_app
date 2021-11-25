@@ -5,16 +5,18 @@
   <%= @portfolio.portfolio_title %>
 </p>
 
+
+<div class="portfolio-image">
+<% if @portfolio.portfolio_image? %>
+  <%= image_tag @portfolio.portfolio_image.url, style:'width:200px', class: "icon" %>
+<% else %>
+  <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
+<% end %>
+</div>
 <p>
   <strong>Portfolio body:</strong>
   <%= @portfolio.portfolio_body %>
 </p>
-
-<p>
-  <strong>Portfolio image:</strong>
-  <%= @portfolio.portfolio_image %>
-</p>
-
 <p>
   <strong>Portfolio language:</strong>
   <%= @portfolio.portfolio_language %>

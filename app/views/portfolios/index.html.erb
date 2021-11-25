@@ -21,7 +21,7 @@
       <tr>
         <td><%= portfolio.portfolio_title %></td>
         <td><%= portfolio.portfolio_body %></td>
-        <td><%= portfolio.portfolio_image %></td>
+        <td><%= image_tag portfolio.portfolio_image.url, style:'width:100px', class: "icon" %></td>
         <td><%= portfolio.portfolio_language %></td>
         <td><%= portfolio.portfolio_github %></td>
         <td><%= portfolio.portfolio_url %></td>
