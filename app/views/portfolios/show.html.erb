@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Portfolio title:</strong>
+  <%= @portfolio.portfolio_title %>
+</p>
+
+<p>
+  <strong>Portfolio body:</strong>
+  <%= @portfolio.portfolio_body %>
+</p>
+
+<p>
+  <strong>Portfolio image:</strong>
+  <%= @portfolio.portfolio_image %>
+</p>
+
+<p>
+  <strong>Portfolio language:</strong>
+  <%= @portfolio.portfolio_language %>
+</p>
+
+<p>
+  <strong>Portfolio github:</strong>
+  <%= @portfolio.portfolio_github %>
+</p>
+
+<p>
+  <strong>Portfolio url:</strong>
+  <%= @portfolio.portfolio_url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @portfolio.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

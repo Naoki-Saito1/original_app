@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  portfolio_title: MyString
+  portfolio_body: MyText
+  portfolio_image: MyText
+  portfolio_language: 1
+  portfolio_github: MyString
+  portfolio_url: MyText
+  user: one
+
+two:
+  portfolio_title: MyString
+  portfolio_body: MyText
+  portfolio_image: MyText
+  portfolio_language: 1
+  portfolio_github: MyString
+  portfolio_url: MyText
+  user: two
