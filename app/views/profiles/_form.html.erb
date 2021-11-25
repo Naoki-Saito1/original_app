@@ -1,0 +1,109 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <div class="post-image-prev">
+    <% if profile.image? %>
+      <%= image_tag profile.image.thumb.url, alt: "post-image", id: "img_prev", size: "100" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "100" %>
+    <% end %>
+  </div>
+    <%= form.label :image %>
+    <%= form.hidden_field :icon_cache %>
+    <%= form.file_field :image, assets: 'image/jpeg, image/gif, image/png', id: "user_img" %>
+ 
+  
+    <script type="text/javascript">
+      $(function() {
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+            $('#img_prev').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        $("#user_img").change(function(){
+            readURL(this);
+        });
+      });
+    </script>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.radio_button :gender, :男性, checked: "checked" %>
+    <%= form.label :男性 %>
+  </div>
+
+  <div class="field">
+      <%= form.radio_button :gender, :女性 %>
+    <%= form.label :女性 %>
+  </div>
+  <div class="field">
+    <%= form.label :birth_date%>
+    <%= form.date_select :birth_date, { 
+                  start_year:Time.now.year-60,
+                  end_year:Time.now.year-15,
+                  prompt:"選択してください"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.select :address, Profile.addresses.keys.to_a,{include_blank: '選択してください'}  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, Profile.statuses.keys.to_a,{include_blank: '選択してください'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_field :detail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter %>
+    <%= form.text_field :twitter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :github %>
+    <%= form.text_field :github %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qiita %>
+    <%= form.text_field :qiita %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,18 +10,33 @@
   </head>
 
   <body>
-   <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-     <% if notice %>
-    <p class="alert alert-notice"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-error"><%= alert %></p>
-  <% end %>
-    <%= yield %>
+
+    <div class="header">
+    <%= render 'shared/layout/header' %>
+    </div>
+
+     <div class="frash-message">
+    <%= render 'shared/layout/message' %>
+    </div>
+
+
+
+  <div class="row">
+   
+    <div class="col-2 ">
+      <div class="side-bar">
+      <%= render 'shared/layout/sidebar' %>
+      </div>
+    </div>
+
+    <div class="col-10 ">
+      <div class="main-wrapper">
+      <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+
   </body>
+
 </html>
