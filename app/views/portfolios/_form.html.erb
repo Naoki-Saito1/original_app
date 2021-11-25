@@ -65,9 +65,14 @@
 
   <div class="field">
     <%= form.label :portfolio_language %>
-    <%= form.number_field :portfolio_language %>
+    <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください'} %>
   </div>
-
+  <div class="field">
+      <%= form.fields_for :frameworks do |t| %>
+      <%= render "framework_fields", f: t %>
+      <% end %>
+  <%= link_to_add_association "追加ボタン", form, :frameworks%>
+    </div>
   <div class="field">
     <%= form.label :portfolio_github %>
     <%= form.text_field :portfolio_github %>

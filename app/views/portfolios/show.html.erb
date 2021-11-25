@@ -21,7 +21,11 @@
   <strong>Portfolio language:</strong>
   <%= @portfolio.portfolio_language %>
 </p>
-
+<% @portfolio.frameworks.each do |p| %>
+  <% if p.framework_name.present? %>
+  <p><%= p.framework_name %></p>
+<% end %>
+<% end %>
 <p>
   <strong>Portfolio github:</strong>
   <%= @portfolio.portfolio_github %>
