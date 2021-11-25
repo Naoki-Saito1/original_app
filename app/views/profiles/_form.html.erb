@@ -13,32 +13,63 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_area :image %>
+    <%= form.hidden_field :icon_cache %>
+    <%= form.file_field :image, id: 'user_img'  %>
+ 
+  <div class="post-image-prev">
+    <% if profile.image? %>
+      <%= image_tag profile.image.thumb.url, alt: "post-image", id: "img_prev", size: "150" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "150" %>
+    <% end %>
+    <script type="text/javascript">
+      $(function() {
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+            $('#img_prev').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        $("#user_img").change(function(){
+            readURL(this);
+        });
+      });
+    </script>
+  </div>
   </div>
 
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
   <div class="field">
-    <%= form.label :gender %>
-    <%= form.number_field :gender %>
+    <%= form.radio_button :gender, :男性, checked: "checked" %>
+    <%= form.label :男性 %>
   </div>
 
   <div class="field">
-    <%= form.label :birth_date %>
-    <%= form.date_select :birth_date %>
+      <%= form.radio_button :gender, :女性 %>
+    <%= form.label :女性 %>
+  </div>
+  <div class="field">
+    <%= form.label :birth_date%>
+    <%= form.date_select :birth_date, { 
+                  start_year:Time.now.year-60,
+                  end_year:Time.now.year-15,
+                  prompt:"選択してください"} %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.number_field :address %>
+    <%= form.select :address, Profile.addresses.keys.to_a,{include_blank: '選択してください'}  %>
   </div>
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Profile.statuses.keys.to_a,{include_blank: '選択してください'} %>
   </div>
 
   <div class="field">
