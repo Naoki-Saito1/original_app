@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+li{
+  list-style-type: none ;
+}
+
+
  html {
   background-color: #454545;
   color: #faf8f8;

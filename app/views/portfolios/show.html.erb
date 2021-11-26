@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Portfolio title:</strong>
@@ -13,19 +13,23 @@
   <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
 <% end %>
 </div>
-<p>
-  <strong>Portfolio body:</strong>
-  <%= @portfolio.portfolio_body %>
-</p>
+
 <p>
   <strong>Portfolio language:</strong>
   <%= @portfolio.portfolio_language %>
 </p>
+<ul class="framework">
 <% @portfolio.frameworks.each do |p| %>
   <% if p.framework_name.present? %>
-  <p><%= p.framework_name %></p>
+    <li><%= p.framework_name %></li>
 <% end %>
 <% end %>
+</ul>
+<p>
+  <strong>Portfolio body:</strong>
+  <%= @portfolio.portfolio_body %>
+</p>
+
 <p>
   <strong>Portfolio github:</strong>
   <%= @portfolio.portfolio_github %>
@@ -36,10 +40,6 @@
   <%= @portfolio.portfolio_url %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @portfolio.user_id %>
-</p>
 
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
 <%= link_to 'Back', portfolios_path %>
