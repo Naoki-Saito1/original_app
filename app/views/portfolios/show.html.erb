@@ -1,0 +1,45 @@
+
+
+<p>
+  <strong>Portfolio title:</strong>
+  <%= @portfolio.portfolio_title %>
+</p>
+
+
+<div class="portfolio-image">
+<% if @portfolio.portfolio_image? %>
+  <%= image_tag @portfolio.portfolio_image.url, style:'width:200px', class: "icon" %>
+<% else %>
+  <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
+<% end %>
+</div>
+
+<p>
+  <strong>Portfolio language:</strong>
+  <%= @portfolio.portfolio_language %>
+</p>
+<ul class="framework">
+<% @portfolio.frameworks.each do |p| %>
+  <% if p.framework_name.present? %>
+    <li><%= p.framework_name %></li>
+<% end %>
+<% end %>
+</ul>
+<p>
+  <strong>Portfolio body:</strong>
+  <%= @portfolio.portfolio_body %>
+</p>
+
+<p>
+  <strong>Portfolio github:</strong>
+  <%= @portfolio.portfolio_github %>
+</p>
+
+<p>
+  <strong>Portfolio url:</strong>
+  <%= @portfolio.portfolio_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

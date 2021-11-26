@@ -1,0 +1,28 @@
+
+<h1>Portfolios</h1>
+
+  <tbody>
+  <div class="container">
+    <div class="row">
+    <% @portfolios.each do |portfolio| %>
+    <div class="col-sm-4">
+      <div class="portfolio-wrapper">
+        <ul class="portfolio-ul">
+          <li><%= portfolio.portfolio_title %></li>
+          <li><%= image_tag portfolio.portfolio_image.url , style:'width:100px', class: "icon"  if portfolio.portfolio_image.url.present?  %></li>
+          <li><%= portfolio.portfolio_language %></li>
+          <li><%= portfolio.created_at %></li>
+          <li><%= link_to 'Show', portfolio %></li>
+          <li><%= link_to 'Edit', edit_portfolio_path(portfolio) %></li>
+          <li><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+    </div>
+  </div>
+
+  </tbody>
+<br>
+
+<%= link_to 'New Portfolio', new_portfolio_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :portfolios
   resources :profiles
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'tops#home'

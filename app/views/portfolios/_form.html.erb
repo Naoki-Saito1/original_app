@@ -1,0 +1,89 @@
+<%= form_with(model: portfolio, local: true) do |form| %>
+  <% if portfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+
+      <ul>
+        <% portfolio.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :portfolio_title %>
+    <%= form.text_field :portfolio_title %>
+  </div>
+
+ 
+
+
+ <div class="field">
+  <div class="post-image-prev">
+    <% if portfolio.portfolio_image? %>
+      <%= image_tag portfolio.portfolio_image.url, alt: "post-image", id: "img_prev", size: "100" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "100" %>
+    <% end %>
+  </div>
+    <%= form.label :portfolio_image %>
+    <%= form.hidden_field :icon_cache %>
+    <%= form.file_field :portfolio_image, assets: 'image/jpeg, image/gif, image/png', id: "user_img" %>
+ 
+  
+    <script type="text/javascript">
+      $(function() {
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+            $('#img_prev').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        $("#user_img").change(function(){
+            readURL(this);
+        });
+      });
+    </script>
+  </div>
+
+
+
+ <div class="field">
+    <%= form.label :portfolio_body %>
+    <%= form.text_area :portfolio_body %>
+  </div>
+
+
+
+
+
+
+
+  <div class="field">
+    <%= form.label :portfolio_language %>
+    <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください'} %>
+  </div>
+  <div class="field">
+      <%= form.fields_for :frameworks do |t| %>
+      <%= render "framework_fields", f: t %>
+      <% end %>
+  <%= link_to_add_association "追加ボタン", form, :frameworks%>
+    </div>
+  <div class="field">
+    <%= form.label :portfolio_github %>
+    <%= form.text_field :portfolio_github %>
+  </div>
+
+  <div class="field">
+    <%= form.label :portfolio_url %>
+    <%= form.text_area :portfolio_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
