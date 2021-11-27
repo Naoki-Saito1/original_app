@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    favorite = Favorite.find_by(user_id: current_user.id, portfolio_id: params[:portfolio_id]).destroy
+    @favorite = Favorite.find_by(user_id: current_user.id, portfolio_id: params[:portfolio_id]).destroy
   end
 
   private
