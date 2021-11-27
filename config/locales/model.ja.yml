@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      users: ユーザー
+      profile: プロフィール
+      member: メンバー
+      favorite: お気に入り
+      message: メッセージ
+    attributes:
+      user:
+        email: メールアドレス
+        encrypted_password: パスワード
+      profile:
+        name: 名前
+        image: アイコン
+        gender: 性別
+        birth_date: 生年月日
+        address: 居住地
+        status: 就職状況
+        detail: 就職状況詳細
+        body: 自己紹介
+      portfolio:
+        portfolio_title: タイトル
+        portfolio_body: 開発した経緯など...
+        portfolio_image: サムネイル画像
+        portfolio_language: 開発言語
+        portfolio_github: Github
+        portfolio_url: url
+      framework:
+        framework_name: フレームワーク  
+        
