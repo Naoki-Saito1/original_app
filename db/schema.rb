@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_26_044900) do
+ActiveRecord::Schema.define(version: 2021_11_27_071113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id", "recipient_id"], name: "index_conversations_on_sender_id_and_recipient_id", unique: true
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -30,6 +40,17 @@ ActiveRecord::Schema.define(version: 2021_11_26_044900) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["portfolio_id"], name: "index_frameworks_on_portfolio_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "message_body"
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "message_read", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -87,6 +108,8 @@ ActiveRecord::Schema.define(version: 2021_11_26_044900) do
   add_foreign_key "favorites", "portfolios"
   add_foreign_key "favorites", "users"
   add_foreign_key "frameworks", "portfolios"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "portfolios", "users"
   add_foreign_key "profiles", "users"
 end
