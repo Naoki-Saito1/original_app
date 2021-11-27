@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_091018) do
+ActiveRecord::Schema.define(version: 2021_11_26_044900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "portfolio_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["portfolio_id"], name: "index_favorites_on_portfolio_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "frameworks", force: :cascade do |t|
     t.string "framework_name"
@@ -75,6 +84,8 @@ ActiveRecord::Schema.define(version: 2021_11_25_091018) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "portfolios"
+  add_foreign_key "favorites", "users"
   add_foreign_key "frameworks", "portfolios"
   add_foreign_key "portfolios", "users"
   add_foreign_key "profiles", "users"

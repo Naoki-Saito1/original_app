@@ -8,6 +8,7 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios/1 or /portfolios/1.json
   def show
+    @favorite = current_user.favorites.find_by(portfolio_id: @portfolio.id)
   end
 
   # GET /portfolios/new

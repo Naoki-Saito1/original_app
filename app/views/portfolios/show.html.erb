@@ -41,5 +41,9 @@
 </p>
 
 
+<div id="likes_buttons<%= @portfolio.id %>">
+   <%= render partial: 'favorites/favorite', locals: { portfolio: @portfolio, favorite: @favorite} %>
+ </div>
+
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
 <%= link_to 'Back', portfolios_path %>
