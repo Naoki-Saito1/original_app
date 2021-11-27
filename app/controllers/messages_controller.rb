@@ -3,6 +3,8 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
   end
   def index
+    @conversation
+    @conversations = Conversation.all
     # indexアクションに書かれたこれらの記載は、
     # 一つ一つの部分で何をしているかの理解をわかりやすくするために
     # このような記載にしていますが、実戦で用いるのには少々冗長なコードとなっているので
@@ -17,7 +19,7 @@ class MessagesController < ApplicationController
       @messages = @conversation.messages
     end
     if @messages.last
-      @messages.where.not(user_id: current_user.id).update_all(read: true)
+      @messages.where.not(user_id: current_user.id).update_all(message_read: true)
     end
     @messages = @messages.order(:created_at)
     @message = @conversation.messages.build
@@ -29,8 +31,9 @@ class MessagesController < ApplicationController
     else
       render 'index'
     end
-    rivate
-  def message_params
-    params.require(:message).permit(:body, :user_id)
   end
-end
+    private
+    def message_params
+    params.require(:message).permit(:message_body, :user_id)
+    end
+  end

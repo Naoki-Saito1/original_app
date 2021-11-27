@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'tops#home'
   devise_for :users
+  resources :conversations do
+    resources :messages
+  end
 end
