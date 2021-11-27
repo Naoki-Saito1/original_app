@@ -1,10 +1,15 @@
 class FavoritesController < ApplicationController
+  before_action :portfolio_params
   def create
-    favorite = current_user.favorites.create(portfolio_id: params[:portfolio_id])
-    redirect_to portfolios_path, notice: "#{favorite.portfolio.user.profile.name}さんのブログをお気に入り登録しました"
+    @favorite = Favorite.create(user_id: current_user.id, portfolio_id: params[:portfolio_id])
   end
+
   def destroy
-    favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to portfolios_path, notice: "#{favorite.portfolio.user.profile.name}さんのブログをお気に入り解除しました"
+    favorite = Favorite.find_by(user_id: current_user.id, portfolio_id: params[:portfolio_id]).destroy
+  end
+
+  private
+  def portfolio_params
+    @portfolio = Portfolio.find(params[:portfolio_id])
   end
 end

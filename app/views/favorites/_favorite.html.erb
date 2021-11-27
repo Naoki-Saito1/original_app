@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+ <% unless @portfolio.favorite_user(current_user.id).blank? %>
+    <%= link_to "外す", portfolio_favorite_path(portfolio_id: @portfolio.id, id: @portfolio.favorites[0].id), method: :delete, remote: true %>
+  
+  <% else %>
+    <%= link_to "いいね", portfolio_favorites_path(@portfolio.id), method: :post, remote: true  %>
+      
+  <% end %>
+<% end %>
