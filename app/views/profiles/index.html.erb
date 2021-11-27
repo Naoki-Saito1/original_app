@@ -19,7 +19,11 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= image_tag profile.image.url, style:'width:100px', class: "icon" %></td>
+        <td><% if profile.image? %>
+  <%= image_tag profile.image.url, style:'width:100px', class: "icon" %>
+<% else %>
+  <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
+<% end %></td>
         <td><%= profile.name %></td>
         <td><%= profile.gender %></td>
         <td> <% if  profile.birth_date.present? %> <%= (Date.today.strftime('%Y%m%d').to_i - profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳   <% end %></td>
@@ -35,6 +39,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Profile', new_profile_path %>
-
