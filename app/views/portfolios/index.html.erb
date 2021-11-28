@@ -9,12 +9,15 @@
       <div class="portfolio-wrapper">
         <ul class="portfolio-ul">
           <li><%= portfolio.portfolio_title %></li>
-          <li><%= image_tag portfolio.portfolio_image.url , style:'width:100px', class: "icon"  if portfolio.portfolio_image.url.present?  %></li>
+         <li>
+         <% if portfolio.portfolio_image.url.present? %>
+           <div><%= link_to image_tag(portfolio.portfolio_image.url, style:'width:100px', class: "icon"), portfolio %></div>
+         <% else %>
+           <%= link_to image_tag(asset_path("no_image.jpg"), class: "icon"), portfolio %>
+         <% end %>
+          </li>
           <li><%= portfolio.portfolio_language %></li>
-          <li><%= portfolio.created_at %></li>
-          <li><%= link_to 'Show', portfolio %></li>
-          <li><%= link_to 'Edit', edit_portfolio_path(portfolio) %></li>
-          <li><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li><%= portfolio.created_at.strftime("%Y-%m-%d") %></li>
         </ul>
       </div>
     </div>
