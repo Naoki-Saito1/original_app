@@ -57,8 +57,10 @@
 
 
 <% if @profile.user_id == current_user.id %>
-       <%= link_to 'Edit', edit_profile_path(@profile) %> 
-    <% else %>
-        <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
-    <% end %>
-
+  <%= link_to 'Edit', edit_profile_path(@profile) %> 
+<% else %>
+  <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
+<% end %>
+<% if current_user.try(:admin?) %>
+  <%= link_to "管理者ページ", rails_admin_path %>  
+<% end %>
