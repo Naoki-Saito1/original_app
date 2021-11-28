@@ -8,7 +8,7 @@
     <div class="col-sm-4">
       <div class="portfolio-wrapper">
         <ul class="portfolio-ul">
-          <li><%= portfolio.portfolio_title %></li>
+         <li><%= portfolio.user.profile.name%></li>
          <li>
          <% if portfolio.portfolio_image.url.present? %>
            <div><%= link_to image_tag(portfolio.portfolio_image.url, style:'width:100px', class: "icon"), portfolio %></div>
@@ -16,7 +16,13 @@
            <%= link_to image_tag(asset_path("no_image.jpg"), class: "icon"), portfolio %>
          <% end %>
           </li>
+          <li><%= portfolio.portfolio_title %></li>
           <li><%= portfolio.portfolio_language %></li>
+          <% portfolio.frameworks.each do |p| %>
+            <% if p.framework_name.present? %>
+              <li><%= p.framework_name %></li>
+            <% end %>
+            <% end %>
           <li><%= portfolio.created_at.strftime("%Y-%m-%d") %></li>
         </ul>
       </div>
