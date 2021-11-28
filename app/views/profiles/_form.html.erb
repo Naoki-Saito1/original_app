@@ -65,12 +65,12 @@
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.select :address, Profile.addresses.keys.to_a,{include_blank: '選択してください'}  %>
+    <%= form.select :address, Profile.addresses.keys.to_a,{prompt:"選択してください"}  %>
   </div>
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.select :status, Profile.statuses.keys.to_a,{include_blank: '選択してください'} %>
+    <%= form.select :status, Profile.statuses.keys.to_a,{prompt:"選択してください"} %>
   </div>
 
   <div class="field">

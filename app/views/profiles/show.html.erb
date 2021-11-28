@@ -1,10 +1,10 @@
 
 <div class="profile_image">
-<% if @profile.image? %>
-  <%= image_tag @profile.image.url, style:'width:200px', class: "icon" %>
-<% else %>
-  <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
-<% end %>
+  <% if @profile.image? %>
+    <%= image_tag @profile.image.url, style:'width:200px', class: "icon" %>
+  <% else %>
+    <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
+  <% end %>
 </div>
 
 <div class="profile-name">
@@ -14,18 +14,19 @@
 </div>
 
 <div class="profile-info">
-<p>
-<% if  @profile.gender.present? %> 
-  <%= @profile.gender %>
-<% end %>
-<% if  @profile.birth_date.present? %> 
-         /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
-<% end %>
-<% if @profile.address.present? %>
-        <%= @profile.address %>
-<% end %>
-</p>
+  <p>
+    <% if  @profile.gender.present? %> 
+      <%= @profile.gender %>
+    <% end %>
+    <% if  @profile.birth_date.present? %> 
+            /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
+    <% end %>
+    <% if @profile.address.present? %>
+            <%= @profile.address %>
+    <% end %>
+  </p>
 </div>
+
 <p>
   <%= @profile.status %>
 </p>
@@ -35,21 +36,21 @@
 </p>
 
 <p>
-  <%= @profile.body %>
+  <% if @profile.body.present? %>
+    <%= @profile.body %>
+  <% end %>
 </p>
+
 <div class="sns">
 <p>
-  <strong>Twitter:</strong>
   <%= @profile.twitter %>
 </p>
 
 <p>
-  <strong>Github:</strong>
   <%= @profile.github %>
 </p>
 
 <p>
-  <strong>Qiita:</strong>
   <%= @profile.qiita %>
 </p>
 </div>
@@ -60,4 +61,4 @@
     <% else %>
         <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
     <% end %>
-<%= link_to 'Back', profiles_path %>
+
