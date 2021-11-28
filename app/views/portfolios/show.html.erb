@@ -41,9 +41,15 @@
 </p>
 
 
+
+
+<% if @portfolio.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>
+<% else %>
 <div id="likes_buttons<%= @portfolio.id %>">
    <%= render partial: 'favorites/favorite', locals: { portfolio: @portfolio, favorite: @favorite} %>
  </div>
+<% end %>
 
-<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+
 <%= link_to 'Back', portfolios_path %>
