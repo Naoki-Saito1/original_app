@@ -8,21 +8,31 @@
  <div class="col-md-4">
 <div class="card-deck" style="width:22rem">
 <div class="card card_topic">
+ <div class="p-image">
    <% if portfolio.portfolio_image.url.present? %>
            <%= link_to image_tag(portfolio.portfolio_image.url, size: '256x160', class: "card-img-top"), portfolio %>
          <% else %>
            <%= link_to image_tag(asset_path("no_image.jpg"), size: '256x160', class: "card-img-top"), portfolio %>
          <% end %>
+         </div>
+        
   <div class="card-body">
-    <h5 class="card-title"><%= portfolio.user.profile.name%></h5>
+    <h5 class="card-title"><%= portfolio.portfolio_title %></h5>
     <%= portfolio.portfolio_language %>
     <% portfolio.frameworks.each do |p| %>
             <% if p.framework_name.present? %>
               <li><%= p.framework_name %></li>
             <% end %>
             <% end %>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p><%= portfolio.user.profile.name%></p>
   </div>
+  <div class="p-footer">
+    <p><%= portfolio.created_at.strftime("%Y-%m-%d") %></p>
+    </div>
+    <div class="p-like">
+    <p>お気に入り数<%= portfolio.favorites.count %></p>
+    </div>
+    
 </div>
 </div>
 </div>

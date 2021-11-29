@@ -102,3 +102,58 @@
 <br>
 
 <%= link_to 'New Portfolio', new_portfolio_path %>
+
+
+
+-----------------------------------------------------------------------
+
+<p>
+  <strong>Portfolio title:</strong>
+  <%= @portfolio.portfolio_title %>
+</p>
+
+
+<%= link_to 'Back', portfolios_path %>
+
+<div class="card" style="width: 40rem;">
+  <% if @portfolio.portfolio_image? %>
+  <%= image_tag @portfolio.portfolio_image.url, size: '256x160' %>
+<% else %>
+  <%= image_tag asset_path("no_image.jpg")  %>
+<% end %>
+  <div class="card-body">
+  <p>
+  <strong>Portfolio language:</strong>
+  <%= @portfolio.portfolio_language %>
+</p>
+<ul class="framework">
+<% @portfolio.frameworks.each do |p| %>
+  <% if p.framework_name.present? %>
+    <li><%= p.framework_name %></li>
+<% end %>
+<% end %>
+</ul>
+<p>
+  <strong>Portfolio body:</strong>
+  <%= @portfolio.portfolio_body %>
+</p>
+
+<p>
+  <strong>Portfolio github:</strong>
+  <%= @portfolio.portfolio_github %>
+</p>
+
+<p>
+  <strong>Portfolio url:</strong>
+  <%= @portfolio.portfolio_url %>
+</p>
+    <% if @portfolio.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>
+  <%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+<div id="likes_buttons<%= @portfolio.id %>">
+   <%= render partial: 'favorites/favorite', locals: { portfolio: @portfolio, favorite: @favorite} %>
+ </div>
+<% end %>
+  </div>
+</div>

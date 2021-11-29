@@ -13,6 +13,50 @@
   height: 400px;
   
 }
+.p-image:hover{
+  opacity: 0.7;
+}
 .card-deck{
   margin-top: 3rem;
+}
+.p-footer{
+  height: 40px;
+}
+.p-footer p{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px 5px 0 0;
+}
+.p-like p{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px 5px 0 0;
+}
+
+// ここから詳細
+
+
+.pf-body{
+  margin-top: 100px;
+  height: 600px;
+  border: 1px solid black;
+  
+
+}
+.pf-image{
+  padding: 1.5rem;
+}
+.pf-content{
+  padding: 2rem;
+}
+.pf-content p{
+ font-size: 14px;
+}
+.pf-framework p{
+  font-size: 14px;
+}
+.framework li{
+  font-size: 14px;
 }

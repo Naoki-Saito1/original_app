@@ -18,5 +18,11 @@ li{
   list-style-type: none ;
 }
 
-
+.sidebar_fixed {
+  position: sticky;
+  top: 130px;
+  background-color: wheat;
+  height: 600px; 
+  margin-left: 1rem;
+}
  
