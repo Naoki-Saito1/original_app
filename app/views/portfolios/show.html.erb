@@ -37,6 +37,14 @@
             <strong>実際の作品</strong>
             <%= @portfolio.portfolio_url %>
           </p>
+          <% if @portfolio.user_id == current_user.id %>
+              <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>
+              <%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% else %>
+              <div id="likes_buttons<%= @portfolio.id %>">
+              <%= render partial: 'favorites/favorite', locals: { portfolio: @portfolio, favorite: @favorite} %>
+              </div>
+          <% end %>
         </div>
       </div>
     </div>

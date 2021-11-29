@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
+  validates :user_id, uniqueness: true
   validates :name, presence: true  
   validates :name, length: { maximum: 30 }
   validates :status, presence: true  
