@@ -18,12 +18,16 @@
         
   <div class="card-body">
     <h5 class="card-title"><%= portfolio.portfolio_title %></h5>
-    <%= portfolio.portfolio_language %>
-    <% portfolio.frameworks.each do |p| %>
+    <p><%= portfolio.portfolio_language %></p>
+    <div class="framework-wrapper">
+    <ul class="framework">
+      <% portfolio.frameworks.each do |p| %>
             <% if p.framework_name.present? %>
-              <li><%= p.framework_name %></li>
+            <li><%= p.framework_name %></li>
             <% end %>
-            <% end %>
+      <% end %>
+    </ul>
+    </div>
     <p><%= portfolio.user.profile.name%></p>
   </div>
   <div class="p-footer">
