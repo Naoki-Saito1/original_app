@@ -157,3 +157,22 @@
 <% end %>
   </div>
 </div>
+
+
+
+<%= sort_link(@q, 'favorites_favorites.count', "いいね") %>
+
+ransacker :favorites_count do
+  query = '(SELECT COUNT(favorites.portfolio_id) FROM favorites where favorites.portfolio_id = portfolios.id GROUP BY favorites.portfolio_id)'
+  Arel.sql(query)
+ end
+end
+
+
+
+
+@portfolios = Portfolio.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}
+
+def sort
+  self.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}  
+ end
