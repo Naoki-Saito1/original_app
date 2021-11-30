@@ -1,45 +1,85 @@
 
-<div class="profile_image">
-  <% if @profile.image? %>
-    <%= image_tag @profile.image.url, style:'width:200px', class: "icon" %>
-  <% else %>
-    <%= image_tag asset_path("no_image.jpg"), class: "icon" %>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 prof-wrapper">
+
+    <div class="prof-body">
+      <div class="prof-image">
+        <% if @profile.image? %>
+          <%= image_tag @profile.image.url, style:'width:100%' %>
+        <% else %>
+          <%= image_tag asset_path("no_image.jpg"), style:'width:100%' %>
+        <% end %>
+      </div>
+      <div class="prof-name">
+        <h2>
+          <%= @profile.name %>
+        </h2>
+      </div>
+    </div>
+    <div class="profile-info">
+      <p>
+        <% if  @profile.gender.present? %> 
+          <%= @profile.gender %>
+        <% end %>
+        <% if  @profile.birth_date.present? %> 
+                /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
+        <% end %>
+        <% if @profile.address.present? %>
+                <%= @profile.address %>
+        <% end %>
+      </p>
+    </div>
+    <div class="prof-status">
+    <p>
+      <%= @profile.status %>
+    </p>
+
+    <p>
+      <%= @profile.detail %>
+    </p>
+
+    <p>
+      <% if @profile.body.present? %>
+        <%= @profile.body %>
+      <% end %>
+    </p>
+    </div>
+    <div class="prof-message">
+      <% if @profile.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_profile_path(@profile) %> 
+        <% else %>
+          <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
+        <% end %>
+        <% if current_user.try(:admin?) %>
+          <%= link_to "管理者ページ", rails_admin_path %>  
+      <% end %>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="prof-pf">
+    <div class="card mb-3" style="max-width: 400px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="..." class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    </div>
+  </div>
 </div>
 
-<div class="profile-name">
-  <p>
-    <%= @profile.name %>
-  </p>
-</div>
 
-<div class="profile-info">
-  <p>
-    <% if  @profile.gender.present? %> 
-      <%= @profile.gender %>
-    <% end %>
-    <% if  @profile.birth_date.present? %> 
-            /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
-    <% end %>
-    <% if @profile.address.present? %>
-            <%= @profile.address %>
-    <% end %>
-  </p>
-</div>
 
-<p>
-  <%= @profile.status %>
-</p>
 
-<p>
-  <%= @profile.detail %>
-</p>
-
-<p>
-  <% if @profile.body.present? %>
-    <%= @profile.body %>
-  <% end %>
-</p>
 
 <div class="sns">
 <p>
@@ -56,11 +96,17 @@
 </div>
 
 
-<% if @profile.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> 
-<% else %>
-  <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
-<% end %>
-<% if current_user.try(:admin?) %>
-  <%= link_to "管理者ページ", rails_admin_path %>  
-<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

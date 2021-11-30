@@ -6,8 +6,7 @@ class Portfolio < ApplicationRecord
   has_many :frameworks, dependent: :destroy
   accepts_nested_attributes_for :frameworks, allow_destroy: true
   validates :portfolio_title, presence: true
-  validates :portfolio_body, presence: true 
-  validates :portfolio_language, presence: true 
+  validates :portfolio_body, presence: true  
   validates :portfolio_url, presence: true
   validates :portfolio_title, length: { maximum: 80 }
   validates :portfolio_body, length: { maximum: 1500 }

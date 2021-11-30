@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    
   </head>
 
   <body>
@@ -16,28 +16,32 @@
     <%= render 'shared/layout/header' %>
     </div>
 
-     <div class="frash-message">
-    <%= render 'shared/layout/message' %>
-    </div>
+   <div class="alert" role="alert">
+  <%= render 'shared/layout/message' %>  
+  </div>
+   
+   
 
 
 
   <div class="row">
    
-    <div class="col-2 ">
-      <div class="side-bar">
+    <div class="col-3">
+      <div class="sidebar_fixed">
       <%= render 'shared/layout/sidebar' %>
       </div>
     </div>
 
-    <div class="col-10 ">
+    <div class="col-9">
       <div class="main-wrapper">
       <%= yield %>
       </div>
     </div>
-  </div>
-</div>
 
+  </div>
+
+
+ <%= render 'shared/layout/footer' %>
   </body>
 
 </html>

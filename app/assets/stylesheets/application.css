@@ -18,40 +18,14 @@ li{
   list-style-type: none ;
 }
 
-
- html {
-  background-color: #454545;
-  color: #faf8f8;
-  font-size: 16px;
-  line-height: 15px;
-  min-height: 100%;
+.sidebar_fixed {
+  position: sticky;
+  top: 130px;
+  background-color: wheat;
+  height: 600px; 
+  margin-left: 1rem;
 }
-.main-wrapper{
-  background-color: #454545;
-  color: #faf8f8;
-  font-size: 16px;
-  line-height: 15px;
-  min-height: 100%;
-}
-.header{
-  background-color: #212121;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 5rem;
-  width: 100%;
-}
-.row{
-  margin-top: 5rem;
-}
-.col-2{
-  background-color: tomato;
-  
-}
-.side-bar{
-  position: fixed;
-  top: 5rem;
-}
-.nav{
-  padding-left: 200px;
+ 
+.alert{
+  color: azure;
 }

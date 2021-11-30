@@ -1,19 +1,75 @@
 // Place all the styles related to the portfolios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
+* {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 .framework {
   display: flex;
+  flex-wrap: wrap;
+  width: 280px;
+}
+.framework-wrapper{
+  width: 280px;
+  flex-direction: column;
 }
 .framework li{
-  padding: 10px;
+  padding: 5px 7px 5px 0;
+ 
 }
-.portfolio-wrapper{
-  width: 100%;
-  height: 350px;
-  border: 2px solid #fff;
-  margin-bottom: 15px;
+.framework li>*{
+  max-width: 100%;    
 }
-ul .portfolio-ul{
-  float: right;
+.card_topic{
+  height: 450px;
+  
+}
+.p-image:hover{
+  opacity: 0.7;
+}
+.card-deck{
+  margin-top: 3rem;
+}
+.p-footer{
+  height: 40px;
+  border-top: 0.2px solid rgb(179, 177, 177);
+}
+.p-footer p{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px 5px 0 0;
+}
+.p-like p{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px 5px 0 0;
+}
+
+// ここから詳細
+
+
+.pf-body{
+  margin-top: 100px;
+  height: 1000px;
+  border: 1px solid black;
+  
+
+}
+.pf-image{
+  padding: 1.5rem;
+}
+.pf-content{
+  padding: 2rem;
+}
+.pf-content p{
+ font-size: 1rem;
+}
+.pf-framework p{
+  font-size: 1rem;
+}
+.framework li{
+  font-size: 1rem;
 }
