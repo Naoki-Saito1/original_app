@@ -8,12 +8,10 @@ class PortfoliosController < ApplicationController
     #if params[:hoge] == "true"
     #  @portfolios = @portfolios.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size} 
     # end
-
     params[:hoge] = nil if params[:hoge] == "true" && params[:q].present?
     # Guard Clause
     return if params[:hoge] != "true"
     @portfolios = @portfolios.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size} 
-    
   end
 
   def show

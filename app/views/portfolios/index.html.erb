@@ -3,11 +3,9 @@
 <%= search_form_for @q do |f| %>
   <%= f.label :framework_name, "キーワード検索" %>
   <%= f.search_field :frameworks_framework_name_cont %>
-
   <%= f.submit "検索" %>
 <% end %>
 <%= sort_link(@q, :created_at, "新規順") %>
-
 <%= link_to 'いいね', portfolios_path(hoge: true) %>
 
 <div class="container">

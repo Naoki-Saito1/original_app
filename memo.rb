@@ -1,4 +1,4 @@
-
+name_or_birth_date_or_detail_cont
 <%= link_to 'Back', profiles_path %>
 
 <li><%= link_to 'Show', portfolio %></li>
