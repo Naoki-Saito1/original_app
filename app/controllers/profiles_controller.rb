@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    
   end
 
   def create
@@ -30,6 +31,7 @@ class ProfilesController < ApplicationController
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   def update
@@ -58,6 +60,6 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:image, :name, :gender, :birth_date, :address, :status, :detail, :body, :twitter, :github, :qiita, :user_id, :image_cache)
+      params.require(:profile).permit(:image, :name, :gender, :birth_date, :address, :status, :detail, :body, :user_id, :image_cache, :address_check, :gender_check, :birth_date_check)
     end
 end

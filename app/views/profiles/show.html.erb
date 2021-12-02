@@ -19,14 +19,21 @@
     </div>
     <div class="profile-info">
       <p>
-        <% if  @profile.gender.present? %> 
-          <%= @profile.gender %>
+        <% if  @profile.gender_check == true  %>
+           性別非公開
+          <% else %>
+          <%= @profile.gender if  @profile.gender.present?%>
         <% end %>
-        <% if  @profile.birth_date.present? %> 
+        <% if  @profile.birth_date_check == true %>
+        年齢非公開
+        <% elsif @profile.birth_date.present? %>
+
                 /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
         <% end %>
-        <% if @profile.address.present? %>
-                <%= @profile.address %>
+        <% if @profile.address_check == true %>
+        居住地非公開
+        <% else %>
+                <%= @profile.address if @profile.address.present? %>
         <% end %>
       </p>
     </div>
@@ -79,21 +86,6 @@
 
 
 
-
-
-<div class="sns">
-<p>
-  <%= @profile.twitter %>
-</p>
-
-<p>
-  <%= @profile.github %>
-</p>
-
-<p>
-  <%= @profile.qiita %>
-</p>
-</div>
 
 
 
