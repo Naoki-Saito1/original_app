@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_063116) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "address_check", default: false
-    t.boolean "status_check", default: false
+    t.boolean "gender_check", default: false
     t.boolean "birth_date_check", default: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
