@@ -1,3 +1,10 @@
+validates :name, presence: true  
+  validates :name, length: { maximum: 30 }
+  validates :status, presence: true  
+  validates :birth_date, presence: true  
+  validates :body, length: { maximum: 800 }
+  validates :address, presence: true
+
 name_or_birth_date_or_detail_cont
 <%= link_to 'Back', profiles_path %>
 
@@ -176,3 +183,9 @@ end
 def sort
   self.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}  
  end
+
+ if current_user.profile.id.present? || nil?
+  redirect_to portfolios_path
+elsif current_user.profile.id.nil?
+  redirect_to  profile_path
+end
