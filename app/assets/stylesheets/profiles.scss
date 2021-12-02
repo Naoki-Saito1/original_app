@@ -3,6 +3,24 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+// _form
+.gender{
+  display: flex;
+}
+.required:after {
+  margin-left: 1.0em;
+  padding: 0px 6px 0px 6px;
+  border-radius: 4px;
+  font-size: 0.6em;
+  color: white;
+  background-color: #C44;
+  content: "必須";
+}
+
+
+
+// _form
+
 .prof-body{
   display: flex;
 }
@@ -33,8 +51,23 @@
 
 
 
+
+
+
 .prof-pf{
   margin-top: 100px;
   height: 600px;
   border: 1px solid black;
+}
+
+
+
+
+.prof-card{
+  height: 380px;
+  overflow: scroll;
+}
+.prof-index-image{
+  background-color: darkgrey;
+  text-align: center;
 }

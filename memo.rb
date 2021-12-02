@@ -1,4 +1,11 @@
+validates :name, presence: true  
+  validates :name, length: { maximum: 30 }
+  validates :status, presence: true  
+  validates :birth_date, presence: true  
+  validates :body, length: { maximum: 800 }
+  validates :address, presence: true
 
+name_or_birth_date_or_detail_cont
 <%= link_to 'Back', profiles_path %>
 
 <li><%= link_to 'Show', portfolio %></li>
@@ -157,3 +164,28 @@
 <% end %>
   </div>
 </div>
+
+
+
+<%= sort_link(@q, 'favorites_favorites.count', "いいね") %>
+
+ransacker :favorites_count do
+  query = '(SELECT COUNT(favorites.portfolio_id) FROM favorites where favorites.portfolio_id = portfolios.id GROUP BY favorites.portfolio_id)'
+  Arel.sql(query)
+ end
+end
+
+
+
+
+@portfolios = Portfolio.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}
+
+def sort
+  self.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}  
+ end
+
+ if current_user.profile.id.present? || nil?
+  redirect_to portfolios_path
+elsif current_user.profile.id.nil?
+  redirect_to  profile_path
+end

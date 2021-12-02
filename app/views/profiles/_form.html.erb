@@ -43,17 +43,25 @@
   </div>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, class: "required"%>
     <%= form.text_field :name %>
   </div>
+  <div class="gender">
+  <p>性別:</p>
   <div class="field">
-    <%= form.radio_button :gender, :男性, checked: "checked" %>
+    <%= form.radio_button :gender, :男性%>
     <%= form.label :男性 %>
   </div>
 
   <div class="field">
       <%= form.radio_button :gender, :女性 %>
     <%= form.label :女性 %>
+  </div>
+  
+  <div class="field">
+    <%= form.radio_button :gender, :非公開, checked: true%>
+    <%= form.label :非公開 %>
+  </div>
   </div>
   <div class="field">
     <%= form.label :birth_date%>
@@ -62,41 +70,6 @@
                   end_year:Time.now.year-15,
                   prompt:"選択してください"} %>
   </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.select :address, Profile.addresses.keys.to_a,{prompt:"選択してください"}  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, Profile.statuses.keys.to_a,{prompt:"選択してください"} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :detail %>
-    <%= form.text_field :detail %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :twitter %>
-    <%= form.text_field :twitter %>
-  </div>
-
-  <div class="field">
-    <%= form.label :github %>
-    <%= form.text_field :github %>
-  </div>
-
-  <div class="field">
-    <%= form.label :qiita %>
-    <%= form.text_field :qiita %>
-  </div>  
 
   <div class="actions">
     <%= form.submit %>

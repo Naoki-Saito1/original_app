@@ -2,12 +2,7 @@ class Profile < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   validates :user_id, uniqueness: true
-  validates :name, presence: true  
-  validates :name, length: { maximum: 30 }
-  validates :status, presence: true  
-  validates :birth_date, presence: true  
-  validates :body, length: { maximum: 800 }
-  validates :address, presence: true
+  
   enum gender:{
     男性:0,
     女性:1
