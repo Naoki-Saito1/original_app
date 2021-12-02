@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_27_071113) do
+ActiveRecord::Schema.define(version: 2021_12_02_070752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2021_11_27_071113) do
     t.index ["portfolio_id"], name: "index_frameworks_on_portfolio_id"
   end
 
+  create_table "links", force: :cascade do |t|
+    t.string "twitter"
+    t.string "github"
+    t.string "qiita"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_links_on_profile_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "message_body"
     t.bigint "conversation_id", null: false
@@ -69,18 +79,18 @@ ActiveRecord::Schema.define(version: 2021_11_27_071113) do
   create_table "profiles", force: :cascade do |t|
     t.text "image"
     t.string "name", null: false
-    t.integer "gender", default: 0, null: false
-    t.date "birth_date", null: false
-    t.integer "address", default: 0, null: false
-    t.integer "status", default: 0, null: false
+    t.integer "gender", default: 0
+    t.date "birth_date"
+    t.integer "address", default: 0
+    t.integer "status", default: 0
     t.string "detail", null: false
     t.text "body", null: false
-    t.string "twitter"
-    t.string "github"
-    t.string "qiita"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "address_check", default: false
+    t.boolean "gender_check", default: false
+    t.boolean "birth_date_check", default: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -108,6 +118,7 @@ ActiveRecord::Schema.define(version: 2021_11_27_071113) do
   add_foreign_key "favorites", "portfolios"
   add_foreign_key "favorites", "users"
   add_foreign_key "frameworks", "portfolios"
+  add_foreign_key "links", "profiles"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "portfolios", "users"
