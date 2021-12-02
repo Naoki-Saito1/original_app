@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  twitter: MyString
+  github: MyString
+  qiita: MyString
+
+two:
+  twitter: MyString
+  github: MyString
+  qiita: MyString
