@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_063116) do
+ActiveRecord::Schema.define(version: 2021_12_02_070752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_12_02_063116) do
     t.string "qiita"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_links_on_profile_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_063116) do
   add_foreign_key "favorites", "portfolios"
   add_foreign_key "favorites", "users"
   add_foreign_key "frameworks", "portfolios"
+  add_foreign_key "links", "profiles"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "portfolios", "users"
