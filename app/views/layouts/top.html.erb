@@ -43,10 +43,9 @@
   </div>
 </nav>
   </header>
-  <div class="top-wrapper">
-  <%= image_tag asset_path("haikei.png"), class: "top-image"%>
-  </div>
-
+ 
+<%= yield %>
+<%= render 'shared/layout/footer' %>
   </body>
 
 </html>
