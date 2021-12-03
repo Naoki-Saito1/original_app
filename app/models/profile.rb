@@ -2,7 +2,7 @@ class Profile < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   validates :user_id, uniqueness: true
-  
+  delegate :portfolio, to: :user
   enum gender:{
     男性:0,
     女性:1

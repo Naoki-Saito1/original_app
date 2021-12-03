@@ -5,6 +5,34 @@ validates :name, presence: true
   validates :body, length: { maximum: 800 }
   validates :address, presence: true
 
+====================================
+if signed_in?
+  redirect_to profiles_path
+else
+@user = User.new
+end
+
+  <div class="sns">
+  <p>
+    <%= @profile.twitter %>
+  </p>
+  
+  <p>
+    <%= @profile.github %>
+  </p>
+  
+  <p>
+    <%= @profile.qiita %>
+  </p>
+  </div>
+  
+  
+
+
+
+
+
+  ---------------------
 name_or_birth_date_or_detail_cont
 <%= link_to 'Back', profiles_path %>
 

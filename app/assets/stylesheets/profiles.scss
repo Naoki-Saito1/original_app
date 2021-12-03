@@ -22,21 +22,25 @@
 // _form
 
 .prof-body{
-  display: flex;
+  padding-top: 3rem;
 }
-.prof-name{
-  padding: 4rem 0 0 3rem;
+span .name {
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+  
 }
 
 .prof-wrapper{
-  margin-top: 100px;
+  margin: 100px 0 100px 0;
   height: 600px;
-  border: 1px solid black;
+  border: 3px solid black;
+  
 }
 .prof-image{
   width: 200px;
   height: 200px;
   border: 1px solid black;
+  
+  margin:  0 auto;
 }
 .profile-info{
   padding-top: 2rem;
@@ -53,11 +57,11 @@
 
 
 
-
 .prof-pf{
-  margin-top: 100px;
+  margin: 100px 0 100px 0;
   height: 600px;
   border: 1px solid black;
+  overflow: scroll
 }
 
 
@@ -70,4 +74,17 @@
 .prof-index-image{
   background-color: darkgrey;
   text-align: center;
+}
+
+.no-gutters{
+  max-height: 200px;
+}
+.card{
+  margin-left: 10px;
+}
+.prof-content{
+  height: 200px;
+  width: 450px;
+  padding: 5px 0 5px 10px;
+
 }
