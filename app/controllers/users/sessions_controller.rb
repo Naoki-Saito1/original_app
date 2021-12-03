@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     super
-    render layout: "top"
+    
   end
 
   # POST /resource/sign_in
