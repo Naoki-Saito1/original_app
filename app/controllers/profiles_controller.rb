@@ -8,11 +8,13 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    if current_user.profile.nil?
+      redirect_to new_profile_path 
+    end
   end
 
   def new
     @profile = Profile.new
-  
   end
 
   def edit

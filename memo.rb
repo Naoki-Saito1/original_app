@@ -6,7 +6,11 @@ validates :name, presence: true
   validates :address, presence: true
 
 ====================================
-
+if signed_in?
+  redirect_to profiles_path
+else
+@user = User.new
+end
 
   <div class="sns">
   <p>
