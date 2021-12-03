@@ -1,3 +1,25 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.mr{
+  margin: 0 0 0 auto;
+  margin-right: 80px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+
+// home
+.top-wrapper{
+  background-image: image-url('haikei.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+ 
+  
+}
