@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
   mount_uploader :image, ImageUploader
+  has_one :link
   belongs_to :user
   validates :user_id, uniqueness: true
   delegate :portfolio, to: :user
