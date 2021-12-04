@@ -1,5 +1,8 @@
 class FavoritesController < ApplicationController
   before_action :portfolio_params
+  def index
+    
+  end
   def create
     @favorite = Favorite.create(user_id: current_user.id, portfolio_id: params[:portfolio_id])
   end
@@ -12,4 +15,5 @@ class FavoritesController < ApplicationController
   def portfolio_params
     @portfolio = Portfolio.find(params[:portfolio_id])
   end
+  
 end
