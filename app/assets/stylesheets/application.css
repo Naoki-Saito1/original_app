@@ -25,7 +25,13 @@ li{
   height: 600px; 
   margin-left: 1rem;
 }
- 
-.alert{
-  color: rgb(16, 17, 17);
+#header{
+  position:fixed;
+  top:0;
+  margin:0;
+  padding:4px;
+  width:100%;
+  background-color:#ccc;
+  z-index:9999;
+  height:50px;
 }
