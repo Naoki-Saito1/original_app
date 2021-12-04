@@ -50,7 +50,10 @@
     </div>
     <div class="prof-message">
       <% if @profile.user_id == current_user.id %>
-          <%= link_to 'Edit', edit_profile_path(@profile) %> 
+          <%= link_to 'Edit', edit_profile_path(@profile) %> <br>
+
+          <%= link_to 'sns', new_link_path %> 
+
         <% else %>
           <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
         <% end %>

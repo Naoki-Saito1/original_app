@@ -24,6 +24,3 @@ class ApplicationController < ActionController::Base
     end
   end
 end
-# if urrent_user.profile.id.exists?  else
-#   new_profile_path
-# end

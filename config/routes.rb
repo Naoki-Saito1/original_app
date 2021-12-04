@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root 'tops#home'
   devise_for :users
-  resources :profiles do
-    resources :links
-  end
+  resources :profiles
+  resources :links
   resources :portfolios do
     resources :favorites, only: [:create, :destroy,:index]
   end
