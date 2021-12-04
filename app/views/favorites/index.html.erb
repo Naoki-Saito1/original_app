@@ -1,0 +1,10 @@
+<% @favorites.each do |favorite| %>
+<ul>
+        <li><strong>name:<%= favorite.post.user.name %></strong></li>
+        <li>title:<%= favorite.post.title %></li>
+       <li>content<%= favorite.post.content %></li>
+       <li><%= image_tag favorite.post.image.url, style:'width:200px'   if favorite.post.image.present? %></li>
+    
+</ul>
+<%= link_to 'Back', user_path(current_user.id) %>
+<% end %>

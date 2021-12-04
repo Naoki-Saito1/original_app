@@ -19,7 +19,16 @@ class LinksController < ApplicationController
   end
 
   def edit
+    @link = Link.find(params[:id])
+  end
 
+  def update
+     @link = Link.find(params[:id])
+     if @link.update(link_params)
+      redirect_to profile_path(current_user.profile.id)
+     else
+      render :edit
+     end
   end
 
   def destroy
@@ -28,6 +37,6 @@ class LinksController < ApplicationController
 
   private
   def link_params
-    params.require(:link).permit(:twitter, :github, :qiita)
+    params.require(:link).permit(:twitter, :github, :qiita, :profile_id)
   end
 end
