@@ -6,6 +6,308 @@ validates :name, presence: true
   validates :address, presence: true
 
 ====================================
+
+....................................
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 prof-wrapper">
+<h1>プロフィール</h1>
+    <div class="prof-body">
+     <div class="prof-name">
+        <h2>
+        ユーザーネーム:
+        <strong><%= @profile.name %></strong>
+          
+        </h2>
+      </div>
+      <div class="prof-image">
+        <% if @profile.image? %>
+          <%= image_tag @profile.image.url, style:'width:100%' %>
+        <% else %>
+          <%= image_tag asset_path("no_image.jpg"), style:'width:100%' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="profile-info">
+      <p>
+        <% if  @profile.gender_check == true  %>
+           性別非公開
+          <% else %>
+          <%= @profile.gender if  @profile.gender.present?%>
+        <% end %>
+        <% if  @profile.birth_date_check == true %>
+        年齢非公開
+        <% elsif @profile.birth_date.present? %>
+
+                /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
+        <% end %>
+        <% if @profile.address_check == true %>
+        居住地非公開
+        <% else %>
+                <%= @profile.address if @profile.address.present? %>
+        <% end %>
+      </p>
+    </div>
+    <div class="prof-status">
+    
+    <p>
+      <% if @profile.body.present? %>
+        <%= @profile.body %>
+      <% end %>
+    </p>
+    </div>
+    <div class="prof-message">
+      <% if @profile.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_profile_path(@profile) %> <br>
+
+         <% if @profile.link.present? %>
+          <%= link_to 'sns編集', edit_link_path(@profile.link.id) %> 
+         <% else %>
+          <%= link_to 'sns', new_link_path %> 
+         <% end %>
+         
+
+        <% else %>
+          <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
+        <% end %>
+        <% if current_user.try(:admin?) %>
+          <%= link_to "管理者ページ", rails_admin_path %>  
+      <% end %>
+    </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="prof-pf">
+   
+    <div class="card" style="max-width: 450px" >
+ <% if  @profile.user.portfolios.present?%>
+ <% @profile.user.portfolios.each do |profile| %>
+ <div class="prof-content">
+  <div class="row no-gutters">
+
+      <div class="col-md-5">
+      <% if profile.portfolio_image.present? %>
+            <%= image_tag profile.portfolio_image.url, size: '180x180' %>
+          <% else %>
+            <%= image_tag asset_path("no_image.png"), size: '180x180'  %>
+          <% end %>
+    </div>
+
+    <div class="col-md-7">
+      <div class="card-body">
+        <p>
+            <strong>タイトル:</strong>
+            <%= profile.portfolio_title %>
+          </p>
+          <div class="pf-framework">
+          <p><strong>制作に使用したスキル</strong></p>
+          <ul class="framework">
+              <% profile.frameworks.each do |p| %>
+            <% if p.framework_name.present? %>
+            <li><%= p.framework_name %>/</li>
+            <% end %>
+              <% end %>
+            </ul>
+          </div>
+          <p>
+
+       <small class="text-muted"><%= profile.created_at.strftime("%Y-%m-%d") %></small></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% else %>
+<h1>投稿はまだありません</h1>
+    <% end %>
+    </div>
+</div>
+    </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+# ここからcss
+.gender{
+  display: flex;
+}
+.required:after {
+  margin-left: 1.0em;
+  padding: 0px 6px 0px 6px;
+  border-radius: 4px;
+  font-size: 0.6em;
+  color: white;
+  background-color: #C44;
+  content: "必須";
+}
+
+
+
+// _form
+
+.prof-body{
+  padding-top: 3rem;
+}
+span .name {
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+  
+}
+
+.prof-wrapper{
+  margin: 100px 0 100px 0;
+  height: 600px;
+  
+  
+}
+.prof-image{
+  width: 200px;
+  height: 200px;
+  margin:  0 auto;
+}
+.profile-info{
+  padding-top: 2rem;
+}
+
+.profile-info p{
+  font-size: 1rem ;
+}
+.prof-status p{
+  font-size: 1rem;
+}
+
+
+
+
+
+.prof-pf{
+  margin: 100px 0 100px 0;
+  height: 600px;
+ 
+  overflow: scroll
+}
+
+
+
+
+.prof-card{
+  height: 380px;
+  overflow: scroll;
+}
+.prof-index-image{
+  background-color: darkgrey;
+  text-align: center;
+}
+
+.no-gutters{
+  max-height: 200px;
+}
+.card{
+  margin-left: 10px;
+}
+.prof-content{
+  height: 200px;
+  width: 450px;
+  padding: 5px 0 5px 10px;
+
+}
+
+
+
+
+
+
+
+<div class="col-md-6">
+<div class="prof-pf">
+
+<div class="card" style="max-width: 450px" >
+<% if  @profile.user.portfolios.present?%>
+<% @profile.user.portfolios.each do |profile| %>
+<div class="prof-content">
+<div class="row no-gutters">
+
+  <div class="col-md-5">
+  <% if profile.portfolio_image.present? %>
+        <%= image_tag profile.portfolio_image.url, size: '180x180' %>
+      <% else %>
+        <%= image_tag asset_path("no_image.png"), size: '180x180'  %>
+      <% end %>
+</div>
+
+<div class="col-md-7">
+  <div class="card-body">
+    <p>
+        <strong>タイトル:</strong>
+        <%= profile.portfolio_title %>
+      </p>
+      <div class="pf-framework">
+      <p><strong>制作に使用したスキル</strong></p>
+      <ul class="framework">
+          <% profile.frameworks.each do |p| %>
+        <% if p.framework_name.present? %>
+        <li><%= p.framework_name %>/</li>
+        <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <p>
+
+   <small class="text-muted"><%= profile.created_at.strftime("%Y-%m-%d") %></small></p>
+  </div>
+</div>
+</div>
+<% end %>
+<% else %>
+<h1>投稿はまだありません</h1>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+
+<% if @profile.link.present? %>
+  <div class="social-links">
+      <%= link_to @profile.link.github, target: :_blank do %>
+        <i class="fab fa-github social-icon"></i>
+      <% end %>
+      <%= link_to @profile.link.twitter, do %>
+        <i class="fab fa-twitter social-icon"></i>
+      <% end %>
+      <%= link_to @profile.link.qiita, target: :_blank do %>
+        <i class="fab fa-facebook-square"></i>
+      <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+=========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if signed_in?
   redirect_to profiles_path
 else
@@ -26,9 +328,6 @@ end
   </p>
   </div>
   
-  
-
-
 
 
 

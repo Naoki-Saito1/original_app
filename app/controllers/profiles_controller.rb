@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    # binding.irb
+# binding.irb
     if current_user.profile.nil?
       redirect_to new_profile_path 
     end
