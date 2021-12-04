@@ -1,0 +1,47 @@
+<div class="gender">
+  <p>性別:</p>
+  <div class="field">
+    <%= form.radio_button :gender, :男性%>
+    <%= form.label :男性 %>
+  </div>
+
+  <div class="field">
+      <%= form.radio_button :gender, :女性 %>
+    <%= form.label :女性 %>
+  </div>
+  
+  <div class="field">
+     <%= form.check_box :gender_check, gender_check: true%>
+    <%= form.label :非公開設定%>
+  </div>
+</div>
+ 
+ 
+
+  <div class="field">
+    <%= form.label :birth_date%>
+    <%= form.date_select :birth_date, { 
+                  start_year:Time.now.year-60,
+                  end_year:Time.now.year-15,
+                  prompt:"選択してください"} %>
+                   <%= form.label :非公開設定%>
+                   <%= form.check_box :birth_date_check, birth_date_check: true%>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.select :address, Profile.addresses.keys.to_a,{prompt:"選択してください"}  %>
+    <%= form.check_box :address_check, address_check: true%>
+    <%= form.label :非公開設定%>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, Profile.statuses.keys.to_a,{prompt:"選択してください"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_field :detail %>
+  </div>

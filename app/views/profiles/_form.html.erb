@@ -9,9 +9,10 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %>
 
-  <div class="field">
+
+<div class="field">
   <div class="post-image-prev">
     <% if profile.image? %>
       <%= image_tag profile.image.thumb.url, alt: "post-image", id: "img_prev", size: "100" %>
@@ -40,7 +41,7 @@
         });
       });
     </script>
-  </div>
+</div>
 
   <div class="field">
     <%= form.label :name, class: "required"%>
@@ -52,7 +53,7 @@
     <%= form.text_area :body %>
   </div>
 <br>
-  <div class="gender">
+<div class="gender">
   <p>性別:</p>
   <div class="field">
     <%= form.radio_button :gender, :男性%>
@@ -68,7 +69,7 @@
      <%= form.check_box :gender_check, gender_check: true%>
     <%= form.label :非公開設定%>
   </div>
-  </div>
+</div>
  
  
 
@@ -83,7 +84,7 @@
   </div>
 
 
-<div class="field">
+  <div class="field">
     <%= form.label :address %>
     <%= form.select :address, Profile.addresses.keys.to_a,{prompt:"選択してください"}  %>
     <%= form.check_box :address_check, address_check: true%>
@@ -100,7 +101,7 @@
     <%= form.text_field :detail %>
   </div>
 
- 
+
 
   <div class="actions">
     <%= form.submit %>
