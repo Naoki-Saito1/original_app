@@ -17,10 +17,11 @@ body {
   font-family: "Montserrat";
   background-color: #b8b6b6;
   color: #fdfdfd;
+  min-height: 1000px;
 }
 .card {
-  max-width: 600px;
-  min-height: 600px;
+  max-width: 575px;
+  min-height: 575px;
   margin: 150px auto 0;
   background-color: #42515a;
   box-shadow: 0 10px 90px #00000024;
