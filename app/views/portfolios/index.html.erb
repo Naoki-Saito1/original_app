@@ -27,10 +27,11 @@
        <% end %>
       </div>
         
-     <div class="card-body">
-       <h5 class="card-title"><%= portfolio.portfolio_title %></h5>
-       <p><%= portfolio.portfolio_language %></p>
+     <div class="card-body ">
+       <h5 class="card-title">タイトル:<%= portfolio.portfolio_title %></h5>
+       <p>メイン言語:<%= portfolio.portfolio_language %></p>
      <div class="framework-wrapper">
+       <p>制作に使用したスキル</p>
        <ul class="framework">
        <% portfolio.frameworks.each do |p| %>
             <% if p.framework_name.present? %>
@@ -54,6 +55,5 @@
   </div>
 </div>
 
-<%= link_to 'New Portfolio', new_portfolio_path %>
 
 

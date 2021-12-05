@@ -39,13 +39,13 @@
         </div>
               <% if @profile.link.present? %>
           <div class="social-links">
-              <%= link_to @profile.link.github, target: :_blank do %>
+              <%= link_to @profile.link.github, target: :_blank, rel: "noopener noreferrer" do %>
                 <i class="fab fa-github social-icon"></i>
               <% end %>
-              <%= link_to @profile.link.twitter, target: :_blank do %>
+              <%= link_to @profile.link.twitter, target: :_blank, rel: "noopener noreferrer" do %>
                 <i class="fab fa-twitter social-icon"></i>
               <% end %>
-              <%= link_to @profile.link.qiita, target: :_blank do %>
+              <%= link_to @profile.link.qiita, target: :_blank, rel: "noopener noreferrer" do %>
                 <i class="fab fa-youtube social-icon"></i>
               <% end %>
           </div>
@@ -80,7 +80,7 @@
     </div>
   </div>
  </div>
-<%# ここから自分の投稿一覧 %>
+<%# ここから自分の投稿一覧 css/protfolio/index共通 %>
 
 <div class="container my-pf">
 <h2 class="comment">己が投稿したもの</h2>
@@ -105,7 +105,7 @@
      <div class="card-body">
        <h5 class="card-title"><strong>タイトル:</strong>
             <%= profile.portfolio_title %></h5>
-       <p><%= profile.portfolio_language %></p>
+       <p><strong>メイン言語:</strong><%= profile.portfolio_language %></p>
      <div class="framework-wrapper">
     
         <p><strong>制作に使用したスキル</strong></p>
@@ -128,7 +128,7 @@
  </div>
 <% end %>
 <% else %>
-<h2>現在投稿はありません</h2>
+<h2 class="comment">現在投稿はありません</h2>
 <% end %>
  </div>
  </div>
