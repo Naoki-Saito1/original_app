@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   def index
-    @profiles = Profile.all
+    @profiles = Profile.all.page(params[:page]).per(9)
     @q = Profile.ransack(params[:q])
     @profiles = @q.result(distinct: true)
   end

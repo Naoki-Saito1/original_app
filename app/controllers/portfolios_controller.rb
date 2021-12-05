@@ -2,7 +2,7 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[ show edit update destroy ]
 
   def index
-    @portfolios = Portfolio.all
+    
     @q = Portfolio.ransack(params[:q])
     @portfolios = @q.result(distinct: true)
     #if params[:hoge] == "true"
@@ -11,7 +11,8 @@ class PortfoliosController < ApplicationController
     params[:hoge] = nil if params[:hoge] == "true" && params[:q].present?
     # Guard Clause
     return if params[:hoge] != "true"
-    @portfolios = @portfolios.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size} 
+    @portfolios = @portfolios.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}
+    @portfolios = Portfolio.all.page(params[:page]).per(9)
   end
 
   def show
