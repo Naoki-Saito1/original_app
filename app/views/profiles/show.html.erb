@@ -78,5 +78,61 @@
         </div>
       </div>
     </div>
-   </div>
+  </div>
  </div>
+<%# ここから自分の投稿一覧 %>
+
+<div class="container my-pf">
+<h2 class="comment">己が投稿したもの</h2>
+  <div class="row">
+
+<% if  @profile.user.portfolios.present?%>
+
+ <% @profile.user.portfolios.each do |profile| %>
+   <div class="col-md-4">
+     <div class="card-deck" style="width:22rem">
+
+       <div class="card card_topic pf-main">
+
+       <div class="p-image">
+        <% if profile.portfolio_image.url.present? %>
+          <%= link_to image_tag(profile.portfolio_image.url, size: '320x200', class: "card-img-top"), profile %>
+        <% else %>
+          <%= link_to image_tag(asset_path("no_image.jpg"), size: '320x200', class: "card-img-top"), profile %>
+        <% end %>
+      </div>
+        
+     <div class="card-body">
+       <h5 class="card-title"><strong>タイトル:</strong>
+            <%= profile.portfolio_title %></h5>
+       <p><%= profile.portfolio_language %></p>
+     <div class="framework-wrapper">
+    
+        <p><strong>制作に使用したスキル</strong></p>
+          <ul class="framework">
+              <% profile.frameworks.each do |p| %>
+            <% if p.framework_name.present? %>
+            <li><%= p.framework_name %>/</li>
+            <% end %>
+              <% end %>
+          </ul>
+      
+     </div>
+   </div>
+
+     <div class="p-footer">
+       <p><small class="text-muted"><%= profile.created_at.strftime("%Y-%m-%d") %></small></p>
+     </div>
+      </div>
+    </div>
+ </div>
+<% end %>
+<% else %>
+<h2>現在投稿はありません</h2>
+<% end %>
+ </div>
+ </div>
+   
+
+
+ 

@@ -76,55 +76,6 @@ validates :name, presence: true
     </div>
     </div>
 
-    <div class="col-md-6">
-    <div class="prof-pf">
-   
-    <div class="card" style="max-width: 450px" >
- <% if  @profile.user.portfolios.present?%>
- <% @profile.user.portfolios.each do |profile| %>
- <div class="prof-content">
-  <div class="row no-gutters">
-
-      <div class="col-md-5">
-      <% if profile.portfolio_image.present? %>
-            <%= image_tag profile.portfolio_image.url, size: '180x180' %>
-          <% else %>
-            <%= image_tag asset_path("no_image.png"), size: '180x180'  %>
-          <% end %>
-    </div>
-
-    <div class="col-md-7">
-      <div class="card-body">
-        <p>
-            <strong>タイトル:</strong>
-            <%= profile.portfolio_title %>
-          </p>
-          <div class="pf-framework">
-          <p><strong>制作に使用したスキル</strong></p>
-          <ul class="framework">
-              <% profile.frameworks.each do |p| %>
-            <% if p.framework_name.present? %>
-            <li><%= p.framework_name %>/</li>
-            <% end %>
-              <% end %>
-            </ul>
-          </div>
-          <p>
-
-       <small class="text-muted"><%= profile.created_at.strftime("%Y-%m-%d") %></small></p>
-      </div>
-    </div>
-  </div>
-<% end %>
-<% else %>
-<h1>投稿はまだありません</h1>
-    <% end %>
-    </div>
-</div>
-    </div>
-    </div>
-
-
 
   </div>
 </div>
