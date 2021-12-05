@@ -15,7 +15,7 @@
 <div class="field">
   <div class="post-image-prev">
     <% if profile.image? %>
-      <%= image_tag profile.image.thumb.url, alt: "post-image", id: "img_prev", size: "100" %>
+      <%= image_tag profile.image.url, alt: "post-image", id: "img_prev", size: "100" %>
     <% else %>
       <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "100" %>
     <% end %>

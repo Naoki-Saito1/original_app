@@ -17,14 +17,10 @@
 li{
   list-style-type: none ;
 }
-
-.sidebar_fixed {
-  position: sticky;
-  top: 130px;
-  background-color: wheat;
-  height: 600px; 
-  margin-left: 1rem;
+a{
+  text-decoration: none;
 }
+
 #header{
   position:fixed;
   top:0;
@@ -34,4 +30,24 @@ li{
   background-color:#ccc;
   z-index:9999;
   height:50px;
+}
+
+
+/* サイドバー */
+#sidebar_fixed {
+  background-color: rgb(44, 44, 44);
+  width: 20%;
+  position: fixed;
+  top: 130px;
+  left: 35px;
+  height: 550px; 
+  
+}
+.sidebar-inner{
+  text-align: center;
+  align-items: center;
+}
+.sidebar-inner li{
+  padding-top: 20px;
+  font-size: 1.3rem;
 }

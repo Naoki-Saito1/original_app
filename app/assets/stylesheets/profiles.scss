@@ -2,8 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.prof-card{
+  height: 400px; ;
+}
 
-// _form
+
+
+
+
+// ここからしたはshow
 
 * {
   margin: 0;
@@ -15,11 +22,12 @@
 
 body {
   font-family: "Montserrat";
-  background-color: #b8b6b6;
+  background-image: image-url('haikei2.png');
+  background-size: cover;
   color: #fdfdfd;
   min-height: 1000px;
 }
-.card {
+.show-main {
   max-width: 575px;
   min-height: 575px;
   margin: 150px auto 0;
@@ -50,11 +58,11 @@ body {
   height: 180px;
   border: 8px solid #d885af;
 }
-.card .card-body {
+.card .show-body {
   padding: 50px 40px;
 }
 
-.card .card-body .name {
+.card .show-body .name {
   margin-top: 30px;
   font-size: 30px;
   font-weight: bold;

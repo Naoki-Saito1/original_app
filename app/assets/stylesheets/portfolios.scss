@@ -5,6 +5,7 @@
 //   overflow-wrap: break-word;
 //   word-wrap: break-word;
 // }
+
 .framework {
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +23,7 @@
   max-width: 100%;    
 }
 .card_topic{
-  height: 450px;
+  height: 400px;
   
 }
 .p-image:hover{
@@ -33,16 +34,18 @@
 }
 .p-footer{
   height: 40px;
-  border-top: 0.2px solid rgb(179, 177, 177);
+  
 }
 .p-footer p{
   position: absolute;
+  margin-bottom: 0;
   right: 0;
   bottom: 0;
   padding: 10px 5px 0 0;
 }
 .p-like p{
   position: absolute;
+  margin-bottom: 0;
   left: 0;
   bottom: 0;
   padding: 10px 5px 0 0;
