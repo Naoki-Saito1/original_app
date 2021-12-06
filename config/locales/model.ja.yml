@@ -25,7 +25,7 @@ ja:
         portfolio_image: サムネイル画像
         portfolio_language: 開発言語
         portfolio_github: Github
-        portfolio_url: url
+        portfolio_url: 制作ページのURL
       framework:
         framework_name: フレームワーク  
         

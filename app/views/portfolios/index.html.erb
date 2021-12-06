@@ -15,7 +15,7 @@
 
 
 <%= sort_link(@q, :created_at, "新規順並び変え") %>
-<%= link_to 'いいね多い順', portfolios_path(hoge: true) %>
+<%# <%= link_to 'いいね多い順', portfolios_path(hoge: true) %> 
 
 
 
@@ -27,6 +27,7 @@
  <% @portfolios.each do |portfolio| %>
    <div class="col-md-4">
      <div class="card-deck" style="width:22rem">
+    
        <div class="card card_topic pf-main">
        <div class="p-image">
        <% if portfolio.portfolio_image.url.present? %>
@@ -40,7 +41,7 @@
        <h5 class="card-title">タイトル:<%= portfolio.portfolio_title %></h5>
        <p>メイン言語:<%= portfolio.portfolio_language %></p>
      <div class="framework-wrapper">
-       <p>制作に使用したスキル</p>
+       <p>使用したスキル</p>
        <ul class="framework">
        <% portfolio.frameworks.each do |p| %>
             <% if p.framework_name.present? %>
@@ -50,13 +51,16 @@
        </ul>
      </div>
      </div>
+
+     <div class="pf-footer">
      <div class="p-footer">
        <p><%= portfolio.created_at.strftime("%Y-%m-%d") %></p>
      </div>
      <div class="p-like">
        <p>お気に入り数<%= portfolio.favorites.count %></p>
      </div>
-    
+    </div>
+
       </div>
       </div>
     </div>

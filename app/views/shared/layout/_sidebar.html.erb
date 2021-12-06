@@ -3,10 +3,11 @@
 <div id="main-sidebar">
   <div class="sidebar-inner">
     <ul>
-      <li><%= link_to 'マイページ', profile_path(current_user.profile.id) if current_user.profile.    present? %></li>
+      <li><%= link_to 'マイページ', profile_path(current_user.profile.id) if current_user.profile.present? %></li>
       <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path %></li>
       <li><%= link_to 'ポートフォリオ一覧', portfolios_path %></li>
-      <li><%= link_to 'message', conversations_path %></li>
+      <li><%= link_to 'いいね 一覧', portfolio_favorites_path(current_user.portfolios) %></li>
+      <li><%= link_to 'メッセージ', conversations_path %></li>
     </ul>
   </div>
 </div>

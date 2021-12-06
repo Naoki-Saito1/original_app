@@ -6,10 +6,10 @@ class PortfoliosController < ApplicationController
     # binding.irb
       @q = Portfolio.ransack(params[:q])
       @portfolios = @q.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(9)
-    params[:hoge] = nil if params[:hoge] == "true" && params[:q].present?
-    if params[:hoge] == "true"
-      @portfolios = @portfolios.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size} 
-    end
+    # params[:hoge] = nil if params[:hoge] == "true" && params[:q].present?
+    # if params[:hoge] == "true"
+    #   @portfolios = @portfolios.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size} 
+    # end
     # @portfolios = @portfolios
     # Guard Clause
     # return if params[:hoge] != "true"

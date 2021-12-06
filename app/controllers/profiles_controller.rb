@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
   
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: "Profile was successfully created." }
+        format.html { redirect_to @profile, notice: "プロフィール登録しました！" }
         format.json { render :show, status: :created, location: @profile }
       else
         # flash: @profile.errors.full_messages

@@ -30,16 +30,16 @@ body {
   background-image: image-url('haikei2.png');
   background-size: cover;
   color: #fdfdfd;
-  min-height: 1000px;
+  min-height: 900px;
 }
 .show-main {
-  max-width: 575px;
+  max-width: 775px;
   min-height: 575px;
   margin: 150px auto 0;
   background-color: #42515a;
   box-shadow: 0 10px 90px #00000024;
   text-align: center;
-  font-size: 20px;
+  font-size: 17px;
   border-radius: 15px;
 }
 
@@ -54,7 +54,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 8px solid #c74385;
+  border: 8px solid #000000;
   box-shadow: 0 0 20px #00000033;
 }
 
@@ -92,7 +92,7 @@ body {
 
 .card .card-body .job {
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .card .social-links {
   display: flex;
@@ -142,4 +142,16 @@ body {
   .card .card-body {
       padding: 10px 20px;
   }
+}
+
+// ここまで
+// ここから入力フォーム
+.gender{
+ display: flex;
+}
+.gender .field{
+  padding: 0px 20px;
+}
+.hissu{
+  color: red;
 }
