@@ -2,8 +2,13 @@ class Profile < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_one :link
   belongs_to :user
+  # バリデーション
   validates :user_id, uniqueness: true
   delegate :portfolio, to: :user
+  validates :name, presence: true  
+  validates :name, length: { maximum: 30 }
+  validates :body, length: { maximum: 800 }
+   # バリデーション
   enum gender:{
     男性:0,
     女性:1

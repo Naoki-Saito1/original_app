@@ -13,7 +13,6 @@
   <body>
 <header id="header">
   <%= render 'shared/layout/header' %>
-  <%= render 'shared/layout/message' %>  
 </header>
 
 <script>
@@ -33,6 +32,7 @@
 
     <div class="col-9">
       <div class="main-wrapper">
+        <%= render 'shared/layout/message' %>  
       <%= yield %>
       </div>
     </div>
