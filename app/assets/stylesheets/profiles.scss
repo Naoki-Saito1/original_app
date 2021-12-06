@@ -30,10 +30,10 @@ body {
   background-image: image-url('haikei2.png');
   background-size: cover;
   color: #fdfdfd;
-  min-height: 1000px;
+  min-height: 900px;
 }
 .show-main {
-  max-width: 575px;
+  max-width: 775px;
   min-height: 575px;
   margin: 150px auto 0;
   background-color: #42515a;
@@ -92,7 +92,7 @@ body {
 
 .card .card-body .job {
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .card .social-links {
   display: flex;
@@ -151,4 +151,7 @@ body {
 }
 .gender .field{
   padding: 0px 20px;
+}
+.hissu{
+  color: red;
 }

@@ -38,16 +38,23 @@
           <% end %>
         </div>
               <% if @profile.link.present? %>
+              
           <div class="social-links">
+          <% if @profile.link.github != "" %>
               <%= link_to @profile.link.github, target: :_blank, rel: "noopener noreferrer" do %>
                 <i class="fab fa-github social-icon"></i>
               <% end %>
+          <% end %>
+          <% if @profile.link.twitter != "" %>
               <%= link_to @profile.link.twitter, target: :_blank, rel: "noopener noreferrer" do %>
                 <i class="fab fa-twitter social-icon"></i>
               <% end %>
+          <% end %>
+           <% if @profile.link.qiita != "" %>
               <%= link_to @profile.link.qiita, target: :_blank, rel: "noopener noreferrer" do %>
                 <i class="fab fa-youtube social-icon"></i>
               <% end %>
+            <% end %>
           </div>
            <% end %>   
         <div class="card-footer">
@@ -83,7 +90,7 @@
 <%# ここから自分の投稿一覧 css/protfolio/index共通 %>
 
 <div class="container my-pf">
-<h2 class="comment">己が投稿したもの</h2>
+<h2 class="comment">投稿一覧</h2>
   <div class="row">
 
 <% if  @profile.user.portfolios.present?%>
@@ -128,7 +135,7 @@
  </div>
 <% end %>
 <% else %>
-<h2 class="comment">現在投稿はありません</h2>
+<h2 class="comment">現在投稿はありません(笑)</h2>
 <% end %>
  </div>
  </div>
