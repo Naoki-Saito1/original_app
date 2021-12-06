@@ -6,6 +6,7 @@
       <li><%= link_to 'マイページ', profile_path(current_user.profile.id) if current_user.profile.    present? %></li>
       <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path %></li>
       <li><%= link_to 'ポートフォリオ一覧', portfolios_path %></li>
+      <li><%= link_to 'okin', portfolio_favorites_path(@portfolio.id) %></li>
       <li><%= link_to 'message', conversations_path %></li>
     </ul>
   </div>

@@ -5,8 +5,11 @@
 //   overflow-wrap: break-word;
 //   word-wrap: break-word;
 // }
+
+
 .card-body{
   overflow: scroll; 
+  height: 200px
 }
 
 .framework {
@@ -26,7 +29,7 @@
   max-width: 100%;    
 }
 .card_topic{
-  height: 430px;
+  height: 450px;
   
 }
 .p-image:hover{
@@ -42,6 +45,8 @@
   right: 0;
   bottom: 0;
   padding: 10px 5px 0 0;
+  font-size: 14px;
+  color: rgb(85, 85, 84);
 }
 .p-like p{
   position: absolute;
@@ -49,6 +54,11 @@
   left: 0;
   bottom: 0;
   padding: 10px 5px 0 0;
+  font-size: 14px;
+  color: rgb(85, 85, 84);
+}
+.pf-footer{
+  height: 40px;
 }
 
 // ここから詳細
