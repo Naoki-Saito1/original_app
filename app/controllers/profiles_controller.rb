@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  # before_action :user_check, only: %i[ new show ]
   before_action :set_profile, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   def index
@@ -10,14 +11,15 @@ class ProfilesController < ApplicationController
 
   def show
 # binding.irb
-    if current_user.profile.nil?
-      redirect_to new_profile_path 
-    end
   end
 
   def new
-    @profile = Profile.new
+    if current_user.nil?
+      @profile = Profile.new
     render layout: "no_sidebar"
+    else
+      redirect_to profile_path(current_user.profile.id)
+    end
   end
 
   def edit
@@ -64,6 +66,8 @@ class ProfilesController < ApplicationController
   end
 
   private
+   
+
     def set_profile
       @profile = Profile.find(params[:id])
     end

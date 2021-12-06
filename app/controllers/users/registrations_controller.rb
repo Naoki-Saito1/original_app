@@ -9,6 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
     end
   end
+  def ensure_normal_user
+    if resource.email == 'guest_admin@gmail.com'
+      redirect_to root_path, alert: 'ゲストユーザー(管理者)は削除できません。'
+    end
+  end
   # GET /resource/sign_up
   def new
     super

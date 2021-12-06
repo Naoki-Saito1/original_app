@@ -59,14 +59,8 @@
            <% end %>   
         <div class="card-footer">
           <% if @profile.user_id == current_user.id && current_user.try(:admin?) %>
-          <%= link_to "管理者ページ", rails_admin_path,class:"btn btn-outline-dark btn-sm" %>  
-          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-dark btn-sm" %> 
-
-              <% if @profile.link.present? %>
-                <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-dark btn-sm" %> 
-              <% else %>
-                <%= link_to 'SNS登録', new_link_path,class:"btn btn-outline-dark btn-sm" %> 
-              <% end %>
+            <%= link_to '管理者ページ', rails_admin_path, class:"btn btn-outline-dark btn-sm" %>
+         
             <% end %>
 
           <% if @profile.user_id == current_user.id %>
