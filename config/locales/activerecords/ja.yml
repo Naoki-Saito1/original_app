@@ -1,0 +1,15 @@
+enums:
+    portfolio:
+      portfolio_language:
+        Java: 'あ'
+        JavaScript: 'い'
+        PHP: 'う'
+        Python: 'え'
+        Ruby: 'お'
+        C: 'か'
+        'C++': ''
+        'C#': 'き'
+        Kotlin: 'く'
+        Swift: 'け'
+        Go: 'こ'
+        その他: 'その他'

@@ -29,13 +29,15 @@
             <%= @portfolio.portfolio_body %>
           </p>
           <p>
-            <strong>GithubのURL:</strong>
-            <%= @portfolio.portfolio_github %>
+            <strong>Github:</strong>
+            <%= link_to @portfolio.portfolio_github, target: :_blank, rel: "noopener noreferrer" do %><i class="fab fa-github social-icon"></i>
+            <% end %>
           </p>
 
           <p>
-            <strong>実際の作品</strong>
-            <%= @portfolio.portfolio_url %>
+            <strong>実際の作品-></strong>
+            <%= link_to @portfolio.portfolio_url, target: :_blank, rel: "noopener noreferrer" do %><%= @portfolio.portfolio_title %><% end %>
+
           </p>
           <% if @portfolio.user_id == current_user.id %>
               <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>

@@ -4,10 +4,12 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true)
+    @profiles = @q.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(9)
+   
   end
 
   def show
+# binding.irb
     if current_user.profile.nil?
       redirect_to new_profile_path 
     end
@@ -15,6 +17,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    render layout: "no_sidebar"
   end
 
   def edit
@@ -22,19 +25,23 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
+  
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: "Profile was successfully created." }
         format.json { render :show, status: :created, location: @profile }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+        # flash: @profile.errors.full_messages
+        format.html { redirect_to new_profile_path, notice: @profile.errors.full_messages }
       end
     end
-    
+  
   end
+  
+	
 
   def update
     respond_to do |format|

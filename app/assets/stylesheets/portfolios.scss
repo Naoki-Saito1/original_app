@@ -1,10 +1,14 @@
 // Place all the styles related to the portfolios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-* {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+// * {
+//   overflow-wrap: break-word;
+//   word-wrap: break-word;
+// }
+.card-body{
+  overflow: scroll; 
 }
+
 .framework {
   display: flex;
   flex-wrap: wrap;
@@ -22,27 +26,26 @@
   max-width: 100%;    
 }
 .card_topic{
-  height: 450px;
+  height: 430px;
   
 }
 .p-image:hover{
-  opacity: 0.7;
+  opacity: 0.5;
 }
 .card-deck{
   margin-top: 3rem;
 }
-.p-footer{
-  height: 40px;
-  border-top: 0.2px solid rgb(179, 177, 177);
-}
+
 .p-footer p{
   position: absolute;
+  margin: 0 10px 10px 0;
   right: 0;
   bottom: 0;
   padding: 10px 5px 0 0;
 }
 .p-like p{
   position: absolute;
+  margin-bottom: 10px;
   left: 0;
   bottom: 0;
   padding: 10px 5px 0 0;
@@ -53,10 +56,7 @@
 
 .pf-body{
   margin-top: 100px;
-  height: 1000px;
-  border: 1px solid black;
   
-
 }
 .pf-image{
   padding: 1.5rem;

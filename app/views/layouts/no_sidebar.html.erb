@@ -13,6 +13,7 @@
   <body>
 <header id="header">
   <%= render 'shared/layout/header' %>
+  <%= render 'shared/layout/message' %>  
 </header>
 
 <script>
@@ -25,14 +26,14 @@
   <div class="row">
    
     <div class="col-3">
-      <div id="sidebar_fixed">
-      <%= render 'shared/layout/sidebar' %>
+      <div id="sidebar_nil">
+     
       </div>
     </div>
 
     <div class="col-9">
       <div class="main-wrapper">
-        <%= render 'shared/layout/message' %>  
+       <%= render 'shared/layout/message' %> 
       <%= yield %>
       </div>
     </div>
@@ -40,6 +41,8 @@
 <div class="nil"></div>
 
  <%= render 'shared/layout/footer' %>
+
+ 
   </body>
 
 </html>

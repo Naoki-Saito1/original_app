@@ -5,8 +5,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
   def after_sign_in_path_for(resource)
-    profile_path(current_user.profile.id)
+   if current_user.profile == nil
+     new_profile_path
+   else
+     profile_path(current_user.profile.id)
+   end
   end
   
   private

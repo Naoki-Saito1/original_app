@@ -1,63 +1,74 @@
 
 <h1><%= link_to "ポートフォリオ", portfolios_path %></h1>
+
+
 <%= search_form_for @q do |f| %>
+
+  <%= f.label :主な言語 %>
+  <%= f.select :portfolio_language_eq, Portfolio.portfolio_languages_i18n.invert.map{|key, value| [key, Portfolio.portfolio_languages[value]]}, { include_blank:'指定なし' } %>
+
+
   <%= f.label :framework_name, "キーワード検索" %>
   <%= f.search_field :frameworks_framework_name_cont %>
   <%= f.submit "検索" %>
 <% end %>
-<%= sort_link(@q, :created_at, "新規順") %>
-<%= link_to 'いいね', portfolios_path(hoge: true) %>
+
+
+<%= sort_link(@q, :created_at, "新規順並び変え") %>
+<%= link_to 'いいね多い順', portfolios_path(hoge: true) %>
+
+
+
+
 
 <div class="container">
   <div class="row">
 
  <% @portfolios.each do |portfolio| %>
- <div class="col-md-4">
-<div class="card-deck" style="width:22rem">
-<div class="card card_topic">
- <div class="p-image">
-   <% if portfolio.portfolio_image.url.present? %>
-           <%= link_to image_tag(portfolio.portfolio_image.url, size: '256x160', class: "card-img-top"), portfolio %>
-         <% else %>
-           <%= link_to image_tag(asset_path("no_image.jpg"), size: '256x160', class: "card-img-top"), portfolio %>
-         <% end %>
-         </div>
+   <div class="col-md-4">
+     <div class="card-deck" style="width:22rem">
+       <div class="card card_topic pf-main">
+       <div class="p-image">
+       <% if portfolio.portfolio_image.url.present? %>
+          <%= link_to image_tag(portfolio.portfolio_image.url, size: '320x200', class: "card-img-top"), portfolio %>
+       <% else %>
+          <%= link_to image_tag(asset_path("no_image.jpg"), size: '320x200', class: "card-img-top"), portfolio %>
+       <% end %>
+      </div>
         
-  <div class="card-body">
-    <h5 class="card-title"><%= portfolio.portfolio_title %></h5>
-    <p><%= portfolio.portfolio_language %></p>
-    <div class="framework-wrapper">
-    <ul class="framework">
-      <% portfolio.frameworks.each do |p| %>
+     <div class="card-body ">
+       <h5 class="card-title">タイトル:<%= portfolio.portfolio_title %></h5>
+       <p>メイン言語:<%= portfolio.portfolio_language %></p>
+     <div class="framework-wrapper">
+       <p>制作に使用したスキル</p>
+       <ul class="framework">
+       <% portfolio.frameworks.each do |p| %>
             <% if p.framework_name.present? %>
             <li><%= p.framework_name %></li>
             <% end %>
-      <% end %>
-    </ul>
-    </div>
-    <p><%= portfolio.user.profile.name%></p>
-  </div>
-  <div class="p-footer">
-    <p><%= portfolio.created_at.strftime("%Y-%m-%d") %></p>
-    </div>
-    <div class="p-like">
-    <p>お気に入り数<%= portfolio.favorites.count %></p>
+       <% end %>
+       </ul>
+     </div>
+     </div>
+     <div class="p-footer">
+       <p><%= portfolio.created_at.strftime("%Y-%m-%d") %></p>
+     </div>
+     <div class="p-like">
+       <p>お気に入り数<%= portfolio.favorites.count %></p>
+     </div>
+    
+      </div>
+      </div>
     </div>
     
-</div>
-</div>
-</div>
 <% end %>
+
+  </div>
+  
 </div>
-</div>
+<% unless params[:hoge] == "true"  %>
+  <%= paginate (@portfolios) %>
+<% end %>
 
-
-
-
-
-
-
-
-<%= link_to 'New Portfolio', new_portfolio_path %>
 
 

@@ -2,132 +2,137 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6 prof-wrapper">
-<h1>プロフィール</h1>
-    <div class="prof-body">
-     <div class="prof-name">
-        <h2>
-        ユーザーネーム:
-        <strong><%= @profile.name %></strong>
-          
-        </h2>
-      </div>
-      <div class="prof-image">
-        <% if @profile.image? %>
-          <%= image_tag @profile.image.url, style:'width:100%' %>
-        <% else %>
-          <%= image_tag asset_path("no_image.jpg"), style:'width:100%' %>
-        <% end %>
-      </div>
-    </div>
-    <div class="profile-info">
-      <p>
-        <% if  @profile.gender_check == true  %>
-           性別非公開
+
+    <div class="col-md-12 ">
+      <div class="card show-main">
+        <div class="card-header">
+          <% if @profile.image? %>
+          <%= image_tag @profile.image.url,class: "profile-img" %>
           <% else %>
-          <%= @profile.gender if  @profile.gender.present?%>
-        <% end %>
-        <% if  @profile.birth_date_check == true %>
-        年齢非公開
-        <% elsif @profile.birth_date.present? %>
-
-                /<%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
-        <% end %>
-        <% if @profile.address_check == true %>
-        居住地非公開
-        <% else %>
-                <%= @profile.address if @profile.address.present? %>
-        <% end %>
-      </p>
-    </div>
-    <div class="prof-status">
-    
-    <p>
-      <% if @profile.body.present? %>
-        <%= @profile.body %>
-      <% end %>
-    </p>
-    </div>
-    <div class="prof-message">
-      <% if @profile.user_id == current_user.id %>
-          <%= link_to 'Edit', edit_profile_path(@profile) %> 
-        <% else %>
-          <p><%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post, class: "btn btn-warning" %></p>
-        <% end %>
-        <% if current_user.try(:admin?) %>
-          <%= link_to "管理者ページ", rails_admin_path %>  
-      <% end %>
-    </div>
-    </div>
-
-    <div class="col-md-6">
-    <div class="prof-pf">
-   
-    <div class="card" style="max-width: 450px" >
- <% if  @profile.user.portfolios.present?%>
- <% @profile.user.portfolios.each do |profile| %>
- <div class="prof-content">
-  <div class="row no-gutters">
-
-      <div class="col-md-5">
-      <% if profile.portfolio_image.present? %>
-            <%= image_tag profile.portfolio_image.url, size: '180x180' %>
-          <% else %>
-            <%= image_tag asset_path("no_image.jpg"), size: '180x180'  %>
-          <% end %>
-    </div>
-
-    <div class="col-md-7">
-      <div class="card-body">
-        <p>
-            <strong>タイトル:</strong>
-            <%= profile.portfolio_title %>
+          <%= image_tag asset_path("no_image.jpg"), class: "profile-img" %>
+          <% end %>  
+        </div>
+        <div class="card-body show-body">
+          <p class="name"><%= @profile.name %></p>
+            
+          <p class="job">
+            <% if  @profile.gender_check == true  %>
+              性別非公開
+            <% else %>
+              <%= @profile.gender if  @profile.gender.present?%>
+            <% end %>
+            <% if  @profile.birth_date_check == true %>
+              年齢非公開
+            <% elsif @profile.birth_date.present? %>
+               <%= (Date.today.strftime('%Y%m%d').to_i - @profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
+            <% end %>
+            <% if @profile.address_check == true %>
+              居住地非公開
+            <% else %>
+              <%= @profile.address if @profile.address.present? %>
+            <% end %>
           </p>
-          <div class="pf-framework">
-          <p><strong>制作に使用したスキル</strong></p>
+          <br>
+          <% if @profile.body.present? %>
+            <%= @profile.body %>
+          <% end %>
+        </div>
+              <% if @profile.link.present? %>
+          <div class="social-links">
+              <%= link_to @profile.link.github, target: :_blank, rel: "noopener noreferrer" do %>
+                <i class="fab fa-github social-icon"></i>
+              <% end %>
+              <%= link_to @profile.link.twitter, target: :_blank, rel: "noopener noreferrer" do %>
+                <i class="fab fa-twitter social-icon"></i>
+              <% end %>
+              <%= link_to @profile.link.qiita, target: :_blank, rel: "noopener noreferrer" do %>
+                <i class="fab fa-youtube social-icon"></i>
+              <% end %>
+          </div>
+           <% end %>   
+        <div class="card-footer">
+          <% if @profile.user_id == current_user.id && current_user.try(:admin?) %>
+          <%= link_to "管理者ページ", rails_admin_path,class:"btn btn-outline-dark btn-sm" %>  
+          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-dark btn-sm" %> 
+
+              <% if @profile.link.present? %>
+                <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-dark btn-sm" %> 
+              <% else %>
+                <%= link_to 'SNS登録', new_link_path,class:"btn btn-outline-dark btn-sm" %> 
+              <% end %>
+            <% end %>
+
+          <% if @profile.user_id == current_user.id %>
+          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-dark btn-sm" %> 
+
+              <% if @profile.link.present? %>
+                <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-dark btn-sm" %> 
+              <% else %>
+                <%= link_to 'SNS登録', new_link_path,class:"btn btn-outline-dark btn-sm" %> 
+              <% end %>
+         
+              <% else %>
+              <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post,class:"btn btn-outline-dark btn-sm" %>
+            <% end %>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+<%# ここから自分の投稿一覧 css/protfolio/index共通 %>
+
+<div class="container my-pf">
+<h2 class="comment">己が投稿したもの</h2>
+  <div class="row">
+
+<% if  @profile.user.portfolios.present?%>
+
+ <% @profile.user.portfolios.each do |profile| %>
+   <div class="col-md-4">
+     <div class="card-deck" style="width:22rem">
+
+       <div class="card card_topic pf-main">
+
+       <div class="p-image">
+        <% if profile.portfolio_image.url.present? %>
+          <%= link_to image_tag(profile.portfolio_image.url, size: '320x200', class: "card-img-top"), profile %>
+        <% else %>
+          <%= link_to image_tag(asset_path("no_image.jpg"), size: '320x200', class: "card-img-top"), profile %>
+        <% end %>
+      </div>
+        
+     <div class="card-body">
+       <h5 class="card-title"><strong>タイトル:</strong>
+            <%= profile.portfolio_title %></h5>
+       <p><strong>メイン言語:</strong><%= profile.portfolio_language %></p>
+     <div class="framework-wrapper">
+    
+        <p><strong>制作に使用したスキル</strong></p>
           <ul class="framework">
               <% profile.frameworks.each do |p| %>
             <% if p.framework_name.present? %>
             <li><%= p.framework_name %>/</li>
             <% end %>
               <% end %>
-            </ul>
-          </div>
-          <p>
+          </ul>
+      
+     </div>
+   </div>
 
-       <small class="text-muted"><%= profile.created_at.strftime("%Y-%m-%d") %></small></p>
+     <div class="p-footer">
+       <p><small class="text-muted"><%= profile.created_at.strftime("%Y-%m-%d") %></small></p>
+     </div>
       </div>
     </div>
-  </div>
+ </div>
 <% end %>
 <% else %>
-<h1>投稿はまだありません</h1>
-    <% end %>
-    </div>
-</div>
-    </div>
-    </div>
+<h2 class="comment">現在投稿はありません</h2>
+<% end %>
+ </div>
+ </div>
+   
 
 
-
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 

@@ -1,8 +1,14 @@
 class Profile < ApplicationRecord
   mount_uploader :image, ImageUploader
+  has_one :link
   belongs_to :user
+  # バリデーション
   validates :user_id, uniqueness: true
   delegate :portfolio, to: :user
+  validates :name, presence: true  
+  validates :name, length: { maximum: 30 }
+  validates :body, length: { maximum: 800 }
+   # バリデーション
   enum gender:{
     男性:0,
     女性:1
@@ -12,10 +18,10 @@ class Profile < ApplicationRecord
     '半年後転職予定':2,
     '3ヶ月後転職予定':3,
     '1ヶ月後転職予定':4,
-    転職活動中:5,
-    業務委託契約希望:6,
-    在職中:7,
-    その他:8
+    '転職活動中':5,
+    '業務委託契約希望':6,
+    '在職中':7,
+    'その他':8
   }, _prefix: true
   enum address:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

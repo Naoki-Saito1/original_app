@@ -2,7 +2,7 @@
 <h1>Profiles</h1>
 <%= search_form_for @q do |f| %>
   <%= f.label :detail %>
-  <%= f.select :status_eq, Profile.statuses.keys.to_a, { include_blank:'選択してください'} %>
+  <%= f.select :status_eq, Profile.statuses_i18n.invert.map{|key, value| [key, Profile.statuses[value]]}, { include_blank: '指定なし' }%>
   <%= f.submit "検索" %>
 <% end %>
 
