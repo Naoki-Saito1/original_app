@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+  <span class="hissu">*</span>
     <%= form.label :portfolio_title %>
     <%= form.text_field :portfolio_title %>
   </div>
@@ -53,6 +54,7 @@
 
 
  <div class="field">
+ <span class="hissu">*</span>
     <%= form.label :portfolio_body %>
     <%= form.text_area :portfolio_body %>
   </div>
@@ -67,18 +69,24 @@
     <%= form.label :portfolio_language %>
     <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください'} %>
   </div>
+<p>(制作に使用したスキルやフレームワーク等)</p>
+
   <div class="field">
+   <%= link_to_add_association "追加ボタン", form, :frameworks%>
       <%= form.fields_for :frameworks do |t| %>
+      <% i += 1 %>
       <%= render "framework_fields", f: t %>
       <% end %>
-  <%= link_to_add_association "追加ボタン", form, :frameworks%>
     </div>
+
   <div class="field">
     <%= form.label :portfolio_github %>
     <%= form.text_field :portfolio_github %>
   </div>
 
   <div class="field">
+
+  <span class="hissu">*</span>
     <%= form.label :portfolio_url %>
     <%= form.text_area :portfolio_url %>
   </div>
