@@ -6,6 +6,8 @@ validates :name, presence: true
   validates :address, presence: true
 
 ====================================
+Portfolio.portfolio_languages.keys.to_a, { include_blank:'選択してください'} %>
+
 if params[:q]["framework_name_cont"].empty?["portfolio_language_eq"]
   <%= form_with url: tasks_path,scope: :task, method: :get, local: true do |search| %>
 ....................................

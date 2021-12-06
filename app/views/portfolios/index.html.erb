@@ -5,7 +5,8 @@
 <%= search_form_for @q do |f| %>
 
   <%= f.label :主な言語 %>
-  <%= f.select :portfolio_language_eq, Portfolio.portfolio_languages.keys.to_a, { include_blank:'選択してください'} %>
+  <%= f.select :portfolio_language_eq, Portfolio.portfolio_languages_i18n.invert.map{|key, value| [key, Portfolio.portfolio_languages[value]]}, { include_blank:'指定なし' } %>
+
 
   <%= f.label :framework_name, "キーワード検索" %>
   <%= f.search_field :frameworks_framework_name_cont %>
