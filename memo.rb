@@ -6,7 +6,8 @@ validates :name, presence: true
   validates :address, presence: true
 
 ====================================
-
+if params[:q]["framework_name_cont"].empty?["portfolio_language_eq"]
+  <%= form_with url: tasks_path,scope: :task, method: :get, local: true do |search| %>
 ....................................
 <div class="container">
   <div class="row">

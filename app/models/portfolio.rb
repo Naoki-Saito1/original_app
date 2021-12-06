@@ -12,7 +12,10 @@ class Portfolio < ApplicationRecord
   validates :portfolio_body, length: { maximum: 1500 }
   validates :portfolio_url, format: /\A#{URI::regexp(%w(http https))}\z/
   validates :portfolio_github, format: /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
-  
+  scope :portfolio_language, -> (hoge){where(portfolio_language: hoge)} 
+  def self.ransackable_scopes(auth_object = nil)
+    %i(portfolio_language)
+  end
   enum portfolio_language:{
     Java:0,
     JavaScript:1,

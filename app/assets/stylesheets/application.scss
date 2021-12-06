@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
-
+ .pagination{
+   margin-top: 50px;
+   justify-content: center;
+ }
+ 
 li{
   list-style-type: none ;
 }

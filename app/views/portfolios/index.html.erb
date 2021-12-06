@@ -1,12 +1,20 @@
 
 <h1><%= link_to "ポートフォリオ", portfolios_path %></h1>
+
+
 <%= search_form_for @q do |f| %>
+
+  <%= f.label :主な言語 %>
+  <%= f.select :portfolio_language_eq, Portfolio.portfolio_languages.keys.to_a, { include_blank:'選択してください'} %>
+
   <%= f.label :framework_name, "キーワード検索" %>
   <%= f.search_field :frameworks_framework_name_cont %>
   <%= f.submit "検索" %>
 <% end %>
-<%= sort_link(@q, :created_at, "新規順") %>
-<%= link_to 'いいね', portfolios_path(hoge: true) %>
+
+
+<%= sort_link(@q, :created_at, "新規順並び変え") %>
+<%= link_to 'いいね多い順', portfolios_path(hoge: true) %>
 
 
 
@@ -57,6 +65,9 @@
   </div>
   
 </div>
-<%= paginate (@portfolios) %>
+<% unless params[:hoge] == "true"  %>
+  <%= paginate (@portfolios) %>
+<% end %>
+
 
 

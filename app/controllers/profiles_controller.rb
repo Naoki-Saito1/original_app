@@ -2,9 +2,10 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   def index
-    @profiles = Profile.all.page(params[:page]).per(9)
+    @profiles = Profile.all
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true)
+    @profiles = @q.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(9)
+   
   end
 
   def show
