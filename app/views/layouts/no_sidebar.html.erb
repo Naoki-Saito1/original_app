@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OriginalApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+<header id="header">
+  <%= render 'shared/layout/header' %>
+  <%= render 'shared/layout/message' %>  
+</header>
+
+<script>
+  $(function() {
+  var height=$("#header").height();
+  $("body").css("margin-top", height + 30);//10pxだけ余裕をもたせる
+});
+</script>
+
+  <div class="row">
+   
+    <div class="col-3">
+      <div id="sidebar_nil">
+     
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="main-wrapper">
+      <%= yield %>
+      </div>
+    </div>
+  </div>
+<div class="nil"></div>
+
+ <%= render 'shared/layout/footer' %>
+
+ 
+  </body>
+
+</html>

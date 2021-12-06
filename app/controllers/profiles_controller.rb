@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    render layout: "no_sidebar"
   end
 
   def edit
