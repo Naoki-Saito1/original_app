@@ -114,12 +114,161 @@ profile5 = user5.build_profile(
 )
 profile5.save
 
+# portfolios
+
 portfolio1 = Portfolio.create!(
-  portfolio_title: "テスト"
-  portfolio_body: "テスト"
-  portfolio_language: "テスト"
-  portfolio_github: "テスト"
-  portfolio_url: "テスト"
-  user_id: "テスト"
+  portfolio_title: "テスト1"
+  portfolio_body: "初めましてよろしくお願い致します。これはテストです"
+  portfolio_language: " Java"
+  portfolio_github: 'https://github.com/'
+  portfolio_url: 'https://www.google.com/'
+  user_id: user1.id
   
+)
+portfolio2 = Portfolio.create!(
+  portfolio_title: "テスト2"
+  portfolio_body: "初めましてよろしくお願い致します。これはテストです"
+  portfolio_language: " JavaScript"
+  portfolio_github: 'https://github.com/'
+  portfolio_url: 'https://www.google.com/'
+  user_id: user2.id
+  
+)
+portfolio3 = Portfolio.create!(
+  portfolio_title: "テスト3"
+  portfolio_body: "初めましてよろしくお願い致します。これはテストです"
+  portfolio_language: "Ruby"
+  portfolio_github: 'https://github.com/'
+  portfolio_url: 'https://www.google.com/'
+  user_id: user3.id
+  
+)
+portfolio4 = Portfolio.create!(
+  portfolio_title: "テスト4"
+  portfolio_body: "初めましてよろしくお願い致します。これはテストです"
+  portfolio_language: "Kotlin"
+  portfolio_github: 'https://github.com/'
+  portfolio_url: 'https://www.google.com/'
+  user_id: user4.id
+  
+)
+portfolio5 = Portfolio.create!(
+  portfolio_title: "テスト5"
+  portfolio_body: "初めましてよろしくお願い致します。これはテストです"
+  portfolio_language: "C++"
+  portfolio_github: 'https://github.com/'
+  portfolio_url: 'https://www.google.com/'
+  user_id: user5.id
+  
+)
+
+portfolio1.frameworks.create(
+  framework_name: 'css'
+  portfolio_id: portfolio1.id
+)
+portfolio1.frameworks.create(
+  framework_name: 'html'
+  portfolio_id: portfolio2.id
+)
+portfolio1.frameworks.create(
+  framework_name: 'devise'
+  portfolio_id: portfolio3.id
+)
+portfolio1.frameworks.create(
+  framework_name: 'bootstrap'
+  portfolio_id: portfolio4.id
+)
+portfolio1.frameworks.create(
+  framework_name: 'jquery'
+  portfolio_id: portfolio5.id
+)
+
+# favorite
+Favorite.create!(
+  user_id: user1.id,
+  portfolio_id: portfolio1.id,
+)
+
+Favorite.create!(
+  user_id: user2.id,
+  portfolio_id: portfolio2.id,
+)
+
+Favorite.create!(
+  user_id: user4.id,
+  portfolio_id: portfolio2.id,
+)
+
+Favorite.create!(
+  user_id: user5.id,
+  portfolio_id: portfolio2.id,
+)
+
+Favorite.create!(
+  user_id: user1.id,
+  portfolio_id: portfolio4.id,
+)
+
+
+# conversation
+
+conversation1 = conversation.create!(
+  sender_id: user1.id,
+  recipient_id: user2.id,
+)
+
+conversation2 = conversation.create!(
+  sender_id: user3.id,
+  recipient_id: user4.id,
+)
+
+conversation3 = conversation.create!(
+  sender_id: user1.id,
+  recipient_id: user3.id,
+)
+
+conversation4 = conversation.create!(
+  sender_id: user2.id,
+  recipient_id: user4.id,
+)
+
+conversation5 = conversation.create!(
+  sender_id: user1.id,
+  recipient_id: user5.id,
+)
+
+# message
+Message.create!(
+  message_body: "こんにちは",
+  conversation_id: conversation1.id,
+  user_id: user1.id,
+  read: true,
+)
+
+Message.create!(
+  message_body: "はじめまして！",
+  conversation_id: conversation1.id,
+  user_id: user2.id,
+  read: false,
+)
+
+Message.create!(
+  message_body: "ありがとうございました！",
+  conversation_id: conversation2.id,
+  user_id: user3.id,
+  read: true,
+)
+
+Message.create!(
+  message_body: "使いづらいですね",
+  conversation_id: conversation2.id,
+  user_id: user4.id,
+  read: true,
+)
+
+Message.create!(
+  message_body: "よろしくお願い致します",
+  conversation_id: conversation2.id,
+  user_id: user3.id,
+  read: false,
 )
