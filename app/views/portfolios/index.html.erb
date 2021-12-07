@@ -14,12 +14,12 @@
 <% end %>
 
 
-<%= sort_link(@q, :created_at, "新規順並び変え") %>
+<h5><%= sort_link(@q, :created_at, "新規順並び変え") %></h5>
 <%# <%= link_to 'いいね多い順', portfolios_path(hoge: true) %> 
 
 
 
-
+<h5><span class="name">*詳細を見るには画像をクリックしてください*</span></h5>
 
 <div class="container">
   <div class="row">
@@ -33,7 +33,7 @@
        <% if portfolio.portfolio_image.url.present? %>
           <%= link_to image_tag(portfolio.portfolio_image.url, size: '320x200', class: "card-img-top"), portfolio %>
        <% else %>
-          <%= link_to image_tag(asset_path("no_image.jpg"), size: '320x200', class: "card-img-top"), portfolio %>
+          <%= link_to image_tag(asset_path("no_image.png"), size: '320x200', class: "card-img-top"), portfolio %>
        <% end %>
       </div>
         
@@ -58,7 +58,9 @@
      </div>
      <div class="p-like">
        <p>お気に入り数<%= portfolio.favorites.count %></p>
+       
      </div>
+     
     </div>
 
       </div>
