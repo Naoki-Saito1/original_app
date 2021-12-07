@@ -3,9 +3,13 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   def index
-    @profiles = Profile.all
-    @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(9)
+    if current_user.try(:admin?)
+      @profiles = Profile.all
+      @q = Profile.ransack(params[:q])
+      @profiles = @q.result(distinct: true).order(created_at: "DESC").page(params[:page]).per(9)
+    else
+      redirect_to portfolios_path, notice: '企業様専用です'
+    end
    
   end
 
