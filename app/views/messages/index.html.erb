@@ -1,32 +1,51 @@
+<script>
+'use strict';
+ window.onload = () => {
+ 
+    add.onclick = () => {
+      // クラスを全て編集
+      add.main = "bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white py-2 px-4 rounded-full mb-3 mt-4" ;
+    };
+ 
+  }
+ 
+</script>
+
+
 <div class="container">
   <div class="row messages">
     <div class="col-md-6 message-users">
     
-    <h2>メッセージ一覧</h2>
-        <ul>
-          <% @conversations.each do |conversation| %>
-            <% if conversation.target_user(current_user).present? %>
-              <li class="talking_user">
-
-                <%= link_to conversation_messages_path(conversation) do %>
-                  <% if conversation.target_user(current_user).profile.image? %>
-                    <%= image_tag conversation.target_user(current_user).profile.image.url %>
-                  <% else %>
-                    <%= image_tag asset_path("no_image.png") %>
-                  <% end %>
-                  <%= conversation.target_user(current_user).profile.name %>
+          
+          <h2>メッセージ一覧</h2>
+              <ul>
+                <% @conversations.each do |conversation| %>
                   
-                <% end %>
+                  <% if conversation.target_user(current_user).present? %>
+                    <li class="talking_user">
 
-              </li>  
-              <% end %>
-            <% end %>
-         
-        </ul>
-    </div>  
+                      <%= link_to conversation_messages_path(conversation) do %>
+                      <h2 class="main"><%= conversation.target_user(current_user).profile.name %></h2>
+                        <% if conversation.target_user(current_user).profile.image? %>
+                          <%= image_tag conversation.target_user(current_user).profile.image.url, size: '200x200' %>
+                        <% else %>
+                          <%= image_tag asset_path("no_image.png"), size: '200x200' %>
+                        <% end %>
+                        
+                      <% end %>
 
+                    </li>  
+                    <% end %>
+                  <% end %>
+                
+              </ul>
+          </div>  
+          
+   
+    
+   
           <div class="col-md-6 message-form">
-            
+            <h3><%= "#{@recipient.profile.name}&#{@sender.profile.name}" %>の部屋</h3><br>
             <% if @over_ten %>
               <%= link_to '以前のメッセージ', '?m=all' %>
             <% end %>
@@ -61,6 +80,6 @@
             <% end %>
 
           </div> 
-     
+  
     </div> 
 </div>

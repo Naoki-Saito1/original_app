@@ -19,6 +19,8 @@ class MessagesController < ApplicationController
     end
     @messages = @messages.order(:created_at)
     @message = @conversation.messages.build
+    @recipient = User.find(Conversation.find(params[:conversation_id]).recipient_id)
+    @sender = User.find(Conversation.find(params[:conversation_id]).sender_id)
   end
   def create
     @message = @conversation.messages.build(message_params)

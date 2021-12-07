@@ -1,14 +1,31 @@
-<table class="table table-hover">
-  <thead>
+
+
+<div class="container">
+  <div class="row messages">
+    <div class="col-md-6 message-users">
+    
     <h2>メッセージ一覧</h2>
-  </thead>
-  <tbody>
-    <% @conversations.each do |conversation| %>
-      <td>
-        <% if conversation.target_user(current_user).present? %>
-          <%= link_to conversation.target_user(current_user).profile.name, conversation_messages_path(conversation)%>
-        <% end %>
-      </td>
-    <% end %>
-  </tbody>
-</table>
+        <ul>
+          <% @conversations.each do |conversation| %>
+           
+            <% if conversation.target_user(current_user).present? %>
+              <li class="talking_user">
+
+                <%= link_to conversation_messages_path(conversation) do %>
+                <h2><%= conversation.target_user(current_user).profile.name %></h2>
+                  <% if conversation.target_user(current_user).profile.image? %>
+                    <%= image_tag conversation.target_user(current_user).profile.image.url, size: '200x200' %>
+                  <% else %>
+                    <%= image_tag asset_path("no_image.png"), size: '200x200' %>
+                  <% end %>
+                  
+                <% end %>
+
+              </li>  
+              <% end %>
+            <% end %>
+         
+        </ul>
+    </div>  
+   </div> 
+</div>

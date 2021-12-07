@@ -16,7 +16,9 @@
 
 
 // ここからしたはshow
-
+element .style{
+margin-top: 0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +33,7 @@ body {
   background-size: cover;
   color: #fdfdfd;
   min-height: 900px;
+  margin-top: 0;
 }
 .show-main {
   max-width: 775px;
