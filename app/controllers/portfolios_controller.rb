@@ -37,7 +37,7 @@ class PortfoliosController < ApplicationController
     @portfolio.user_id = current_user.id
     respond_to do |format|
       if @portfolio.save
-        format.html { redirect_to @portfolio, notice: "Portfolio was successfully created." }
+        format.html { redirect_to @portfolio, notice: "新規投稿しました！" }
         format.json { render :show, status: :created, location: @portfolio }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class PortfoliosController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio.update(portfolio_params)
-        format.html { redirect_to @portfolio, notice: "Portfolio was successfully updated." }
+        format.html { redirect_to @portfolio, notice: "投稿を更新しました" }
         format.json { render :show, status: :ok, location: @portfolio }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -8,7 +8,7 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
     @link.profile_id = current_user.profile.id
     if @link.save
-      redirect_to profile_path(current_user.profile.id)
+      redirect_to profile_path(current_user.profile.id),notice: '登録しました'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class LinksController < ApplicationController
   def update
      @link = Link.find(params[:id])
      if @link.update(link_params)
-      redirect_to profile_path(current_user.profile.id)
+      redirect_to profile_path(current_user.profile.id),notice: '更新しました'
      else
       render :edit
      end
