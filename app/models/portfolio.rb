@@ -17,18 +17,19 @@ class Portfolio < ApplicationRecord
     %i(portfolio_language)
   end
   enum portfolio_language:{
-    Java:0,
-    JavaScript:1,
-    PHP:2,
-    Python:3,
-    Ruby:4,
-    C:5,
-    'C++':6,
-    'C#':7,
-    Kotlin:8,
-    Swift:9,
-    Go:10,
-    その他:11
+    'HTML.CSS':1,
+    Java:2,
+    JavaScript:3,
+    PHP:4,
+    Python:5,
+    Ruby:6,
+    C:7,
+   'C++':8,
+   'C#':9,
+    Kotlin:10,
+    Swift:11,
+    Go:12,
+    その他:13
 
   }
   

@@ -26,6 +26,6 @@ ja:
         portfolio_language: 開発言語
         portfolio_github: Github
         portfolio_url: 制作ページのURL
-      framework:
-        framework_name: フレームワーク  
+      frameworks:
+        framework_name: フレームワーク名  
         
