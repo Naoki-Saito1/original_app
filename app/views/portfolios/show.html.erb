@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+
+    <div class="col-md-8">
       <div class="pf-body">
         <div class="pf-image">
           <% if @portfolio.portfolio_image? %>
@@ -50,7 +51,67 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
+
+
+
+
+  
+
+    <div class="col-md-4 prof-card-height">
+    <% if @portfolio.user.id != current_user.id %>
+    <h2 class="comment">投稿者</h2>
+     <div class="card show-main">
+
+        <div class="card-header pf-prof-header">
+          <% if @portfolio.user.profile.image? %>
+          <%= image_tag @portfolio.user.profile.image.url,class: "pf-profile-img" %>
+          <% else %>
+          <%= image_tag asset_path("no_image.jpg"), class: "pf-profile-img" %>
+          <% end %>  
+        </div>
+        <div class="card-body show-body">
+          <p class="name"><%= @portfolio.user.profile.name %></p>
+            
+          <p class="job">
+            <% if  @portfolio.user.profile.gender_check == true  %>
+              性別非公開/
+            <% else %>
+              <%= @portfolio.user.profile.gender if  @portfolio.user.profile.gender.present?%>/
+            <% end %>
+            <% if  @portfolio.user.profile.birth_date_check == true %>
+              年齢非公開/
+            <% elsif @portfolio.user.profile.birth_date.present? %>
+               <%= (Date.today.strftime('%Y%m%d').to_i - @portfolio.user.profile.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳/ 
+            <% end %>
+            <% if @portfolio.user.profile.address_check == true %>
+              居住地非公開
+            <% else %>
+              <%= @portfolio.user.profile.address if @portfolio.user.profile.address.present? %>
+            <% end %>
+          </p>
+         <br><br>
+          <%= link_to '詳細', profile_path(@portfolio.user.profile.id),class:"btn btn-outline-danger btn-lg"%>
+        </div>
+     
+          <div class="social-links">
+       
+         
+          </div>
+              
+        <div class="card-footer">
+       <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @portfolio.user.profile.user.id), method: :post,class:"btn btn-outline-dark btn-sm" %>
+           
+        </div>
+
+
+      </div>
+      <% else %>
+  <h3>投稿者は自分</h3>
+ <% end %>
+    </div>
+    
+
+  </div>
+ </div>
 
