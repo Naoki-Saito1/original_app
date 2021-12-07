@@ -15,18 +15,23 @@
 #   )
 # end
 
+# admin
 
 admin = User.create!(
   email: "test1@test.com",
-  password:  "111111",
+  password:  "123456",
   admin: true
 )
-
+admin = User.create!(
+  email: "test1@test.com",
+  password:  "123456",
+  admin: true
+)
+# user
 user1 = User.create!(
     email: "test1@test.com",
     password:  "111111"
   )
-
 
 user2 = User.create!(
   email: "test2@test.com",
