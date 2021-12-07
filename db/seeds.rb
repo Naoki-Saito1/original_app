@@ -27,6 +27,7 @@ admin = User.create!(
   password:  "123456",
   admin: true
 )
+
 # user
 user1 = User.create!(
     email: "test1@test.com",
