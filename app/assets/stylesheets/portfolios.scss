@@ -83,3 +83,27 @@
 .framework li{
   font-size: 1rem;
 }
+// ここからプロフカード
+
+.prof-card-height{
+  height: 300px;
+  width: 300px;
+}
+.pf-profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 1000px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #000000;
+  box-shadow: 0 0 20px #00000033;
+}
+// .card-body .pf-prof-body{
+//  padding: 30px 20px;
+// }
+// .pf-prof-body p{
+// font-size: 20px;
+// }
+
+// ここまで

@@ -8,6 +8,10 @@
       <li><%= link_to 'ポートフォリオ一覧', portfolios_path %></li>
       <li><%= link_to 'いいね 一覧', portfolio_favorites_path(current_user.portfolios) %></li>
       <li><%= link_to 'メッセージ', conversations_path %></li>
+      <li> <% if current_user && current_user.try(:admin?) %>
+            <%= link_to '管理者ページ', rails_admin_path  %>
+         
+            <% end %></li>
     </ul>
   </div>
 </div>
