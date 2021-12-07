@@ -14,11 +14,12 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    if current_user.nil?
-      @profile = Profile.new
-    render layout: "no_sidebar"
-    else
+    # binding.irb
+    if current_user.profile.present?
       redirect_to profile_path(current_user.profile.id)
+    else
+      @profile = Profile.new
+      render layout: "no_sidebar"
     end
   end
 

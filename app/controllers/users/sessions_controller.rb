@@ -10,6 +10,7 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in_admin
     user = User.guest_admin
     sign_in user, notice: 'ゲストユーザー(管理者)としてログインしました。'
+    redirect_to new_profile_path, notice: 'ゲストユーザー(管理者)としてログインしました。'
   end
   # GET /resource/sign_in
   def new

@@ -25,7 +25,7 @@
     <% if portfolio.portfolio_image? %>
       <%= image_tag portfolio.portfolio_image.url, alt: "post-image", id: "img_prev", size: "100" %>
     <% else %>
-      <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "100" %>
+      <%= image_tag "no_image.png", alt: "post-image", id: :img_prev, size: "100" %>
     <% end %>
   </div>
     <%= form.label :portfolio_image %>

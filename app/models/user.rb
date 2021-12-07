@@ -12,8 +12,8 @@ class User < ApplicationRecord
     end
   end
   def self.guest_admin
-    find_or_create_by(email: 'guest_admin@gmail.com') do |user|
-      user.password = 000000
+    find_or_create_by(email: 'admin_guest@gmail.com') do |user|
+      user.password = 999999
       user.admin = true
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
