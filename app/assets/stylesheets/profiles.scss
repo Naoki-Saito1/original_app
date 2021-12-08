@@ -30,19 +30,12 @@ margin-top: 0;
   transition: 0.3s;
 }
 
-body {
-  font-family: "Montserrat";
-  background-image: image-url('haikei2.png');
-  background-size: cover;
-  color: #fdfdfd;
-  min-height: 900px;
-  margin-top: 0;
-}
+
 .show-main {
   max-width: 775px;
   min-height: 575px;
   margin: 150px auto 0;
-  background-color: #42515a;
+  
   box-shadow: 0 10px 90px #00000024;
   text-align: center;
   font-size: 17px;

@@ -7,7 +7,7 @@
           <% if @portfolio.portfolio_image? %>
             <%= image_tag @portfolio.portfolio_image.url, size: '450x250' %>
           <% else %>
-            <%= image_tag asset_path("no_image.jpg"), size: '450x250'  %>
+            <%= image_tag asset_path("no_image.png"), size: '450x250'  %>
           <% end %>
         </div>
         <div class="pf-content">
@@ -29,11 +29,15 @@
             <strong>開発した経緯など:</strong>
             <%= @portfolio.portfolio_body %>
           </p>
-          <p>
+          
+          <% if @portfolio.portfolio_github.present? %>
+            <p>
             <strong>Github:</strong>
             <%= link_to @portfolio.portfolio_github, target: :_blank, rel: "noopener noreferrer" do %><i class="fab fa-github social-icon"></i>
             <% end %>
           </p>
+          <% end %>
+          
 
           <p>
             <strong>実際の作品-></strong>

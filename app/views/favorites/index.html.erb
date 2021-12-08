@@ -15,9 +15,9 @@
 
        <div class="p-image">
         <% if fav.portfolio.portfolio_image.url.present? %>
-          <%= link_to image_tag(fav.portfolio.portfolio_image.url, size: '320x200', class: "card-img-top") %>
+          <%= link_to image_tag(fav.portfolio.portfolio_image.url, size: '320x200', class: "card-img-top"), portfolio_path(fav.portfolio.id) %>
         <% else %>
-          <%= link_to image_tag(asset_path("no_image.jpg"), size: '320x200', class: "card-img-top") %>
+          <%= link_to image_tag(asset_path("no_image.png"), size: '320x200', class: "card-img-top"), portfolio_path(fav.portfolio.id) %>
         <% end %>
       </div>
         

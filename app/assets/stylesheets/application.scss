@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ body {
+  font-family: "Montserrat";
+  background-image: image-url('haikei2.png');
+  background-size: cover;
+  color: #030303;
+  min-height: 900px;
+  margin-top: 0;
+}
+
  .pagination{
    margin-top: 50px;
    justify-content: center;
