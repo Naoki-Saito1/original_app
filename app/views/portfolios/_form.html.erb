@@ -1,7 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 <%= form_with(model: portfolio, local: true) do |form| %>
   <% if portfolio.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+      <h2><%= pluralize(portfolio.errors.count, "件") %> のエラーがあります入力内容を確認してください</h2>
 
       <ul>
         <% portfolio.errors.full_messages.each do |message| %>
@@ -13,8 +16,8 @@
 
   <div class="field">
   <span class="hissu">*</span>
-    <%= form.label :portfolio_title %>
-    <%= form.text_field :portfolio_title %>
+    <%= form.label :portfolio_title %><br>
+    <%= form.text_field :portfolio_title, placeholder: "40字以内", class: "form-control-lg" %>
   </div>
 
  
@@ -56,11 +59,11 @@
  <div class="field">
  <span class="hissu">*</span>
     <%= form.label :portfolio_body %>
-    <%= form.text_area :portfolio_body %>
+    <%= form.text_area :portfolio_body, placeholder: "1000字以内", class: "body-height" %>
   </div>
+</div>
 
-
-
+<div class="col-md-6">
 
 
 
@@ -76,24 +79,27 @@
       <%= form.fields_for :frameworks do |t| %>
       <%= render "framework_fields", f: t %>
       <% end %>
-      <%= link_to_add_association "追加ボタン", form, :frameworks%>
+      <%= link_to_add_association "追加ボタン", form, :frameworks,class: "btn btn-dark btn-sm"%>
     </div>
      
    
 
   <div class="field">
-    <%= form.label :portfolio_github %>
-    <%= form.text_field :portfolio_github %>
+    <%= form.label :portfolio_github %><br>
+    <%= form.text_field :portfolio_github, placeholder: "任意" %>
   </div>
 
   <div class="field">
 
   <span class="hissu">*</span>
-    <%= form.label :portfolio_url %>
-    <%= form.text_area :portfolio_url %>
+    <%= form.label :portfolio_url %><br>
+    <%= form.text_area :portfolio_url, placeholder: "URL" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '作成', class: "button"%>
   </div>
 <% end %>
+</div>
+  </div>
+</div>

@@ -1,7 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 <%= form_with(model: profile, local: true) do |form| %>
   <% if profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <h2><%= pluralize(profile.errors.count, "件") %> のエラーがあります確認してください</h2>
 
       <ul>
         <% profile.errors.full_messages.each do |message| %>
@@ -15,12 +18,12 @@
 <div class="field">
   <div class="post-image-prev">
     <% if profile.image? %>
-      <%= image_tag profile.image.url, alt: "post-image", id: "img_prev", size: "100" %>
+      <%= image_tag profile.image.url, alt: "post-image", id: "img_prev", size: "120" %>
     <% else %>
-      <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "100" %>
+      <%= image_tag "no_image.png", alt: "post-image", id: :img_prev, size: "120" %>
     <% end %>
   </div>
-    <%= form.label :image %>
+    <%= form.label :image %><br>
     <%= form.hidden_field :icon_cache %>
     <%= form.file_field :image, assets: 'image/jpeg, image/gif, image/png', id: "user_img" %>
  
@@ -45,15 +48,23 @@
 
   <div class="field">
   <span class="hissu">*</span>
-    <%= form.label :name, class: "required"%>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "required"%><br>
+    <%= form.text_field :name, placeholder: "25字以内" %>
   </div>
 
-   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+   <div class="field ">
+    <%= form.label :body %><br>
+    <%= form.text_area :body, placeholder: "1000字以内", class: "prof-body-field" %>
   </div><br>
- <p>*ここから下は任意です転職活動もされるかたは積極的に入力してください</p>
+  </div>
+
+
+
+
+  <div class="col-md-6">
+  <div class="alert alert-danger" role="alert">
+ <p>*ここから下は任意です転職活動もされるかたは積極的に入力してください。<br>(非公開設定にチェックすると一般には公開されなくなります)</p>
+ </div>
  <p>性別</p>
 <div class="gender">
   
@@ -76,7 +87,7 @@
  
 
   <div class="field">
-    <%= form.label :birth_date%>
+    <%= form.label :birth_date%><br>
     <%= form.date_select :birth_date, { 
                   start_year:Time.now.year-60,
                   end_year:Time.now.year-15,
@@ -87,20 +98,20 @@
 
 
   <div class="field">
-    <%= form.label :address %>
+    <%= form.label :address %><br>
     <%= form.select :address, Profile.addresses.keys.to_a,{prompt:"選択してください"}  %>
     <%= form.check_box :address_check, address_check: true%>
     <%= form.label :非公開設定%>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
+    <%= form.label :status %><br>
     <%= form.select :status, Profile.statuses.keys.to_a,{prompt:"選択してください"} %>
   </div>
 
   <div class="field">
-    <%= form.label :detail %>
-    <%= form.text_field :detail %>
+    <%= form.label :detail %><br>
+    <%= form.text_field :detail, placeholder: "例:現在プログラミングスクールに通っていますなど..", class: "form-control"%>
   </div>
 
 
@@ -109,3 +120,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+</div>
