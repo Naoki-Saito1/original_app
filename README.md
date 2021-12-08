@@ -15,16 +15,19 @@
 - 'rails', '~> 6.0.3'
 - 'webpacker', '~> 4.0'
 - node 14.18.0
-- DB: postgresql
+
 
 ## 主な機能
 
-- AWS EC2
+- メッセージ機能
 - お気に入り機能
 
 ## カリキュラム外
 
-- 'twitter'連携
+
+- ransack
+- cocoon
+- enum_help
 ## 使用Gem
 
 
@@ -37,11 +40,6 @@
 - kaminari 
 
 
-
-## カリキュラム意外
-
-- font-awesome-sass
-- ransack
 ## 実行手順
 
 ````
@@ -71,9 +69,10 @@ https://docs.google.com/spreadsheets/d/1fFOKT0A35OePBsl609Y039-jgdmeZTdP5x_5raZ8
 
 ## 画面遷移図
 
-![image](https://user-images.githubusercontent.com/84219791/142912274-8d2e4391-1f01-41cb-bfe4-6e6415616459.png)
+<img width="856" alt="スクリーンショット 2021-12-08 13 52 56" src="https://user-images.githubusercontent.com/84219791/145151786-c01d8c32-4c30-47c2-846d-52f93c8191b8.png">
+
 
 
 ## ワイヤーフレーム
 
-![image](https://user-images.githubusercontent.com/84219791/143213004-622473f4-2bc4-437c-8acd-c6df9be4f25f.png)
+<img width="1289" alt="スクリーンショット 2021-12-08 13 36 59" src="https://user-images.githubusercontent.com/84219791/145151832-57be87f2-e4d8-45cc-ad2a-3e6a544701a8.png">
