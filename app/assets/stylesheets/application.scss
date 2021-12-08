@@ -18,7 +18,7 @@
   background-image: image-url('haikei2.png');
   background-size: cover;
   color: #030303;
-  min-height: 900px;
+  min-height: 850px;
   margin-top: 0;
 }
 
@@ -57,14 +57,15 @@ a{
 
 /* サイドバー */
 #sidebar_fixed {
-  background-color: rgb(44, 44, 44);
+  background-image: image-url('sidebar.png');
   width: 20%;
   position: fixed;
   top: 130px;
   left: 35px;
   height: 550px; 
-  
+  padding-top: 60px;
 }
+
 .sidebar-inner{
   text-align: center;
   align-items: center;

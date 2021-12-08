@@ -8,8 +8,8 @@ class Portfolio < ApplicationRecord
   validates :portfolio_title, presence: true
   validates :portfolio_body, presence: true  
   validates :portfolio_url, presence: true
-  validates :portfolio_title, length: { maximum: 80 }
-  validates :portfolio_body, length: { maximum: 1500 }
+  validates :portfolio_title, length: { maximum: 40 }
+  validates :portfolio_body, length: { maximum: 1000 }
   validates :portfolio_url, format: /\A#{URI::regexp(%w(http https))}\z/
   validates :portfolio_github, format: /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
   scope :portfolio_language, -> (hoge){where(portfolio_language: hoge)} 

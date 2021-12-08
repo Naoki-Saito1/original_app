@@ -18,10 +18,39 @@
 
 // home
 .top-wrapper{
-  background-image: image-url('haikei.jpg');
+  background-image: image-url('top1.png');
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 100vh;
+
  
 }
+
+
+
+// home
+.top-top{
+  position: sticky;
+  top: 200px;
+  left: 850px;
+  height: 500px;
+  width: 500px;
+}
+.title h1{
+  color: aliceblue;
+  font-size: 2.2rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+.top-content p{
+  color: aliceblue;
+  width: 410px;
+  font-family: 'Times New Roman', Times, serif;
+  
+  
+}
+.description{
+  
+  text-align: center;
+}
+// home
