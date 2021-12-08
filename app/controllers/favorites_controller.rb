@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :portfolio_params, only: %i[ create destroy ]
   def index
     @favorites = current_user.favorites.all
-    # binding.irb
+  
   end
 
   def create
