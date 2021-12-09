@@ -3,13 +3,13 @@
 <div id="main-sidebar">
   <div class="sidebar-inner">
     <ul>
-      <li><%= link_to 'マイページ', profile_path(current_user.profile.id) if current_user.profile.present? %></li>
-      <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path %></li>
-      <li><%= link_to 'ポートフォリオ一覧', portfolios_path %></li>
-      <li><%= link_to 'いいね 一覧', portfolio_favorites_path(current_user.portfolios) %></li>
-      <li><%= link_to 'メッセージ', conversations_path %></li>
+      <li><%= link_to 'マイページ', profile_path(current_user.profile.id), data: {"turbolinks"=>false}  if current_user.profile.present? %></li>
+      <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path, data: {"turbolinks"=>false} %></li>
+      <li><%= link_to 'ポートフォリオ一覧', portfolios_path, data: {"turbolinks"=>false}  %></li>
+      <li><%= link_to 'いいね 一覧', portfolio_favorites_path(current_user.portfolios), data: {"turbolinks"=>false}  %></li>
+      <li><%= link_to 'メッセージ', conversations_path, data: {"turbolinks"=>false} %></li>
       <li> <% if current_user && current_user.try(:admin?) %>
-            <%= link_to '管理者ページ', rails_admin_path  %>
+            <%= link_to '管理者ページ', rails_admin_path %>
          
             <% end %></li>
     </ul>

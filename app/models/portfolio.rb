@@ -10,9 +10,9 @@ class Portfolio < ApplicationRecord
   validates :portfolio_url, presence: true
   validates :portfolio_title, length: { maximum: 40 }
   validates :portfolio_body, length: { maximum: 1000 }
-  validates :portfolio_url, format: /\A#{URI::regexp(%w(http https))}\z/
+  validates :portfolio_url, format: { with: /\A#{URI::regexp(%w(http https))}\z/}, allow_blank: true
   validates :portfolio_github, format: /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
-  scope :portfolio_language, -> (hoge){where(portfolio_language: hoge)} 
+  # scope :portfolio_language, -> (hoge){where(portfolio_language: hoge)} 
   def self.ransackable_scopes(auth_object = nil)
     %i(portfolio_language)
   end
