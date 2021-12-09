@@ -42,7 +42,9 @@ class ProfilesController < ApplicationController
         format.json { render :show, status: :created, location: @profile }
       else
         # flash: @profile.errors.full_messages
-        format.html { redirect_to new_profile_path, notice: @profile.errors.full_messages }
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @portfolio.errors, status: :unprocessable_entity }
+        # format.html { redirect_to new_profile_path, notice: @profile.errors.full_messages }
       end
     end
   

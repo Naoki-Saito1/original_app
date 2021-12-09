@@ -72,7 +72,7 @@
     <%= form.label :portfolio_language %>
     <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください'} %>
   </div>
-<p>(<span class="hissu">*</span>制作に使用したスキルやフレームワーク等)</p>
+<p>(制作に使用したスキルやフレームワーク等)</p>
 
   <div class="field">
   
@@ -97,7 +97,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit '作成', class: "button"%>
+    <%= form.submit %>
   </div>
 <% end %>
 </div>
