@@ -12,11 +12,13 @@
               <li class="talking_user">
 
                 <%= link_to conversation_messages_path(conversation) do %>
+                <div class="conver-name">
                 <h2><%= conversation.target_user(current_user).profile.name %></h2>
+                </div>
                   <% if conversation.target_user(current_user).profile.image? %>
-                    <%= image_tag conversation.target_user(current_user).profile.image.url, size: '200x200' %>
+                    <%= image_tag conversation.target_user(current_user).profile.image.url, size: '200x200', data: {"turbolinks"=>false} %>
                   <% else %>
-                    <%= image_tag asset_path("no_image.png"), size: '200x200' %>
+                    <%= image_tag asset_path("no_image.png"), size: '200x200', data: {"turbolinks"=>false} %>
                   <% end %>
                   
                 <% end %>

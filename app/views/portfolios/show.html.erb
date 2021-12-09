@@ -45,7 +45,7 @@
 
           </p>
           <% if @portfolio.user_id == current_user.id %>
-              <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>
+              <%= link_to 'Edit', edit_portfolio_path(@portfolio), data: {"turbolinks"=>false} %>
               <%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% else %>
               <div id="likes_buttons<%= @portfolio.id %>">
