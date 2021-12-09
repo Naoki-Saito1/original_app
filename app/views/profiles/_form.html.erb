@@ -81,8 +81,9 @@
   </div>
   
   <div class="field">
-     <%= form.check_box :gender_check, gender_check: true%>
+    
     <%= form.label :非公開設定%>
+     <%= form.check_box :gender_check, gender_check: true%>
   </div>
 </div>
  
@@ -94,16 +95,18 @@
                   start_year:Time.now.year-60,
                   end_year:Time.now.year-15,
                   prompt:"選択してください"} %>
-                   <%= form.check_box :birth_date_check, birth_date_check: true%>
+                   
                     <%= form.label :非公開設定%>
+                    <%= form.check_box :birth_date_check, birth_date_check: true%>
   </div>
 
 
   <div class="field">
     <%= form.label :address %><br>
     <%= form.select :address, Profile.addresses.keys.to_a,{prompt:"選択してください"}  %>
-    <%= form.check_box :address_check, address_check: true%>
+    
     <%= form.label :非公開設定%>
+    <%= form.check_box :address_check, address_check: true%>
   </div>
 
   <div class="field">

@@ -11,13 +11,13 @@
      <%= f.fields_for :profile, @user.build_profile do |f| %>
  
       <%= f.label :name %><br>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザーネーム(25字以内)" %>
     </div>
   <% end %>
       <div class="box-email">
       
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
       </div>
 
       <div class="box-password">
@@ -29,14 +29,14 @@
             <% end %>
           </div>
         </div>
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "必須" %>
 
         <div class="a-row">
           <div class="column-left">
             <%= f.label :password_confirmation, class:"column" %>
           </div>
         </div>
-         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "必須" %>
       </div>
 
 
