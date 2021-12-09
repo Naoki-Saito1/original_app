@@ -19,7 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
-    
+    @user = User.new
+    @profile = @user.build_profile
   end
 
   # POST /resource
