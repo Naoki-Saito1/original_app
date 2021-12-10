@@ -10,13 +10,14 @@ RSpec.describe 'ユーザー登録テスト', type: :system do
     
 
     context 'ユーザーを新規登録' do
-      it '新規登録した場合、新規入力フォームに行く' do
+      it '新規登録した場合、マイページに遷移' do
         visit new_user_registration_path
+        fill_in "名前", with:'テスト太郎'
         fill_in "メールアドレス", with:'sample@gmail.com'
         fill_in "パスワード", with:'1111111'
         fill_in "パスワード（確認用）", with:'1111111'                
         click_on "新規作成"
-        expect(page).to have_content 'アカウント登録が完了しました。'
+        expect(page).to have_content 'マイページ'
       end
     end
  

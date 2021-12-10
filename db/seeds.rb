@@ -30,7 +30,6 @@ admin1 = User.create!(
 
 # user
 user1 = User.create!(
-    name: "プログラミンナ",
     email: "test1@test.com",
     password:  "111111"
   )
