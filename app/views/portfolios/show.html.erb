@@ -2,6 +2,7 @@
   <div class="row">
 
     <div class="col-md-8">
+    <h3 class="comment">投稿詳細画面</h3>
       <div class="pf-body">
         <div class="pf-image">
           <% if @portfolio.portfolio_image? %>
@@ -45,8 +46,8 @@
 
           </p>
           <% if @portfolio.user_id == current_user.id %>
-              <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>
-              <%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Edit', edit_portfolio_path(@portfolio),class: "btn btn-dark btn-sm", data: {"turbolinks"=>false} %>
+              <%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-dark btn-sm" %>
               <% else %>
               <div id="likes_buttons<%= @portfolio.id %>">
               <%= render partial: 'favorites/favorite', locals: { portfolio: @portfolio, favorite: @favorite} %>
@@ -64,7 +65,7 @@
 
     <div class="col-md-4 prof-card-height">
     <% if @portfolio.user.id != current_user.id %>
-    <h2 class="comment">投稿者</h2>
+    <h3 class="comment">投稿者プロフィール</h3>
      <div class="card show-main">
 
         <div class="card-header pf-prof-header">
@@ -94,17 +95,18 @@
               <%= @portfolio.user.profile.address if @portfolio.user.profile.address.present? %>
             <% end %>
           </p>
-         <br><br>
-          <%= link_to 'ユーザー詳細', profile_path(@portfolio.user.profile.id),class:"btn btn-outline-danger btn-lg"%>
+         <br>
+          <%= link_to 'ユーザー詳細', profile_path(@portfolio.user.profile.id),class:"btn btn-outline-danger btn-lg", data: {"turbolinks"=>false} %><br> <br>
+         <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @portfolio.user.profile.user.id), method: :post,class:"btn btn-outline-danger btn-lg", data: {"turbolinks"=>false} %>
         </div>
      
           <div class="social-links">
        
-         
+          
           </div>
               
         <div class="card-footer">
-       <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @portfolio.user.profile.user.id), method: :post,class:"btn btn-outline-dark btn-sm" %>
+       
            
         </div>
 

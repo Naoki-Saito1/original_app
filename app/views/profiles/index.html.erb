@@ -33,9 +33,9 @@
           <li><%= profile.status %></li>
           <li><%= profile.detail %></li>
           <li><%= profile.updated_at.strftime("%Y-%m-%d") %></li>
-           <td><%= link_to 'Show', profile %></td>
+           <td><%= link_to 'Show', profile, data: {"turbolinks"=>false} %></td>
           <% if profile.user_id == current_user.id || current_user.try(:admin?) %>
-          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+          <td><%= link_to 'Edit', edit_profile_path(profile), data: {"turbolinks"=>false} %></td>
           <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
            <% end %>
         </div> 

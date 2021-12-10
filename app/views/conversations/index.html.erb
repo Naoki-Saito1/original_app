@@ -12,11 +12,13 @@
               <li class="talking_user">
 
                 <%= link_to conversation_messages_path(conversation) do %>
+                <div class="conver-name">
                 <h2><%= conversation.target_user(current_user).profile.name %></h2>
+                </div>
                   <% if conversation.target_user(current_user).profile.image? %>
-                    <%= image_tag conversation.target_user(current_user).profile.image.url, size: '200x200' %>
+                    <%= image_tag conversation.target_user(current_user).profile.image.url, size: '200x200', data: {"turbolinks"=>false} %>
                   <% else %>
-                    <%= image_tag asset_path("no_image.png"), size: '200x200' %>
+                    <%= image_tag asset_path("no_image.png"), size: '200x200', data: {"turbolinks"=>false} %>
                   <% end %>
                   
                 <% end %>
@@ -27,5 +29,18 @@
          
         </ul>
     </div>  
+     <div class="col-md-6 message-users">
+     <h3>メッセージの送り方</h3>
+       <div class="message-info">
+          <ol class="message-padding">
+          <li class="message-padding">①画面左のメニューからポートフォリオ一覧をクリック</li>
+          <li class="message-padding">②気になるポートフォリオの画像をクリックする</li>
+          <li class="message-padding">③投稿詳細画面右側に投稿者のプロフィールが表示され<br><メッセージ>リンクをクリックする</li>
+          <li class="message-padding">④２人だけのトークルームが作成されます。</li>
+          </ol>
+     
+       </div>
+     </div> 
+
    </div> 
 </div>

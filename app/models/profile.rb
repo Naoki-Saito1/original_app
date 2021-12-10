@@ -10,8 +10,9 @@ class Profile < ApplicationRecord
   validates :body, length: { maximum: 1000 }
    # バリデーション
   enum gender:{
-    男性:0,
-    女性:1
+     " ":0,
+    女性:1,
+    男性:2
   }
   enum status:{
     '転職活動はしていない':1,

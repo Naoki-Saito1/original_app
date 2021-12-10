@@ -18,7 +18,7 @@
   background-image: image-url('haikei2.png');
   background-size: cover;
   color: #030303;
-  min-height: 850px;
+  min-height: 1000px;
   margin-top: 0;
 }
 
@@ -60,7 +60,7 @@ a{
   background-image: image-url('sidebar.png');
   width: 20%;
   position: fixed;
-  top: 130px;
+  top: 100px;
   left: 35px;
   height: 550px; 
   padding-top: 60px;
@@ -79,4 +79,12 @@ a{
 // フラッシュメッセージ
 #message{
 color: red; 
+}
+
+// ここからヘッダー
+.programinna{
+  color: aliceblue;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  margin: 0 auto;
 }

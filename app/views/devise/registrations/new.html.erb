@@ -1,13 +1,23 @@
 <%= render "devise/shared/error_messages", resource: resource %>
-<div class="box">
+ 
+<div class="box pad">
   <div class="box-inner">
+    
    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   
 
-      <h1>新規作成</h1>
+     <h1>新規作成</h1>
+      <div class="box-name">
+     <%= f.fields_for :profile, @user.build_profile do |f| %>
+ 
+      <%= f.label :name %><br>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザーネーム(25字以内)" %>
+    </div>
+  <% end %>
       <div class="box-email">
+      
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
       </div>
 
       <div class="box-password">
@@ -19,26 +29,25 @@
             <% end %>
           </div>
         </div>
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "必須" %>
 
         <div class="a-row">
           <div class="column-left">
             <%= f.label :password_confirmation, class:"column" %>
           </div>
         </div>
-         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "必須" %>
       </div>
 
 
-      <div class="box-login">
+  <div class="box-login">
         <%= f.submit "新規作成" %>
-        <div class="legal-text">
-          プログラミンナの
-          <%= link_to "利用規約", "#" %>
-          および
-          <%= link_to "プライバシー規約", "#" %>
-          に同意いただける場合はアカウントを作成してください。
-        </div>
+        
+        </div> 
+
+
+
+
         <% if devise_mapping.rememberable? %>
           <div class="remember">
             <%= f.check_box :remember_me %>

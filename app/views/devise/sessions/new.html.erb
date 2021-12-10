@@ -1,4 +1,5 @@
-
+<p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 <div class="box">
   <div class="box-inner">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -7,8 +8,8 @@
    
       <h1>ログイン</h1>
       <div class="box-email">
-        <%= f.label :email, "Eメール" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
       </div>
       <div class="box-password">
         <div class="a-row">
@@ -19,17 +20,11 @@
            
           </div>
         </div>
-        <%= f.password_field :password, autocomplete: "current-password" %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "必須" %>
       </div>
       <div class="box-login">
         <%= f.submit "ログイン" %>
-        <div class="legal-text">
-          プログラミンナの
-          <%= link_to "利用規約", "#" %>
-          および
-          <%= link_to "プライバシー規約", "#" %>
-          に同意いただける場合はアカウントを作成してください。
-        </div>
+       
         <% if devise_mapping.rememberable? %>
           <div class="remember">
             <%= f.check_box :remember_me %>
