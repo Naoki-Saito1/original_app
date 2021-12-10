@@ -5,7 +5,7 @@ class TopsController < ApplicationController
   end
   def signed_in_user
     if user_signed_in?
-     redirect_to portfolios_path,  notice: 'それはできません'
+     redirect_to portfolios_path,  notice: 'その操作はできません'
      end
   end
 end
