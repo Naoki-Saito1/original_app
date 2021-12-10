@@ -23,4 +23,12 @@ class ApplicationController < ActionController::Base
       'application'
     end
   end
+
+  # begin
+  #   rails_admin_path
+  # rescue => e
+  #   profile_path(current_user.profile.id)
+  # ensure
+  #   profile_path(current_user.profile.id)
+  # end
 end
