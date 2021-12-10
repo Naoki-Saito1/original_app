@@ -4,9 +4,11 @@ FactoryBot.define do
     password {"test11"}
     admin {false}
   end
+  
+  
   factory :second_user, class: User do
     email {"testuser2@gmail.com"}
     password {"test22"}
-    admin {true}
+    admin {false}
   end
 end

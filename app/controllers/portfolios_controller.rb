@@ -37,7 +37,7 @@ class PortfoliosController < ApplicationController
     @portfolio.user_id = current_user.id
     respond_to do |format|
       if @portfolio.save
-        format.html { redirect_to @portfolio, notice: "新規投稿しました！" }
+        format.html { redirect_to @portfolio, notice: "新規投稿しました" }
         format.json { render :show, status: :created, location: @portfolio }
       else
         format.html { render :new, status: :unprocessable_entity }
