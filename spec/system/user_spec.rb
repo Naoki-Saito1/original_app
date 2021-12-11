@@ -4,9 +4,8 @@ require 'rails_helper'
   before do
     @user = FactoryBot.create(:user)
     @user1 = @user.build_profile(
-      name: "user_test",)
- 
-  @user.save
+    name: "user_test",)
+    @user.save
   end
 
   describe 'ユーザー登録,ログイン,ログアウト' do

@@ -28,17 +28,17 @@ RSpec.describe 'profile_system', type: :system do
 
   describe 'プロフィール編集,更新' do
 
-    # context 'ログイン後編集ボタンをクリック' do
-    #   it '編集画面に遷移し更新が出来る' do
-    #     visit user_session_path
-    #     fill_in "メールアドレス", with: @user.email
-    #     fill_in "パスワード", with: @user.password
-    #     click_button "ログイン"
-    #     click_on "プロフィール編集"
-    #     click_button "更新する"
-    #     expect(page).to have_content "プロフィール更新しました"
-    #   end
-    # end
+    context 'ログイン後編集ボタンをクリック' do
+      it '編集画面に遷移し更新が出来る' do
+        visit user_session_path
+        fill_in "メールアドレス", with: @user.email
+        fill_in "パスワード", with: @user.password
+        click_button "ログイン"
+        click_on "プロフィール編集"
+        click_button "更新する"
+        expect(page).to have_content "プロフィール更新しました"
+      end
+    end
 
     context '編集後マイページに遷移' do
       it '編集内容がマイページ画面に表示される' do
@@ -62,45 +62,45 @@ RSpec.describe 'profile_system', type: :system do
 
 
 
-  #    context 'プロフィールのSNSの登録' do
-  #      it '登録画面に遷移し登録が出来る' do
-  #       visit user_session_path
-  #       fill_in "メールアドレス", with: @user.email
-  #       fill_in "パスワード", with: @user.password
-  #       click_button "ログイン"
-  #       click_on "SNS登録"
-  #       click_button "登録する"
-  #       expect(page).to have_content "登録しました"
-  #      end
-  #    end
+     context 'プロフィールのSNSの登録' do
+       it '登録画面に遷移し登録が出来る' do
+        visit user_session_path
+        fill_in "メールアドレス", with: @user.email
+        fill_in "パスワード", with: @user.password
+        click_button "ログイン"
+        click_on "SNS登録"
+        click_button "登録する"
+        expect(page).to have_content "登録しました"
+       end
+     end
 
-  #    context 'プロフィールのSNSの更新' do
-  #     it '更新画面に遷移し更新が出来る' do
-  #      visit user_session_path
-  #      fill_in "メールアドレス", with: @user.email
-  #      fill_in "パスワード", with: @user.password
-  #      click_button "ログイン"
-  #      click_on "SNS登録"
-  #      click_button "登録する"
-  #      click_on "SNS編集"
-  #      fill_in "link[twitter]", with: 'https://programinna.herokuapp.com/'
-  #      click_button "更新する"
-  #      expect(page).to have_content "更新しました"
-  #     end
-  #   end
+     context 'プロフィールのSNSの更新' do
+      it '更新画面に遷移し更新が出来る' do
+       visit user_session_path
+       fill_in "メールアドレス", with: @user.email
+       fill_in "パスワード", with: @user.password
+       click_button "ログイン"
+       click_on "SNS登録"
+       click_button "登録する"
+       click_on "SNS編集"
+       fill_in "link[twitter]", with: 'https://programinna.herokuapp.com/'
+       click_button "更新する"
+       expect(page).to have_content "更新しました"
+      end
+    end
   end
 
-  #   describe '他人のプロフィール編集' do
+    describe '他人のプロフィール編集' do
 
-  #   context '他人のプロフィール画面に遷移した場合' do
-  #     it '編集ボタンが表示されず編集が出来ない' do
-  #       visit user_session_path
-  #       fill_in "メールアドレス", with: @user.email
-  #       fill_in "パスワード", with: @user.password
-  #       click_button "ログイン"
-  #       visit profile_path(id: @second_profile.id )
-  #       expect(page).not_to have_content "プロフィール編集"
-  #     end
-  #   end
-  # end
+    context '他人のプロフィール画面に遷移した場合' do
+      it '編集ボタンが表示されず編集が出来ない' do
+        visit user_session_path
+        fill_in "メールアドレス", with: @user.email
+        fill_in "パスワード", with: @user.password
+        click_button "ログイン"
+        visit profile_path(id: @second_profile.id )
+        expect(page).not_to have_content "プロフィール編集"
+      end
+    end
+  end
 end
