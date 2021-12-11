@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
   describe 'プロフィールバリデーションのテスト' do
+    
     context '内容入力欄が1000文字以上の場合' do
       it 'バリデーションにひっかかる' do
         user = User.new( email:'user@ex.com', password:'password')

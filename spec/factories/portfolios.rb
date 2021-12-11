@@ -1,5 +1,10 @@
 now = Time.now
 FactoryBot.define do
+  factory :portfolio do
+    association :user
+    portfolio_title {"テスト"}
+    portfolio_body {"こんにちは"}
+    portfolio_url {"https://www.google.com/"}
   # factory :portfolio do
   #   portfolio_title {"RspecTest1"} 
   #   portfolio_body {"初めましてよろしくお願い致します。"}
@@ -30,6 +35,8 @@ FactoryBot.define do
     # user_id {second_user.id}
     
   # end
+ 
+  end
 end
 
 # ファクトリーボットを使用するとアソシエーションがうまくいかなかったためコメントアウトしています

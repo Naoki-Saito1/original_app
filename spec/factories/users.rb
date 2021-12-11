@@ -11,4 +11,12 @@ FactoryBot.define do
     password {"test22"}
     admin {false}
   end
+
+  factory :model_user, class: User do
+    email {'user@ex.com'}
+    password {"password"}
+    admin {false}
+  end
 end
+
+
