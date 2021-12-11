@@ -1,6 +1,6 @@
 require 'rails_helper'
 now = Time.now
- RSpec.describe 'portfolio_system', type: :system do
+ RSpec.describe 'portfolio_system_spec', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @profile = @user.build_profile(

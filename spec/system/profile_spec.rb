@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'profile_system', type: :system do
+RSpec.describe 'profile_system_spec', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @profile = @user.build_profile(
