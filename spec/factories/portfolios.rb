@@ -1,7 +1,5 @@
 now = Time.now
 FactoryBot.define do
-  # @user = FactoryBot.create(:user)
-  # @second_user = FactoryBot.create(:second_user) 
   # factory :portfolio do
   #   portfolio_title {"RspecTest1"} 
   #   portfolio_body {"初めましてよろしくお願い致します。"}
@@ -34,4 +32,4 @@ FactoryBot.define do
   # end
 end
 
-# ファクトリーボットを使用するとうまくいかなかったためコメントアウトしています
+# ファクトリーボットを使用するとアソシエーションがうまくいかなかったためコメントアウトしています

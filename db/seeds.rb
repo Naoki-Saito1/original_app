@@ -55,7 +55,7 @@ user5 = User.create!(
 )
 # ok
 profile = admin.build_profile(
-  
+  name: "プログラミンナ",
   body: '初めましてよろしくお願い致します',
   gender: '男性',
   birth_date: '1996-01-01',

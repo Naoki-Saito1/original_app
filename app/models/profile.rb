@@ -7,7 +7,8 @@ class Profile < ApplicationRecord
   delegate :portfolio, to: :user
   validates :name, presence: true  
   validates :name, length: { maximum: 25 }
-  validates :body, length: { maximum: 1000 }
+  validates :detail, length: { maximum: 250 }, allow_blank: true
+  validates :body, length: { maximum: 1000 }, allow_blank: true
    # バリデーション
   enum gender:{
      " ":0,
