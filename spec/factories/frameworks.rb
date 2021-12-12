@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :profile do
- 
+  factory :frameworks do
+
   end
 end

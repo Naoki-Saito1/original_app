@@ -9,7 +9,7 @@
 
 
   <%= f.label :framework_name, "キーワード検索" %>
-  <%= f.search_field :frameworks_framework_name_cont %>
+  <%= f.search_field :frameworks_framework_name_cont, placeholder: "半角英数字(小文字)" %>
   <%= f.submit "検索" %>
 <% end %>
 
@@ -31,9 +31,9 @@
        <div class="card card_topic pf-main">
        <div class="p-image">
        <% if portfolio.portfolio_image.url.present? %>
-          <%= link_to image_tag(portfolio.portfolio_image.url, size: '320x200', class: "card-img-top"), portfolio %>
+          <%= link_to image_tag(portfolio.portfolio_image.url, size: '320x200', class: "card-img-top"), portfolio, data: {"turbolinks"=>false} %>
        <% else %>
-          <%= link_to image_tag(asset_path("no_image.png"), size: '320x200', class: "card-img-top"), portfolio %>
+          <%= link_to image_tag(asset_path("no_image.png"), size: '320x200', class: "card-img-top"), portfolio, data: {"turbolinks"=>false}%>
        <% end %>
       </div>
         

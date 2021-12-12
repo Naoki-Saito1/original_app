@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
   
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: "プロフィール登録しました！" }
+        format.html { redirect_to @profile, notice: "プロフィール登録しました" }
         format.json { render :show, status: :created, location: @profile }
       else
         # flash: @profile.errors.full_messages
@@ -56,7 +56,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: "プロフィール更新しました！" }
+        format.html { redirect_to @profile, notice: "プロフィール更新しました" }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit, status: :unprocessable_entity }

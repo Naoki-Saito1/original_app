@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :conversation do
+  factory :link do
     
   end
 end

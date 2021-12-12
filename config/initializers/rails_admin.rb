@@ -10,8 +10,13 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
  
   ## == CancanCan ==
-  config.authorize_with :cancancan
-
+  # config.authorize_with :cancancan
+  config.authorize_with do
+    unless current_user.try(:admin?)
+       flash[:error] = "You are not authorize to access this page!"
+      redirect_to main_app.root_path
+    end
+  end
   ## == Pundit ==
   # config.authorize_with :pundit
 

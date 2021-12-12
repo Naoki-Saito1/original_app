@@ -3,15 +3,13 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+//= require bootstrap-sprockets
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-//= require jquery
-//= require bootstrap-sprockets
-
+require('jquery');
 import '../stylesheets/application';
-
 import '@fortawesome/fontawesome-free/js/all'
 import "cocoon" 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -20,3 +18,4 @@ import "cocoon"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+window.$ = jQuery; 

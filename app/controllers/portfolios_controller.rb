@@ -37,13 +37,14 @@ class PortfoliosController < ApplicationController
     @portfolio.user_id = current_user.id
     respond_to do |format|
       if @portfolio.save
-        format.html { redirect_to @portfolio, notice: "新規投稿しました！" }
+        format.html { redirect_to @portfolio, notice: "新規投稿しました" }
         format.json { render :show, status: :created, location: @portfolio }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @portfolio.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   def update
@@ -78,7 +79,6 @@ class PortfoliosController < ApplicationController
     end
 
     def portfolio_params
-      params.require(:portfolio).permit(:portfolio_title, :portfolio_body, :portfolio_image, :portfolio_language, :portfolio_github, :portfolio_url, :user_id, :image_cache,
-        frameworks_attributes:[:id, :portfolio_id, :user_id, :framework_name, :_destroy])
+      params.require(:portfolio).permit(:portfolio_title, :portfolio_body, :portfolio_image, :portfolio_language, :portfolio_github, :portfolio_url, :user_id, :image_cache, frameworks_attributes:[:id, :portfolio_id, :framework_name, :_destroy])
     end
 end

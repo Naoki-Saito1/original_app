@@ -52,7 +52,12 @@
             <div class="ui segment">
               <% @messages.each do |message| %>
                 <% if message.message_body.present? %>
-                  <div class="item">
+                  <% if message.user == current_user %>
+                  <div class="me-item">
+                  <% else %>
+                  <div class="your-item">
+                  <% end %>
+                 
                     <div class="content">
                       <div class="header"><strong><%= message.user.profile.name %></strong> <%= message.message_time %></div>
                       <div class="list">
@@ -69,13 +74,15 @@
                 <% end %>
               <% end %>
             </div>
+
+
             <%= form_with(model: [@conversation, @message]) do |f| %>
               <div class="field">
                 <%= f.text_area :message_body, class: "form-control", placeholder: "メッセージを入力してください" %>
               </div>
                 <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
               <div>
-                <%= f.submit "メッセージを送る" %>
+                <%= f.submit "メッセージ送信" %>
               </div>
             <% end %>
 
