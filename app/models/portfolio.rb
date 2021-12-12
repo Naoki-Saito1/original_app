@@ -3,7 +3,7 @@ class Portfolio < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
-  has_many :frameworks, dependent: :destroy
+  has_many :frameworks, inverse_of: :portfolio, dependent: :destroy
   accepts_nested_attributes_for :frameworks, allow_destroy: true
   validates :portfolio_title, presence: true
   validates :portfolio_body, presence: true  

@@ -11,7 +11,7 @@
           <% if @profile.image? %>
           <%= image_tag @profile.image.url,class: "profile-img" %>
           <% else %>
-          <%= image_tag asset_path("no_image.jpg"), class: "profile-img" %>
+          <%= image_tag asset_path("no_image.png"), class: "profile-img" %>
           <% end %>  
         </div>
         <div class="card-body show-body">

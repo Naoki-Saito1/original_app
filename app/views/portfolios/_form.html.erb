@@ -74,12 +74,13 @@
   </div>
 <p>(制作に使用したスキルやフレームワーク等)</p>
 
-  <div class="frame-works">
-    
+  <div class="field">
+      
       <%= form.fields_for :frameworks do |t| %>
       <%= render "framework_fields", f: t %>
       <% end %>
-      <%= link_to_add_association "追加ボタン", form, :frameworks,class: "btn btn-dark btn-sm"%>
+      <%= link_to_add_association "追加ボタン", form, :frameworks %>
+     
     </div>
      
    
