@@ -1,6 +1,6 @@
 class Link < ApplicationRecord
-  validates :github, format: /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
-  validates :twitter, format: /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
-  validates :qiita, format: /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
+  validates :github, format: %r{https?://[\w/:%#{Regexp.last_match(0)}?()~.=+\-]+|\A\z}
+  validates :twitter, format: %r{https?://[\w/:%#{Regexp.last_match(0)}?()~.=+\-]+|\A\z}
+  validates :qiita, format: %r{https?://[\w/:%#{Regexp.last_match(0)}?()~.=+\-]+|\A\z}
   belongs_to :profile
 end

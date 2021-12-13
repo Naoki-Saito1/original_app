@@ -6,16 +6,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :ensure_normal_user, only: :destroy
   # after_action :profile_default
   def ensure_normal_user
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザーは削除できません。' if resource.email == 'guest@example.com'
   end
+
   def ensure_normal_user
-    if resource.email == 'guest_admin@gmail.com'
-      redirect_to root_path, alert: 'ゲストユーザー(管理者)は削除できません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザー(管理者)は削除できません。' if resource.email == 'guest_admin@gmail.com'
   end
-  
+
   # GET /resource/sign_up
   def new
     super

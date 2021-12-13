@@ -2,14 +2,13 @@ now = Time.now
 FactoryBot.define do
   factory :portfolio do
     association :user
-    portfolio_title {"テスト"}
-    portfolio_body {"こんにちは"}
-    portfolio_url {"https://www.google.com/"}
-
+    portfolio_title { 'テスト' }
+    portfolio_body { 'こんにちは' }
+    portfolio_url { 'https://www.google.com/' }
   end
   # factory :portfolio1, class: Portfolio do
   #   association :user
-  #   portfolio_title {"RspecTest1"} 
+  #   portfolio_title {"RspecTest1"}
   #   portfolio_body {"初めましてよろしくお願い致します。"}
   #   portfolio_language {"Java"}
   #   portfolio_github {'https://github.com/'}
@@ -37,8 +36,7 @@ FactoryBot.define do
   #   portfolio_github {'https://github.com/'}
   #   portfolio_url {'https://www.google.com/'}
   #   created_at {now}
-    
-    
+
   # end
 end
 

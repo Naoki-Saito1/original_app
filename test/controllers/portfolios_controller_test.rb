@@ -5,40 +5,44 @@ class PortfoliosControllerTest < ActionDispatch::IntegrationTest
     @portfolio = portfolios(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get portfolios_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_portfolio_url
     assert_response :success
   end
 
-  test "should create portfolio" do
+  test 'should create portfolio' do
     assert_difference('Portfolio.count') do
-      post portfolios_url, params: { portfolio: { portfolio_body: @portfolio.portfolio_body, portfolio_github: @portfolio.portfolio_github, portfolio_image: @portfolio.portfolio_image, portfolio_language: @portfolio.portfolio_language, portfolio_title: @portfolio.portfolio_title, portfolio_url: @portfolio.portfolio_url, user_id: @portfolio.user_id } }
+      post portfolios_url,
+           params: { portfolio: { portfolio_body: @portfolio.portfolio_body, portfolio_github: @portfolio.portfolio_github,
+                                  portfolio_image: @portfolio.portfolio_image, portfolio_language: @portfolio.portfolio_language, portfolio_title: @portfolio.portfolio_title, portfolio_url: @portfolio.portfolio_url, user_id: @portfolio.user_id } }
     end
 
     assert_redirected_to portfolio_url(Portfolio.last)
   end
 
-  test "should show portfolio" do
+  test 'should show portfolio' do
     get portfolio_url(@portfolio)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_portfolio_url(@portfolio)
     assert_response :success
   end
 
-  test "should update portfolio" do
-    patch portfolio_url(@portfolio), params: { portfolio: { portfolio_body: @portfolio.portfolio_body, portfolio_github: @portfolio.portfolio_github, portfolio_image: @portfolio.portfolio_image, portfolio_language: @portfolio.portfolio_language, portfolio_title: @portfolio.portfolio_title, portfolio_url: @portfolio.portfolio_url, user_id: @portfolio.user_id } }
+  test 'should update portfolio' do
+    patch portfolio_url(@portfolio),
+          params: { portfolio: { portfolio_body: @portfolio.portfolio_body, portfolio_github: @portfolio.portfolio_github,
+                                 portfolio_image: @portfolio.portfolio_image, portfolio_language: @portfolio.portfolio_language, portfolio_title: @portfolio.portfolio_title, portfolio_url: @portfolio.portfolio_url, user_id: @portfolio.user_id } }
     assert_redirected_to portfolio_url(@portfolio)
   end
 
-  test "should destroy portfolio" do
+  test 'should destroy portfolio' do
     assert_difference('Portfolio.count', -1) do
       delete portfolio_url(@portfolio)
     end

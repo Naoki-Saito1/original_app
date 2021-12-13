@@ -1,11 +1,10 @@
 class TopsController < ApplicationController
   before_action :signed_in_user
   def home
-    render layout: "top"
+    render layout: 'top'
   end
+
   def signed_in_user
-    if user_signed_in?
-     redirect_to portfolios_path,  notice: 'その操作はできません'
-     end
+    redirect_to portfolios_path, notice: 'その操作はできません' if user_signed_in?
   end
 end
