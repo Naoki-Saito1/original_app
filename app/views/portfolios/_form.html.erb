@@ -72,19 +72,34 @@
     <%= form.label :portfolio_language %>
     <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください'} %>
   </div>
+
+
 <p>(制作に使用したスキルやフレームワーク等)</p>
-
+<% if controller.action_name == "new" %>
   <div class="field">
-      
+     
       <%= form.fields_for :frameworks do |t| %>
-      <%= render "framework_fields", f: t  %>
+    <%= render "framework_fields", f: t  %>
       <% end %>
-      <%= link_to_add_association "追加ボタン", form, :frameworks %>
-     
-    </div>
-     
-   
 
+      <%= form.fields_for :frameworks do |t| %>
+    <%= render "framework_fields", f: t  %>
+      <% end %>
+
+      <%= form.fields_for :frameworks do |t| %>
+    <%= render "framework_fields", f: t  %>
+      <% end %>
+    </div>
+    <% else %>
+   <div class="field">
+      <%= form.fields_for :frameworks do |t| %>
+    <%= render "framework_fields", f: t  %>
+      <% end %>
+    </div>
+<% end %>
+
+
+  
   <div class="field">
     <%= form.label :portfolio_github %><br>
     <%= form.text_field :portfolio_github, placeholder: "任意" %>

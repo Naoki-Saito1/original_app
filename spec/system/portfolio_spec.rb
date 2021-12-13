@@ -1,3 +1,5 @@
+
+
 require 'rails_helper'
 now = Time.now
  RSpec.describe 'portfolio_system_spec', type: :system do
@@ -61,6 +63,7 @@ now = Time.now
       framework_name: 'css',
       portfolio_id: @portfolio.id,
     )
+   
   end
 
   describe 'ポートフォリオCRUD機能のテスト' do
@@ -113,10 +116,10 @@ now = Time.now
 
      context '自分以外のユーザーのポートフォリオ編集' do
         it '編集ボタンが表示されず編集できない' do
-            visit user_session_path
-            fill_in "メールアドレス", with: @user.email
-            fill_in "パスワード", with: @user.password
-            click_button "ログイン"
+          visit user_session_path
+          fill_in "メールアドレス", with: @user.email
+          fill_in "パスワード", with: @user.password
+          click_button "ログイン"
             visit portfolio_path(@second_portfolio.id)
             expect(page).not_to have_content '編集'
         end
@@ -187,7 +190,8 @@ now = Time.now
           expect(page).to have_content now.strftime("%Y-%m-%d")
         end
       end
-     
     end
 end
+
+
 

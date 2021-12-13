@@ -26,7 +26,7 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
-    @framework = @portfolio.frameworks.build
+    @framework =  @portfolio.frameworks.build
   end
 
   def edit
