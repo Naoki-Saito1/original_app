@@ -1,9 +1,8 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
-  before_action :portfolio_params, only: %i[ create destroy ]
+  before_action :portfolio_params, only: %i[create destroy]
   def index
     @favorites = current_user.favorites.all
-  
   end
 
   def create
@@ -15,8 +14,8 @@ class FavoritesController < ApplicationController
   end
 
   private
+
   def portfolio_params
     @portfolio = Portfolio.find(params[:portfolio_id])
   end
-  
 end

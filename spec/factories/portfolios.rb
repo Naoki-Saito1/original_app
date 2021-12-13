@@ -2,11 +2,13 @@ now = Time.now
 FactoryBot.define do
   factory :portfolio do
     association :user
-    portfolio_title {"テスト"}
-    portfolio_body {"こんにちは"}
-    portfolio_url {"https://www.google.com/"}
-  # factory :portfolio do
-  #   portfolio_title {"RspecTest1"} 
+    portfolio_title { 'テスト' }
+    portfolio_body { 'こんにちは' }
+    portfolio_url { 'https://www.google.com/' }
+  end
+  # factory :portfolio1, class: Portfolio do
+  #   association :user
+  #   portfolio_title {"RspecTest1"}
   #   portfolio_body {"初めましてよろしくお願い致します。"}
   #   portfolio_language {"Java"}
   #   portfolio_github {'https://github.com/'}
@@ -16,6 +18,7 @@ FactoryBot.define do
   # end
 
   # factory :portfolio2, class: Portfolio do
+  #   association :user2
   #   portfolio_title {"RspecTest2"}
   #   portfolio_body {"初めましてよろしくお願い致します。"}
   #   portfolio_language {"Python"}
@@ -26,17 +29,15 @@ FactoryBot.define do
   # end
 
   # factory :second_portfolio, class: Portfolio do
+  #   association :second_user
   #   portfolio_title {"RspecTest3"}
   #   portfolio_body {"初めましてよろしくお願い致します。"}
   #   portfolio_language {"Ruby"}
   #   portfolio_github {'https://github.com/'}
   #   portfolio_url {'https://www.google.com/'}
   #   created_at {now}
-    # user_id {second_user.id}
-    
+
   # end
- 
-  end
 end
 
 # ファクトリーボットを使用するとアソシエーションがうまくいかなかったためコメントアウトしています

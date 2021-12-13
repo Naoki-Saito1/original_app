@@ -21,49 +21,46 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'bcrypt', '~> 3.1.7'
 
-
 # gem 'image_processing', '~> 1.2'
-
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.8'
-  gem 'spring-commands-rspec'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
   gem 'rexml'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
-
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
-
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
-
   gem 'capybara', '>= 2.15'
   gem 'webdrivers'
 end
 
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise'
 
-gem 'devise-i18n'
-gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'carrierwave'
-gem 'mini_magick'
 gem 'cocoon'
-gem 'ransack'
-gem 'kaminari', git: 'https://github.com/kaminari/kaminari'
+gem 'devise-i18n'
 gem 'enum_help'
+gem 'kaminari', git: 'https://github.com/kaminari/kaminari'
+gem 'mini_magick'
+gem 'rails_admin', '~> 2.0'
+gem 'ransack'

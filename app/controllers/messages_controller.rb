@@ -14,14 +14,13 @@ class MessagesController < ApplicationController
       @over_ten = false
       @messages = @conversation.messages
     end
-    if @messages.last
-      @messages.where.not(user_id: current_user.id).update_all(message_read: true)
-    end
+    @messages.where.not(user_id: current_user.id).update_all(message_read: true) if @messages.last
     @messages = @messages.order(:created_at)
     @message = @conversation.messages.build
     @recipient = User.find(Conversation.find(params[:conversation_id]).recipient_id)
     @sender = User.find(Conversation.find(params[:conversation_id]).sender_id)
   end
+
   def create
     @message = @conversation.messages.build(message_params)
     if @message.save
@@ -30,8 +29,10 @@ class MessagesController < ApplicationController
       render 'index'
     end
   end
-    private
-    def message_params
+
+  private
+
+  def message_params
     params.require(:message).permit(:message_body, :user_id)
-    end
   end
+end
