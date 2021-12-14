@@ -10,8 +10,7 @@
       <li><%= link_to 'メッセージ', conversations_path, data: {"turbolinks"=>false} %></li>
       <li> <% if current_user && current_user.try(:admin?) %>
             <%= link_to '管理者ページ', rails_admin_path, data: {"turbolinks"=>false} %>
-         
-            <% end %></li>
+            <% end %></li>     
     </ul>
   </div>
 </div>

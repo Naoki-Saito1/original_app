@@ -16,6 +16,7 @@
  body {
   font-family: "Montserrat";
   background-image: image-url('haikei2.png');
+  // background-color: rgb(49, 49, 49);
   background-size: cover;
   color: #030303;
   min-height: 1000px;
@@ -57,7 +58,8 @@ a{
 
 /* サイドバー */
 #sidebar_fixed {
-  background-image: image-url('sidebar.png');
+  // background-image: image-url('sidebar.png');
+  background-color: rgb(27, 27, 27);
   width: 20%;
   position: fixed;
   top: 100px;
@@ -75,6 +77,11 @@ a{
   font-size: 1.3rem;
 }
 
+// test
+
+  
+
+// test
 // ここまで
 // フラッシュメッセージ
 #message{

@@ -7,7 +7,7 @@ FactoryBot.define do
     portfolio_url { 'https://www.google.com/' }
   end
   # factory :portfolio1, class: Portfolio do
-  #   association :user
+
   #   portfolio_title {"RspecTest1"}
   #   portfolio_body {"初めましてよろしくお願い致します。"}
   #   portfolio_language {"Java"}
@@ -18,7 +18,7 @@ FactoryBot.define do
   # end
 
   # factory :portfolio2, class: Portfolio do
-  #   association :user2
+  
   #   portfolio_title {"RspecTest2"}
   #   portfolio_body {"初めましてよろしくお願い致します。"}
   #   portfolio_language {"Python"}
@@ -29,7 +29,7 @@ FactoryBot.define do
   # end
 
   # factory :second_portfolio, class: Portfolio do
-  #   association :second_user
+   
   #   portfolio_title {"RspecTest3"}
   #   portfolio_body {"初めましてよろしくお願い致します。"}
   #   portfolio_language {"Ruby"}
@@ -41,3 +41,4 @@ FactoryBot.define do
 end
 
 # ファクトリーボットを使用するとアソシエーションがうまくいかなかったためコメントアウトしています
+# association :user, factory: :second_user
