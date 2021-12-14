@@ -6,11 +6,14 @@ class TopsController < ApplicationController
 
 
   def signed_in_user
-    redirect_to portfolios_path if user_signed_in?
-      
+    if user_signed_in? && current_user.try(:admin?)
+    redirect_to portfolios_path
+    elsif user_signed_in?
+      redirect_to portfolios_path, notice: "このページへのアクセスは許可されていません。"
+    end
   end
-  
 end
+
 # 
 
 
