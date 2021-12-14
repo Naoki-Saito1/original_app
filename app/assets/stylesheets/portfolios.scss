@@ -30,13 +30,32 @@
 }
 .card_topic{
   height: 450px;
-  
+  background-color: rgb(238, 238, 238);
 }
 .p-image:hover{
   opacity: 0.5;
 }
+
+.p-image{
+  width: 320px;
+  height: 200px;
+  position: relative;
+}
+
+
+
+a .card-img-top{
+  // object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+
+
 .card-deck{
   margin-top: 3rem;
+ 
 }
 
 .p-footer p{
@@ -99,6 +118,7 @@
   border: 5px solid #000000;
   box-shadow: 0 0 20px #00000033;
 }
+
 // .card-body .pf-prof-body{
 //  padding: 30px 20px;
 // }
