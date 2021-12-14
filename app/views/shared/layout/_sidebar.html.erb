@@ -2,15 +2,21 @@
 
 <div id="main-sidebar">
   <div class="sidebar-inner">
+  <div class="frame">
     <ul>
-      <li><%= link_to 'マイページ', profile_path(current_user.profile.id), data: {"turbolinks"=>false}  if current_user.profile.present? %></li>
-      <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path, data: {"turbolinks"=>false} %></li>
-      <li><%= link_to 'ポートフォリオ一覧', portfolios_path, data: {"turbolinks"=>false}  %></li>
-      <li><%= link_to 'いいね 一覧', portfolio_favorites_path(current_user.portfolios), data: {"turbolinks"=>false}  %></li>
-      <li><%= link_to 'メッセージ', conversations_path, data: {"turbolinks"=>false} %></li>
+      <li><%= link_to 'マイページ', profile_path(current_user.profile.id),class: "custom-btn btn-5", data: {"turbolinks"=>false}  if current_user.profile.present? %></li>
+      <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %></li>
+      <li><%= link_to 'ポートフォリオ一覧', portfolios_path, class: "custom-btn btn-5", data: {"turbolinks"=>false}  %></li>
+      <li><%= link_to 'いいね 一覧', portfolio_favorites_path(current_user.portfolios), class: "custom-btn btn-5", data: {"turbolinks"=>false}  %></li>
+      <li><%= link_to 'メッセージ', conversations_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %></li>
       <li> <% if current_user && current_user.try(:admin?) %>
-            <%= link_to '管理者ページ', rails_admin_path, data: {"turbolinks"=>false} %>
+            <%= link_to '管理者ページ', rails_admin_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
             <% end %></li>     
     </ul>
+    </div>
   </div>
 </div>
+
+
+
+
