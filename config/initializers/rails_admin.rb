@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
   # config.authorize_with :cancancan
   config.authorize_with do
     unless current_user.try(:admin?)
-      flash[:error] = 'このページへのアクセスは許可されていません。'
+       flash[:error] = "You are not authorize to access this page!"
       redirect_to main_app.root_path
     end
   end
