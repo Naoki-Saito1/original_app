@@ -1,5 +1,6 @@
 <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <div class="box-auto">
 <div class="box">
   <div class="box-inner">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -39,4 +40,5 @@
       <%= render "devise/shared/links" %>
     </div>
   </div>
+</div>
 </div>

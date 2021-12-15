@@ -4,20 +4,70 @@
   <div class="row">
 
     <div class="col-md-12 ">
-    <h2>マイページ:<span class="name"><%= @profile.name %></span>様</h2>
-      <div class="card show-main">
-       
-        <div class="card-header">
+   
+      <div class="profile-main">
+      
+       <div class="profile-header"> 
+        
+          <% if @profile.link.present? %>
+              
+          <div class="profile-social-links">
+          <div class="flex-link">
+          <% if @profile.link.github != "" %>
+              <%= link_to @profile.link.github, target: :_blank, rel: "noopener noreferrer" do %>
+                <i class="fab fa-github social-icon"></i>
+              <% end %>
+          <% end %>
+          </div>
+            <div class="flex-link">
+          <% if @profile.link.twitter != "" %>
+              <%= link_to @profile.link.twitter, target: :_blank, rel: "noopener noreferrer" do %>
+                <i class="fab fa-twitter social-icon"></i>
+              <% end %>
+          <% end %>
+          </div>
+            <div class="flex-link">
+           <% if @profile.link.qiita != "" %>
+              <%= link_to @profile.link.qiita, target: :_blank, rel: "noopener noreferrer" do %>
+                <i class="fab fa-youtube social-icon"></i>
+              <% end %>
+            <% end %>
+            </div>
+          </div>
+           <% end %>   
+        <h2 class="profile-name"><%= @profile.name %></h2>
+
+        <div class="profile-image">
+        
           <% if @profile.image? %>
           <%= image_tag @profile.image.url,class: "profile-img" %>
           <% else %>
           <%= image_tag asset_path("no_image.jpg"), class: "profile-img" %>
           <% end %>  
         </div>
-        <div class="card-body show-body">
-          <p class="name"><%= @profile.name %></p>
-            
-          <p class="job">
+       </div>
+        <div class="profile-body">
+         
+            <div class="profile-footer">
+          <% if @profile.user_id == current_user.id && current_user.try(:admin?) %>
+            <%= link_to '管理者ページ', rails_admin_path, class:"btn btn-outline-dark btn-sm", data: {"turbolinks"=>false} %>
+         
+            <% end %>
+
+          <% if @profile.user_id == current_user.id %>
+          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %> 
+
+              <% if @profile.link.present? %>
+                <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %> 
+              <% else %>
+                <%= link_to 'SNS登録', new_link_path,class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %> 
+              <% end %>
+         
+              <% else %>
+              <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post,class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %>
+            <% end %>
+        </div>
+          <p class="profile-job">
             <% if  @profile.gender_check == true  %>
               性別非公開
             <% else %>
@@ -34,51 +84,17 @@
               <%= @profile.address if @profile.address.present? %>
             <% end %>
           </p>
-          <br>
+         <div class="profile-text">
+          <p>
           <% if @profile.body.present? %>
             <%= @profile.body %>
           <% end %>
+          </p>
+         </div>
+
         </div>
-              <% if @profile.link.present? %>
-              
-          <div class="social-links">
-          <% if @profile.link.github != "" %>
-              <%= link_to @profile.link.github, target: :_blank, rel: "noopener noreferrer" do %>
-                <i class="fab fa-github social-icon"></i>
-              <% end %>
-          <% end %>
-          <% if @profile.link.twitter != "" %>
-              <%= link_to @profile.link.twitter, target: :_blank, rel: "noopener noreferrer" do %>
-                <i class="fab fa-twitter social-icon"></i>
-              <% end %>
-          <% end %>
-           <% if @profile.link.qiita != "" %>
-              <%= link_to @profile.link.qiita, target: :_blank, rel: "noopener noreferrer" do %>
-                <i class="fab fa-youtube social-icon"></i>
-              <% end %>
-            <% end %>
-          </div>
-           <% end %>   
-        <div class="card-footer">
-          <% if @profile.user_id == current_user.id && current_user.try(:admin?) %>
-            <%= link_to '管理者ページ', rails_admin_path, class:"btn btn-outline-dark btn-sm", data: {"turbolinks"=>false} %>
-         
-            <% end %>
-
-          <% if @profile.user_id == current_user.id %>
-          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-dark btn-sm", data: {"turbolinks"=>false} %> 
-
-              <% if @profile.link.present? %>
-                <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-dark btn-sm", data: {"turbolinks"=>false} %> 
-              <% else %>
-                <%= link_to 'SNS登録', new_link_path,class:"btn btn-outline-dark btn-sm", data: {"turbolinks"=>false} %> 
-              <% end %>
-         
-              <% else %>
-              <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post,class:"btn btn-outline-dark btn-sm", data: {"turbolinks"=>false} %>
-            <% end %>
            
-        </div>
+        
       </div>
     </div>
   </div>
