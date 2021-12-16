@@ -45,7 +45,7 @@
   padding-top: 80px;
   color: #ffffff;
   font-size: 2.5rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .profile-social-links{
@@ -75,10 +75,27 @@ text-align: right;
 .profile-text p {
   color: #ffffff;
   font-size: 18px;
+  line-height: 2rem;
+  
 }
 .flex-link .social-icon:hover{
   opacity: 0.5;
 }
+
+.profile-body{
+  width: 100%;
+  height: 400px;
+  overflow-wrap: break-word;
+  padding: 20px;
+}
+.profile-body p {
+  overflow-wrap: break-word;
+}
+
+
+
+
+
 
 
 // ここまで

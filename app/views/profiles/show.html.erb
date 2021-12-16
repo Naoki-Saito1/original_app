@@ -50,21 +50,21 @@
          
             <div class="profile-footer">
           <% if @profile.user_id == current_user.id && current_user.try(:admin?) %>
-            <%= link_to '管理者ページ', rails_admin_path, class:"btn btn-outline-dark btn-sm", data: {"turbolinks"=>false} %>
+            <%= link_to '管理者ページ', rails_admin_path, class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %>
          
             <% end %>
 
           <% if @profile.user_id == current_user.id %>
-          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %> 
+          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %> 
 
               <% if @profile.link.present? %>
-                <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %> 
+                <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %> 
               <% else %>
-                <%= link_to 'SNS登録', new_link_path,class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %> 
+                <%= link_to 'SNS登録', new_link_path,class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %> 
               <% end %>
          
               <% else %>
-              <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post,class:"btn btn-outline-info btn-sm", data: {"turbolinks"=>false} %>
+              <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post,class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %>
             <% end %>
         </div>
           <p class="profile-job">
@@ -147,10 +147,12 @@
  </div>
 <% end %>
 <% else %>
+<div class="show-alert">
 <div class="alert alert-danger" role="alert">
  <h2 class="comment">*現在投稿はありません*</h2>
 <h5>ポートフォリオを投稿するとこちらに表示されます。
 </h5>
+ </div>
  </div>
 <% end %>
  </div>

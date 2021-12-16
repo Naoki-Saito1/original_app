@@ -8,9 +8,11 @@
 
 
 .card-body{
+ 
   overflow: scroll; 
   height: 200px
 }
+
 
 .framework {
   display: flex;
@@ -30,7 +32,7 @@
 }
 .card_topic{
   height: 450px;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(49, 49, 49);
 }
 .p-image:hover{
   opacity: 0.5;
