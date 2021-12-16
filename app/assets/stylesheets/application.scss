@@ -225,10 +225,10 @@ div.transition:hover {
 @keyframes flash {
   0%, 100% {
     /* 明るく光るよう影を重ねる */
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0004ff, 0 0 70px #4400ff, 0 0 80px #5900ff, 0 0 100px #0400ff, 0 0 150px #1900ff;
+    text-shadow: 0 0 10px rgb(4, 0, 255), 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0004ff,
   }
   50% {
     /* 淡く光るよう影を重ねる */
-    text-shadow: 0 0 10px #fff, 0 0 20px #fcfcfc, 0 0 30px #fcfcfc, 0 0 40px #fc00de;
+    text-shadow: 0 0 10px rgb(255, 0, 234), 0 0 20px #fcfcfc, 0 0 30px #fcfcfc, 0 0 40px #fc00de;
   }
 }

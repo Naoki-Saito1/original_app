@@ -47,21 +47,23 @@
 </div>
 
 </div>  
-
+        <div class="portfolio-framework">
           <p>
             <strong>タイトル:</strong>
             <%= @portfolio.portfolio_title %>
           </p>
-          <div class="pf-framework">
+         
           <p><strong>制作に使用したスキル</strong></p>
-          <ul class="framework">
+          <ul class="show-framework">
               <% @portfolio.frameworks.each do |p| %>
             <% if p.framework_name.present? %>
-            <li><%= p.framework_name %>/</li>
+            <li class="framework-center"><%= p.framework_name %>/</li>
             <% end %>
               <% end %>
-            </ul>
-          </div>
+          </ul>
+        </div>
+
+
           <p>
             <strong>開発した経緯など:</strong>
             <%= @portfolio.portfolio_body %>
