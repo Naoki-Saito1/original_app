@@ -16,18 +16,16 @@
           <div class="top-header-profile-image">
 
  <% if current_user.profile.image? %>
-          <%= image_tag current_user.profile.image.url, size: '60x60',class: "header-profile-image" %>
+          <%= image_tag current_user.profile.image.url, size: '55x55',class: "header-profile-image" %>
           <% else %>
-          <%= image_tag asset_path("no_image.jpg"), size: '60x60', class: "header-profile-image" %>
+          <%= image_tag asset_path("no_image.jpg"), size: '55x55', class: "header-profile-image" %>
           <% end %>  
        
           </div>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
- <% if user_signed_in? %>
-   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks"=>false} %>
-   <% end %>
-        
+          <%= link_to 'お問い合わせ', portfolios_path, data: {"turbolinks"=>false}%>
+
           <div class="dropdown-divider">
           </div>
           <a class="dropdown-item" href="#"></a>
@@ -40,17 +38,21 @@
         
       </li>
       <li class="nav-item active">
-        
+      
+  
       </li>
      
     </ul>
-   <h3><%= link_to "プログラミンナ", portfolios_path, data: {"turbolinks"=>false} %></h3>
+   <div class="transition">
+      <%= link_to "プログラミンナ", portfolios_path, data: {"turbolinks"=>false} %>
+   </div>
+<div class="logout">
+  <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks"=>false},class:"btn btn-primary btn-sm" %>
+<% end %>
+</div>
   </div>
 </nav>
 
   </header>
  
-
-
-
-

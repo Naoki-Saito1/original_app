@@ -1,9 +1,7 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.mr{
- 
-}
+
 .nav-color{
   background-color: black;
 }
@@ -23,6 +21,10 @@
 .top-header-text{
   color: rgb(255, 0, 234);
   display: inline;
+}
+
+.logout{
+  margin: 0 0 0 auto;
 }
 // ここからプロフィールへっだー
 // .top-header-profile-image{

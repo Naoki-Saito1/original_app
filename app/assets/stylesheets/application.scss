@@ -54,8 +54,12 @@ li{
 
 a:hover {
   text-decoration: none;
+  opacity: 0.5;
+  color: #ffffff;
 }
-
+a{
+  color: #ffffff;
+}
 
 
 .nil{
@@ -80,12 +84,11 @@ a:hover {
 #sidebar_fixed {
   // background-image: image-url('sidebar.png');
   background-color: rgb(2, 2, 2);
-  width: 225px;
+  width: 220px;
   position: fixed;
-  top: 50px;
   left: 0px;
   height: 900px; 
-  padding-top: 0px;
+  padding-top: 35px;
 }
 
 .sidebar-inner{
@@ -94,7 +97,7 @@ a:hover {
 }
 .sidebar-inner li{
   padding-top: 20px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 // test
@@ -112,8 +115,8 @@ li a {
   text-decoration: none;
 }
 .custom-btn {
-  width: 200px;
-  height: 40px;
+  width: 180px;
+  height: 35px;
   color: rgb(224, 224, 224);
   border-radius: 5px;
   padding: 10px 25px;
@@ -190,4 +193,42 @@ color: red;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   margin: 0 auto;
+}
+div.transition{
+  text-decoration: none;  
+  color: rgb(255, 255, 255);  
+  text-shadow: none;  
+  -webkit-transition: 500ms linear 0s;  
+  -moz-transition: 500ms linear 0s;  
+  -o-transition: 500ms linear 0s;  
+  transition: 500ms linear 0s;  
+  outline: 0 none; 
+  background-color:#000; 
+  font-size:2.2em;
+  width:300px;     
+  height: 50px; 
+  font-family: cursive ;
+}
+
+div.transition:hover {
+  color: #fff;  
+  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff; 
+}
+
+
+.transition {
+  color: #FFF;       
+  font-size: 50px;  
+  animation: flash 3s infinite; /* アニメーションflashを1秒ごとに繰り返す */
+}
+
+@keyframes flash {
+  0%, 100% {
+    /* 明るく光るよう影を重ねる */
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0004ff, 0 0 70px #4400ff, 0 0 80px #5900ff, 0 0 100px #0400ff, 0 0 150px #1900ff;
+  }
+  50% {
+    /* 淡く光るよう影を重ねる */
+    text-shadow: 0 0 10px #fff, 0 0 20px #fcfcfc, 0 0 30px #fcfcfc, 0 0 40px #fc00de;
+  }
 }
