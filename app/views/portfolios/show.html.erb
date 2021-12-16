@@ -3,49 +3,29 @@
 
     <div class="col-md-8">
     <h3 class="comment">投稿詳細画面</h3>
-      <div class="pf-body">
-        <div class="pf-image">
+    <div class="portfolio-main">
+    
+    
+      
+        <div class="portfolio-image">
           <% if @portfolio.portfolio_image? %>
-            <%= image_tag @portfolio.portfolio_image.url, size: '450x250' %>
+           <%= image_tag @portfolio.portfolio_image.url, size: '370x210' %>
           <% else %>
-            <%= image_tag asset_path("no_image.png"), size: '450x250'  %>
+            <%= image_tag asset_path("no_image.png"), size: '370x210'  %>
           <% end %>
         </div>
-        <div class="pf-content">
-          <p>
-            <strong>タイトル:</strong>
-            <%= @portfolio.portfolio_title %>
-          </p>
-          <div class="pf-framework">
-          <p><strong>制作に使用したスキル</strong></p>
-          <ul class="framework">
-              <% @portfolio.frameworks.each do |p| %>
-            <% if p.framework_name.present? %>
-            <li><%= p.framework_name %>/</li>
-            <% end %>
-              <% end %>
-            </ul>
-          </div>
-          <p>
-            <strong>開発した経緯など:</strong>
-            <%= @portfolio.portfolio_body %>
-          </p>
-          
+<div class="portfolio-body">
+
+<div class="portfolio-icon-wrapper">
           <% if @portfolio.portfolio_github.present? %>
-            <p>
-            <strong>Github:</strong>
-            <%= link_to @portfolio.portfolio_github, target: :_blank, rel: "noopener noreferrer" do %><i class="fab fa-github social-icon"></i>
+            <%= link_to @portfolio.portfolio_github, target: :_blank, rel: "noopener noreferrer" do %><i class="fab fa-github portfolio-icon"></i>
             <% end %>
-          </p>
+        
           <% end %>
-          
+</div>
+<div class="protfolio-likes">
 
-          <p>
-            <strong>実際の作品-></strong>
-            <%= link_to @portfolio.portfolio_url, target: :_blank, rel: "noopener noreferrer" do %><%= @portfolio.portfolio_title %><% end %>
-
-          </p>
-          <% if @portfolio.user_id == current_user.id %>
+         <% if @portfolio.user_id == current_user.id %>
               <%= link_to '編集', edit_portfolio_path(@portfolio),class: "btn btn-dark btn-sm", data: {"turbolinks"=>false} %>
               <%= link_to '削除', @portfolio, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-dark btn-sm" %>
               <% else %>
@@ -53,32 +33,75 @@
               <%= render partial: 'favorites/favorite', locals: { portfolio: @portfolio, favorite: @favorite} %>
               </div>
           <% end %>
+
+</div>
+
+
+<div class="portfolio-work">
+         
+            <strong>作品はこちら <i class="fa fa-caret-right"></i></strong>
+        <span class="super">
+            <%= link_to @portfolio.portfolio_url, target: :_blank, rel: "noopener noreferrer" do %><%= @portfolio.portfolio_title %><% end %>
+        </span>
+          
+</div>
+
+</div>  
+        <div class="portfolio-framework">
+          <p>
+            <strong>タイトル:</strong>
+            <%= @portfolio.portfolio_title %>
+          </p>
+         
+          <p><strong>制作に使用したスキル</strong></p>
+          <ul class="show-framework">
+              <% @portfolio.frameworks.each do |p| %>
+            <% if p.framework_name.present? %>
+            <li class="framework-center"><%= p.framework_name %>/</li>
+            <% end %>
+              <% end %>
+          </ul>
+        </div>
+
+
+          <p>
+            <strong>開発した経緯など:</strong>
+            <%= @portfolio.portfolio_body %>
+          </p>
+          
+       
+         
+
+         
+         
+        
         </div>
       </div>
-    </div>
-
+ 
 
 
 
 
   
 
-    <div class="col-md-4 prof-card-height">
+    <div class="col-md-4 portfolio-profile-main">
     <% if @portfolio.user.id != current_user.id %>
     <h3 class="comment">投稿者プロフィール</h3>
-     <div class="card show-main">
-
-        <div class="card-header pf-prof-header">
+    
+     <div class="show-main ">
+        
+         <div class="portfolio-profile-header">
           <% if @portfolio.user.profile.image? %>
           <%= image_tag @portfolio.user.profile.image.url,class: "pf-profile-img" %>
           <% else %>
           <%= image_tag asset_path("no_image.jpg"), class: "pf-profile-img" %>
           <% end %>  
         </div>
-        <div class="card-body show-body">
-          <p class="name"><%= @portfolio.user.profile.name %></p>
+        
+        <div class="show-body portfolio-profile-body">
+          <p class="portfolio-profile-name"><%= @portfolio.user.profile.name %></p>
             
-          <p class="job">
+          <p class="portfolio-profile-job">
             <% if  @portfolio.user.profile.gender_check == true  %>
               性別非公開/
             <% else %>
@@ -96,28 +119,22 @@
             <% end %>
           </p>
          <br>
-          <%= link_to 'ユーザー詳細', profile_path(@portfolio.user.profile.id),class:"btn btn-outline-danger btn-lg", data: {"turbolinks"=>false} %><br> <br>
-         <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @portfolio.user.profile.user.id), method: :post,class:"btn btn-outline-danger btn-lg", data: {"turbolinks"=>false} %>
+        <div class="portfolio-profile-footer">   
+          <%= link_to 'ユーザー詳細', profile_path(@portfolio.user.profile.id),class:"btn btn-outline-danger ", data: {"turbolinks"=>false} %><br> <br>
+         <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @portfolio.user.profile.user.id), method: :post,class:"btn btn-outline-danger", data: {"turbolinks"=>false} %>
         </div>
-     
-          <div class="social-links">
-       
-          
-          </div>
-              
-        <div class="card-footer">
-       
-           
         </div>
 
+       
+        
 
       </div>
       <% else %>
-  <h3>投稿者は自分</h3>
+        <h3>投稿者は自分</h3>
  <% end %>
     </div>
     
 
-  </div>
  </div>
+</div>
 

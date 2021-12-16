@@ -18,130 +18,92 @@
 
 
 
-// ここからしたはshow
-element .style{
-margin-top: 0;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  transition: 0.3s;
+
+// ここから詳細の新しいやつ
+.profile-header{
+   background-image: image-url('header.png');
+   background-size: cover;
+   width: 100%;
+   height: 250px;
+   position: relative;
 }
 
-
-.show-main {
-  max-width: 775px;
-  min-height: 575px;
-  margin: 150px auto 0;
-  
-  box-shadow: 0 10px 90px #00000024;
-  text-align: center;
-  font-size: 17px;
-  border-radius: 15px;
-}
-
-.card .card-header {
-  position: relative;
-  height: 48px;
-}
-.card .card-header .profile-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 1000px;
+ .profile-image{
+  width: 150px;
+  height: 150px;
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 8px solid #000000;
-  box-shadow: 0 0 20px #00000033;
+  top: 180px;
+  left: 43%;
+  border: 7px solid #353535;
 }
 
-.card .card-header .profile-img:hover {
-  width: 180px;
-  height: 180px;
-  border: 8px solid #d885af;
+.profile-img{
+  width: 100%;
+  height: 100%;
 }
-.card .show-body {
-  padding: 50px 40px;
-}
-
-.card .show-body .name {
-  margin-top: 30px;
-  font-size: 30px;
-  font-weight: bold;
-  color: #c74385;
-}
-
-// .card .card-body .name:hover {
-//   opacity: 0.7;
-//   font-size: 30px;
-//   color: #d885af;
-// }
-
-.card .card-body .mail {
-  font-size: 14px;
-  color: #c2bdbd;
-}
-
-.card .card-body .mail:hover {
-  font-size: 16px;
+.profile-name{
+  text-align: center;
+  padding-top: 80px;
   color: #ffffff;
+  font-size: 2.5rem;
+  font-family: monospace;
 }
 
-.card .card-body .job {
-  margin-top: 10px;
-  font-size: 20px;
-}
-.card .social-links {
+.profile-social-links{
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px ;
+  
 }
-
-.card .social-links .social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 40px;
-  background-color: #c74385;
+.flex-link {
+  margin: 2px 5px;
+}
+.flex-link .social-icon{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+.profile-footer{
+  margin-top: 1rem;
+text-align: right;
+}
+.profile-job{
   color: #ffffff;
   font-size: 20px;
-  border-radius: 100%;
-  text-decoration: none;
-  margin: 0 20px 30px 20px;
+  font-weight: bold;
 }
-
-.card .social-links .social-icon:last-child {
-  margin-right: 0;
-}
-
-.card .social-links .social-icon:hover {
-  background-color: #d885af;
+.profile-text p {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 2rem;
   
-  text-decoration: none;
 }
-.card .card-footer {
-  background-color: #c74385;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 20px 0 20px 0;
+.flex-link .social-icon:hover{
+  opacity: 0.5;
 }
 
-.card .card-footer .count {
-  font-size: 14px;
+.profile-body{
+  width: 100%;
+  height: 400px;
+  overflow-wrap: break-word;
+  padding: 40px;
 }
-@media screen and (max-width: 575px) {
-  .card {
-      width: 96%;
-  }
+.profile-body p {
+  overflow-wrap: break-word;
+}
 
-  .card .card-body {
-      padding: 10px 20px;
-  }
-}
+
+
+
+
+
+
+// ここまで
+
+
+// ここからしたはshow
+
 
 // ここまで
 // ここから入力フォーム
@@ -157,4 +119,7 @@ margin-top: 0;
 .prof-body-field{
   height: 200px;
   width: 100%;
+}
+label{
+  color: #ffffff;
 }

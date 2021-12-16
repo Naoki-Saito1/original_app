@@ -1,24 +1,35 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.mr{
-  margin: 0 0 0 auto;
-  margin-right: 80px;
+
+.nav-color{
+  background-color: black;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
-  padding-right: 2rem;
-  
+ 
+  height: 60px;
 }
+
 .dropdown-menu{
   width: 200px;
+
 }
+
 .top-header-text{
   color: rgb(255, 0, 234);
   display: inline;
 }
+
+.logout{
+  margin: 0 0 0 auto;
+}
+// ここからプロフィールへっだー
+// .top-header-profile-image{
+  
+// }
 
 // home
 
@@ -102,21 +113,21 @@ color: rgb(166, 250, 201);
   
 }
 .card1{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(251, 0, 134);
   width: 33%;
 width: 33%;
 height: 500px;
 margin:  30px;
 }
 .card2{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 85);
 width: 33%;
 width: 33%;
 height: 500px;
 margin:  30px;
 }
 .card3{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(253, 0, 126);
 width: 33%;
 height: 500px;
 margin:  30px;

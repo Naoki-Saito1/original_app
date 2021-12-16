@@ -29,12 +29,16 @@
      <div class="card-deck" style="width:22rem">
     
        <div class="card card_topic pf-main">
+
        <div class="p-image">
+         
        <% if portfolio.portfolio_image.url.present? %>
           <%= link_to image_tag(portfolio.portfolio_image.url, size: '320x200', class: "card-img-top"), portfolio, data: {"turbolinks"=>false} %>
        <% else %>
           <%= link_to image_tag(asset_path("no_image.png"), size: '320x200', class: "card-img-top"), portfolio, data: {"turbolinks"=>false}%>
        <% end %>
+
+        
       </div>
         
      <div class="card-body ">
