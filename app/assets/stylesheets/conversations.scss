@@ -2,6 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+
+.message-titie{
+  margin-top: 15px;
+}
 .talking_user{
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display:flex ;
+  border: 5px solid #353535;
+  align-items: center;
+  position: relative;
+}
+.message-count{
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+.message-user-name{
+  margin-left: 2rem;
 }

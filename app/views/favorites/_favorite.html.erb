@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
- <% unless @portfolio.favorite_user(current_user.id).blank? %>
-    <%= link_to portfolio_favorite_path(portfolio_id: @portfolio.id, id: @portfolio.favorites[0].id), method: :delete, remote: true do %>
+ <% unless portfolio.favorite_user(current_user.id).blank? %>
+    <%= link_to portfolio_favorite_path(portfolio_id: portfolio.id, id: portfolio.favorites[0].id), method: :delete, remote: true do %>
     <i class="far fa-thumbs-up unlike-btn"></i>
     <% end %>
   <%= portfolio.favorites.count %>
   <% else %>
-    <%= link_to portfolio_favorites_path(@portfolio.id), method: :post, remote: true do %>
+    <%= link_to portfolio_favorites_path(portfolio.id), method: :post, remote: true do %>
      <i class="far fa-thumbs-up like-btn"></i>
     <% end %>
       <%= portfolio.favorites.count %>

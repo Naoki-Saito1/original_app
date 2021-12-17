@@ -6,6 +6,17 @@
 //   word-wrap: break-word;
 // }
 
+.portfolio-top-wrapper{
+display: flex;
+  margin: 20px 0 0  auto;
+  justify-content: space-between;
+}
+.index-search{
+  text-align: center;
+  margin-right: 15px;
+}
+
+
 
 .card-body{
  
@@ -66,8 +77,8 @@ a .card-img-top{
   right: 0;
   bottom: 0;
   padding: 10px 5px 0 0;
-  font-size: 14px;
-  color: rgb(85, 85, 84);
+  font-size: 12px;
+  color: rgb(255, 255, 255);
 }
 .p-like p{
   position: absolute;
@@ -81,6 +92,9 @@ a .card-img-top{
 .pf-footer{
   height: 40px;
 }
+
+
+
 
 
 
@@ -102,7 +116,7 @@ a .card-img-top{
 }
 
 .portfolio-body{
-  margin: 20px 0 30px 0;
+  margin: 20px 0 15px 0;
   display: flex;
   justify-content: center;
 }
@@ -200,25 +214,7 @@ a .card-img-top{
 .field{
   padding: 10px;
 }
-// .button {
-//   display       : inline-block;
-//   border-radius : 5%;          
-//   font-size     : 18pt;        
-//   text-align    : center;      
-//   cursor        : pointer;     
-//   padding       : 12px 12px;   
-//   background    : #e702c9;     
-//   color         : #ffffff;     
-//   line-height   : 1em;         
-//   transition    : .3s;         
-//   box-shadow    : 6px 6px 3px #666666; 
-//   border        : 2px solid #050505;   
-// }
-// .button:hover {
-//   box-shadow    : none;        
-//   color         : #e069f8;     
-//   background    : #ffffff;  
-// }
+
 // ここまで
 
 
