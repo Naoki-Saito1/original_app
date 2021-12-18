@@ -1,9 +1,32 @@
 
 
+
+<div id="sidebar-user-information">
+
+    <div class="sidebar-icon">
+
+    <% if current_user.profile.image? %>
+              <%= image_tag current_user.profile.image.url, size: '55x55',class: "header-profile-image" %>
+              <% else %>
+              <%= image_tag asset_path("no_image.jpg"), size: '55x55', class: "header-profile-image" %>
+              <% end %>  
+    </div>
+    
+    <div class="sidebar-username">
+    <%= current_user.profile.name %>
+    </div>    
+
+</div>
+
+ <%= link_to ' aa',edit_user_registration_path, data: {"turbolinks" => false}  %>
+
 <div id="main-sidebar">
   <div class="sidebar-inner">
   <div class="frame">
-    <ul>
+  
+
+    <ul class="nav_menu_ul">
+
       <li><%= link_to profile_path(current_user.profile.id),class: "custom-btn btn-5", data: {"turbolinks"=>false} do %>
       <i class="fas fa-user-circle"></i>マイページ
       <% end %>
@@ -27,11 +50,17 @@
             <%= link_to '管理者ページ', rails_admin_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
             <% end %></li>     
     </ul>
+</nav>
 
     </div>
   </div>
 </div>
 
+<script>
+$('.nav_toggle').on('click', function () {
+  $('.nav_toggle, .nav').toggleClass('show');
+});
 
+</script>
 
 

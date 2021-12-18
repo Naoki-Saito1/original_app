@@ -9,9 +9,9 @@
       
         <div class="portfolio-image">
           <% if @portfolio.portfolio_image? %>
-           <%= image_tag @portfolio.portfolio_image.url, size: '370x210' %>
+           <%= image_tag @portfolio.portfolio_image.url, class:"portfolio-flex-image" %>
           <% else %>
-            <%= image_tag asset_path("no_image.png"), size: '370x210'  %>
+            <%= image_tag asset_path("no_image.png"), class:"portfolio-flex-image" %>
           <% end %>
         </div>
 <div class="portfolio-body">

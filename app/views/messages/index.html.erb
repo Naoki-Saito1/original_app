@@ -8,6 +8,7 @@
 
 
 <div class="container">
+ <h5 class="talk-room"><%= "#{@recipient.profile.name}/#{@sender.profile.name}" %></h5><br>
   <div class="row messages">
     <div class="col-md-6 message-users">
 
@@ -58,9 +59,9 @@
     </div>    
 </div>
     
-   
+  
           <div class="col-md-6 message-form">
-            <h3><%= "#{@recipient.profile.name}&#{@sender.profile.name}" %>の部屋</h3><br>
+            
             <% if @over_ten %>
               <%= link_to '以前のメッセージ', '?m=all' %>
             <% end %>
@@ -75,7 +76,7 @@
                   <% end %>
                  
                     <div class="content">
-                      <div class="header"><strong><%= message.user.profile.name %></strong> <%= message.message_time %></div>
+                      <div class="header"><%= message.user.profile.name %><%= message.message_time %></div>
                       <div class="list">
                         <div class="item">
                           <i class="right triangle icon"></i>
