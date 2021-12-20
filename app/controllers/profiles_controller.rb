@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-  # before_action :user_check, only: %i[ new show ]
   before_action :set_profile, only: %i[show edit update destroy]
   before_action :authenticate_user!
   def index
@@ -13,11 +12,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    # binding.irb
+   
   end
 
   def new
-    # binding.irb
+  
     if current_user.profile.present?
       redirect_to profile_path(current_user.profile.id)
     else
@@ -37,8 +36,7 @@ class ProfilesController < ApplicationController
         format.html { redirect_to @profile, notice: 'プロフィール登録しました' }
         format.json { render :show, status: :created, location: @profile }
       else
-        # flash: @profile.errors.full_messages
-        # format.html { render :new, status: :unprocessable_entity }
+      
         format.html { redirect_to new_profile_path, notice: @profile.errors.full_messages }
         format.json { render json: @portfolio.errors, status: :unprocessable_entity }
 

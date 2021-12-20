@@ -16,12 +16,25 @@ display: flex;
   margin-right: 15px;
 }
 
-
-
+.portfolio-index-header{
+  height: 50px;
+}
+.sort-index-search{
+ 
+  margin: 30px 20px 0 auto ;
+  width: 180px;
+}
+.sort-index-search a {
+  color: #007bff;
+}
 .card-body{
  
   overflow: scroll; 
   height: 200px
+}
+
+span .name{
+  margin-top: 15px;
 }
 
 
@@ -124,7 +137,11 @@ a .card-img-top{
   width: 40px;
   height: 40px;
 }
-
+.profile-name{
+  font-family: fantasy;
+  font-weight: 800;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .portfolio-body{
   margin: 20px 0 15px 0;
   display: flex;
@@ -224,7 +241,9 @@ a .card-img-top{
 .field{
   padding: 10px;
 }
-
+.portfolio-post{
+  font-size: 12px;
+}
 // ここまで
 
 

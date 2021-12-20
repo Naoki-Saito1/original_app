@@ -29,8 +29,11 @@
   }
   .show-main{
     position: static !important; 
-    margin-top: 80px;
+    margin-top: 100px;
   }
+  .comment{
+    margin-top: 15px; 
+   }
   .portfolio-image{
     width: 250px;
     height: 180px;
@@ -44,10 +47,19 @@
     left: 30%;
     border: 7px solid #353535;
   }
+  .transition{
+    position: fixed;
+    top: 0;
+    left: 80px;
   }
-  
+  .col-2{
+    display: none;
+  }
+  .col-10{
+    margin-left: 10%;
+  }
 
-
+ }
 
 
   @media only screen and (min-width:600px) {
@@ -58,7 +70,9 @@
     }
 
 
-
+h1{
+  color: #ffffff;
+}
 
 
 
@@ -68,7 +82,7 @@
  body {
   font-family: "Montserrat";
   // background-image: image-url('haikei2.png');
-  background-color: rgba(15, 15, 15, 0.924);
+  background-color: rgba(22, 22, 22, 0.924);
   background-size: cover;
   color: #ffffff;
   min-height: 1000px;
