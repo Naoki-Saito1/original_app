@@ -16,42 +16,44 @@
 
   <body>
 
-  <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark  ">
-  <h3><%= link_to "プログラミンナ", root_path, data: {"turbolinks"=>false} %></h3>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div id="top-nav">
+  <div class="transition">
+      <%= link_to "プログラミンナ", root_path, data: {"turbolinks"=>false} %>
+   </div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  
-    <ul class="navbar-nav mr">
-      <li class="nav-item active">
-        <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks"=>false} %>
-      </li>
-      <li class="nav-item ">
-        <%= link_to "ログイン", new_user_session_path, data: {"turbolinks"=>false}%>
-      </li>
-      <li class="nav-item dropdown ">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-          <div class="top-header-text">
-          ゲストはこちら
-          </div>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <div> <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %></div> 
-          <div> <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
-          <div class="dropdown-divider"></div></div>
-          <a class="dropdown-item" href="#"></a>
-        </div>
-      </li>
-    </ul>
-  
+
+  <div class="openbtn1"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+
+        <ul>
+          <li><%= link_to "新規登録", new_user_registration_path, data: {"turbolinks"=>false} %></li>  
+          <li> <%= link_to "ログイン", new_user_session_path, data: {"turbolinks"=>false}%></li>  
+          <li><%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %></li>  
+          <li><%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %></li>  
+        </ul>
+    </nav>
   </div>
-</nav>
+<div class="circle-bg"></div>
+  </div>
+</div>
+<script>
+$(".openbtn1").click(function () {//ボタンがクリックされたら
+  $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+    $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+    $(".circle-bg").toggleClass('circleactive');//丸背景にcircleactiveクラスを付与
+});
 
-  </header>
- 
+$("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
+    $(".openbtn1").removeClass('active');//ボタンの activeクラスを除去し
+    $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスを除去
+    $(".circle-bg").removeClass('circleactive');//丸背景のcircleactiveクラスを除去
+});
+</script>
+
+
+
+
+
 <%= yield %>
 <%= render 'shared/layout/footer' %>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
