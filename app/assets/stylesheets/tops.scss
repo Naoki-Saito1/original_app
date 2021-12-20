@@ -166,35 +166,10 @@ opacity: 0;
 
 /*========= レイアウトのためのCSS ===============*/
 
-h1{
-font-size:1.2rem;
-}
-
-h2{
-font-size:1.2rem;
-text-align: center;
-margin: 0 0 30px 0;
-}
-
-p{
-margin-top:20px;  
-}
-
-small{
-color:#fff;
-display: block;
-text-align: center;
-}
 
 
 
-section{
-padding:100px 30px;
-}
 
-section:nth-child(2n){
-background:#f3f3f3; 
-}
 
 // #footer{
 // background:#333;
@@ -278,6 +253,7 @@ color: rgb(166, 250, 201);
   color: rgb(172, 172, 172);
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2rem;
 }
 
 .top-card{
