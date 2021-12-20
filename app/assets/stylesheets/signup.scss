@@ -9,12 +9,12 @@
   margin: 10px auto 0;
   border-radius: 4px;
   border: 1px #ddd solid;
-  
+  background-color: #fafafa;
 }
 
 .box-inner {
   padding: 22px 28px 0 28px;
-  
+  color: #111;
 }
 .pad{
   margin-top: 60px;
@@ -142,4 +142,6 @@ h1 {
 .box-newusr a:hover {
   background: #e7e9ec;
 }
-
+.white{
+  color: #111;
+}
