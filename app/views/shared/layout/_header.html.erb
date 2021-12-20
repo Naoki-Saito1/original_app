@@ -2,7 +2,7 @@
 
  
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light nav-color  ">
+  <nav class="navbar navbar-expand-lg navbar-light nav-color ">
  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,6 +10,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   
+
+
+
     <ul class="navbar-nav mr">
  <li class="nav-item dropdown ">
         <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -30,29 +33,63 @@
           </div>
           <a class="dropdown-item" href="#"></a>
         </div>
-
-
-      </li>
-
-      <li class="nav-item active">
-        
-      </li>
-      <li class="nav-item active">
-      
-  
       </li>
      
+      
+<div id="sidebar-media">
+
+      <li><%= link_to profile_path(current_user.profile.id),class: "custom-btn btn-5", data: {"turbolinks"=>false} do %>
+      <i class="fas fa-user-circle"></i>マイページ
+      <% end %>
+      </li>
+
+      <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
+      </li>
+
+      <li><%= link_to 'ポートフォリオ一覧', portfolios_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
+      </li>
+
+      <li><%= link_to portfolio_favorites_path(current_user.portfolios), class: "custom-btn btn-5", data: {"turbolinks"=>false} do %>
+      イイね<i class="far fa-heart"></i>一覧
+      <% end %></li>
+
+      <li><%= link_to conversations_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} do %>
+      <i class="far fa-envelope"></i>メッセージ
+      <% end %></li>
+
+      <li> <% if current_user && current_user.try(:admin?) %>
+            <%= link_to '管理者ページ', rails_admin_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
+            <% end %></li>     
+</div>
+
+ <li class="nav-item active">
+
+      </li>
+      <li class="nav-item active">  
+      </li>
+
+
+
+
+     
     </ul>
+
+
    <div class="transition">
       <%= link_to "プログラミンナ", portfolios_path, data: {"turbolinks"=>false} %>
    </div>
+
 <div class="logout">
   <% if user_signed_in? %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks"=>false},class:"btn btn-primary btn-sm" %>
 <% end %>
+
 </div>
   </div>
 </nav>
 
   </header>
  
+
+
+

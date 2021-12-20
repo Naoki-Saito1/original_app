@@ -14,6 +14,22 @@
     </div>
   <% end %>
 
+
+ <div class="field">
+ <p class="portfolio-post">ポートフォリオのトップまたは一番見て欲しいページのスクリーンショットを投稿してください</p>
+  <div class="post-image-prev">
+    <% if portfolio.portfolio_image? %>
+      <%= image_tag portfolio.portfolio_image.url, alt: "post-image", id: "img_prev", size: "100" %>
+    <% else %>
+      <%= image_tag "no_image.png", alt: "post-image", id: :img_prev, size: "100" %>
+    <% end %>
+  </div>
+  
+    <%= form.label :portfolio_image %>
+    <%= form.hidden_field :icon_cache %>
+    <%= form.file_field :portfolio_image, assets: 'image/jpeg, image/gif, image/png', id: "user_img" %>
+
+
   <div class="field">
   <span class="hissu">*</span>
     <%= form.label :portfolio_title %><br>
@@ -23,17 +39,6 @@
  
 
 
- <div class="field">
-  <div class="post-image-prev">
-    <% if portfolio.portfolio_image? %>
-      <%= image_tag portfolio.portfolio_image.url, alt: "post-image", id: "img_prev", size: "100" %>
-    <% else %>
-      <%= image_tag "no_image.png", alt: "post-image", id: :img_prev, size: "100" %>
-    <% end %>
-  </div>
-    <%= form.label :portfolio_image %>
-    <%= form.hidden_field :icon_cache %>
-    <%= form.file_field :portfolio_image, assets: 'image/jpeg, image/gif, image/png', id: "user_img" %>
  
   
     <script type="text/javascript">
@@ -59,7 +64,7 @@
  <div class="field">
  <span class="hissu">*</span>
     <%= form.label :portfolio_body %>
-    <%= form.text_area :portfolio_body, placeholder: "1000字以内", class: "body-height" %>
+    <%= form.text_area :portfolio_body, placeholder: "1000字以内で自由に記入してください", class: "body-height" %>
   </div>
 </div>
 
@@ -69,12 +74,12 @@
 
 
   <div class="field">
-    <%= form.label :portfolio_language %>
+    <%= form.label :portfolio_language %><br>
     <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください'} %>
   </div>
 
 
-<p>(制作に使用したスキルやフレームワーク等)</p>
+<p class="portfolio-post">(制作に使用したスキルやフレームワーク等)</p>
 <% if controller.action_name == "new" %>
   <div class="field">
      
@@ -89,6 +94,9 @@
       <%= form.fields_for :frameworks do |t| %>
     <%= render "framework_fields", f: t  %>
       <% end %>
+      <%= form.fields_for :frameworks do |t| %>
+    <%= render "framework_fields", f: t  %>
+      <% end %>
     </div>
     <% else %>
    <div class="field">
@@ -99,10 +107,13 @@
 <% end %>
 
 
+
+
+
   
   <div class="field">
-    <%= form.label :portfolio_github %><br>
-    <%= form.text_field :portfolio_github, placeholder: "任意" %>
+    <%= form.label :portfolio_github %>URL<br>
+    <%= form.text_field :portfolio_github, placeholder: "任意です" %>
   </div>
 
   <div class="field">
@@ -112,7 +123,7 @@
     <%= form.text_area :portfolio_url, placeholder: "URL" %>
   </div>
 
-  <div class="actions">
+  <div class="field">
     <%= form.submit %>
   </div>
 <% end %>

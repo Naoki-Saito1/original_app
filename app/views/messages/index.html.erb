@@ -1,11 +1,6 @@
 <script>
 'use strict';
- window.onload = () => {
  
-    add.onclick = () => {
-      // クラスを全て編集
-      add.main = "bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white py-2 px-4 rounded-full mb-3 mt-4" ;
-    };
  
   }
  
@@ -13,39 +8,60 @@
 
 
 <div class="container">
+ <h5 class="talk-room"><%= "#{@recipient.profile.name}/#{@sender.profile.name}" %></h5><br>
   <div class="row messages">
     <div class="col-md-6 message-users">
-    
-          
-          <h2>メッセージ一覧</h2>
-              <ul>
-                <% @conversations.each do |conversation| %>
-                  
-                  <% if conversation.target_user(current_user).present? %>
-                    <li class="talking_user">
 
-                      <%= link_to conversation_messages_path(conversation) do %>
-                      <h2 class="main"><%= conversation.target_user(current_user).profile.name %></h2>
-                        <% if conversation.target_user(current_user).profile.image? %>
-                          <%= image_tag conversation.target_user(current_user).profile.image.url, size: '200x200' %>
-                        <% else %>
-                          <%= image_tag asset_path("no_image.png"), size: '200x200' %>
-                        <% end %>
-                        
-                      <% end %>
-
-                    </li>  
+   <div class="message-wrapper"> 
+        <% @conversations.each do |conversation| %>
+               
+     
+          <% if conversation.target_user(current_user).present? %>
+            
+              <%= link_to conversation_messages_path(conversation) do %>
+              <div class="talking_user">       
+                <div class="message-image">
+                   <% if conversation.target_user(current_user).profile.image? %>
+                      <%= image_tag conversation.target_user(current_user).profile.image.url, size: '60x60', data: {"turbolinks"=>false} %>
+                    <% else %>
+                      <%= image_tag asset_path("no_image.png"), size: '60x60', data: {
+                        "turbolinks"=>false} %>
                     <% end %>
-                  <% end %>
-                
-              </ul>
-          </div>  
-          
-   
+                </div>
+       
+                <div class="message-user-name">
+               
+                <h4><%= conversation.target_user(current_user).profile.name %></h4>
+
+                       
+                </div>
+
+<div class="message-marker">
+
+  <% if @recipient.profile.name == conversation.target_user(current_user).profile.name %> <div class="message-color"><i class="fas fa-mail-bulk"></i>
+                  </div>
+                 <% end %>
+ <% if @sender.profile.name == conversation.target_user(current_user).profile.name %> <div class="message-color"><i class="fas fa-mail-bulk"></i>
+                  </div>
+                 <% end %>       
+</div>
+
+
+                <div class="message-count ">
+                  <p><%= conversation.messages.where.not(user_id: current_user.id).where(message_read: false).count %></p>
+                </div>
+              </div>
+
+              <% end %>
+            
+          <% end %>
+        <% end %>            
+    </div>    
+</div>
     
-   
+  
           <div class="col-md-6 message-form">
-            <h3><%= "#{@recipient.profile.name}&#{@sender.profile.name}" %>の部屋</h3><br>
+            
             <% if @over_ten %>
               <%= link_to '以前のメッセージ', '?m=all' %>
             <% end %>
@@ -56,18 +72,23 @@
                   <div class="me-item">
                   <% else %>
                   <div class="your-item">
+                 
                   <% end %>
                  
                     <div class="content">
-                      <div class="header"><strong><%= message.user.profile.name %></strong> <%= message.message_time %></div>
+                      <div class="header"><span class="message-time"><%= message.message_time %></span><%= message.user.profile.name %>
+                        <% if message.user == current_user %>
+                            <%= message.message_read ? '' : '/未読' %>
+                          <% end %>
+                      </div>
                       <div class="list">
                         <div class="item">
                           <i class="right triangle icon"></i>
-                          <%= message.message_body %> /
-                          <% if message.user == current_user %>
-                            <%= message.message_read ? '既読' : '未読' %>
-                          <% end %>
+
+                         <span class="message-back-text"><%= message.message_body %></span><br>
+                        
                         </div>
+
                       </div>
                     </div>
                   </div>
@@ -81,8 +102,8 @@
                 <%= f.text_area :message_body, class: "form-control", placeholder: "メッセージを入力してください" %>
               </div>
                 <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-              <div>
-                <%= f.submit "メッセージ送信" %>
+              <div class="message-submit">
+                <%= f.submit "メッセージ送信", data: {"turbolinks" => false} %>
               </div>
             <% end %>
 

@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :portfolio_params, only: %i[create destroy]
   def index
-    @favorites = current_user.favorites.all
+    @favorites = current_user.favorites.all.order(created_at: 'DESC').page(params[:page]).per(6)
   end
 
   def create

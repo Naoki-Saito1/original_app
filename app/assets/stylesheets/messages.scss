@@ -18,6 +18,47 @@ padding-top: 20px;
 }
 
 .me-item{
-  background-color: rgb(235, 238, 238);
+ 
   text-align: right;
+  width: 270px;
+  margin: 0 0 0 auto;
+}
+.your-item{
+  width: 270px;
+ 
+}
+.your-item .message-back-text{
+  background-color: rgb(61, 61, 61);
+  padding: 6px;
+  font-size: 15px;
+}
+.me-item .message-back-text{
+  background-color: rgb(0, 0, 0);
+  padding: 6px;
+  font-size: 15px;
+}
+
+.message-color{
+  color: greenyellow;
+  font-size: 25px;
+  // width: 20px;
+  // height: 20px;
+  // background-color: rgb(255, 47, 227);
+  // border-radius: 100%;
+}
+.message-marker{
+  margin: 0 0 0 auto;
+}
+
+.header{
+  font-size: 12px;
+  margin: 2px 0;
+}
+.talk-room{
+  text-align: right;
+  
+}
+.message-submit{
+  text-align: center;
+  margin-top: 1rem;
 }

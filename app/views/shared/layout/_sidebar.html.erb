@@ -1,22 +1,66 @@
 
 
+
+<div id="sidebar-user-information">
+
+    <div class="sidebar-icon">
+
+    <% if current_user.profile.image? %>
+              <%= image_tag current_user.profile.image.url, size: '55x55',class: "header-profile-image" %>
+              <% else %>
+              <%= image_tag asset_path("no_image.jpg"), size: '55x55', class: "header-profile-image" %>
+              <% end %>  
+    </div>
+    
+    <div class="sidebar-username">
+    <%= current_user.profile.name %>
+    </div>    
+
+</div>
+
+ 
+
 <div id="main-sidebar">
   <div class="sidebar-inner">
   <div class="frame">
-    <ul>
-      <li><%= link_to 'マイページ', profile_path(current_user.profile.id),class: "custom-btn btn-5", data: {"turbolinks"=>false}  if current_user.profile.present? %></li>
-      <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %></li>
-      <li><%= link_to 'ポートフォリオ一覧', portfolios_path, class: "custom-btn btn-5", data: {"turbolinks"=>false}  %></li>
-      <li><%= link_to 'いいね 一覧', portfolio_favorites_path(current_user.portfolios), class: "custom-btn btn-5", data: {"turbolinks"=>false}  %></li>
-      <li><%= link_to 'メッセージ', conversations_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %></li>
+  
+
+    <ul class="nav_menu_ul">
+
+      <li><%= link_to profile_path(current_user.profile.id),class: "custom-btn btn-5", data: {"turbolinks"=>false} do %>
+      <i class="fas fa-user-circle"></i>マイページ
+      <% end %>
+      </li>
+
+      <li><%= link_to 'ポートフォリオ投稿', new_portfolio_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
+      </li>
+
+      <li><%= link_to 'ポートフォリオ一覧', portfolios_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
+      </li>
+
+      <li><%= link_to portfolio_favorites_path(current_user.portfolios), class: "custom-btn btn-5", data: {"turbolinks"=>false} do %>
+      イイね<i class="far fa-heart"></i>一覧
+      <% end %></li>
+
+      <li><%= link_to conversations_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} do %>
+      <i class="far fa-envelope"></i>メッセージ
+      <% end %></li>
+
       <li> <% if current_user && current_user.try(:admin?) %>
             <%= link_to '管理者ページ', rails_admin_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
             <% end %></li>     
     </ul>
+</nav>
+
     </div>
   </div>
 </div>
 
+<script>
+$('.nav_toggle').on('click', function () {
+  $('.nav_toggle, .nav').toggleClass('show');
+});
 
+</script>
 
 
