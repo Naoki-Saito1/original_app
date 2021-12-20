@@ -18,7 +18,8 @@
      
           <% if conversation.target_user(current_user).present? %>
             
-              <%= link_to conversation_messages_path(conversation) do %>
+              <%= link_to conversation_messages_path(conversation), data: {
+                        "turbolinks"=>false} do %>
               <div class="talking_user">       
                 <div class="message-image">
                    <% if conversation.target_user(current_user).profile.image? %>

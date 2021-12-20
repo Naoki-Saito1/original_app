@@ -41,7 +41,9 @@
     width: 250px;
     height: 180px;
   }
-
+  .pf-main{
+    width: 320px;
+  }
   .profile-image{
     width: 100px;
     height: 100px;
@@ -50,7 +52,12 @@
     left: 35%;
     border: 7px solid #353535;
   }
-
+.btn-5{
+  text-align: center;
+}
+.logout{
+padding: 15px 0 0 10px;
+}
 
   .transition{
     position: fixed;
