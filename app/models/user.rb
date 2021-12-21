@@ -23,11 +23,15 @@ class User < ApplicationRecord
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
-  # def self.profile_default
-  #   @profile = Profile.create(name:"test", detail:"", body:"", user_id: current_user.id)
-  #   @profile.save
-  #   # redirect_to profile_path(@profile.id)
-  # end
+
+  def self.guest_corporate
+    find_or_create_by(email: 'corporate_guest@gmail.com') do |user|
+      user.build_profile(name: 'ゲストユーザー(企業)')
+      user.password = 100_100
+      user.corporate = true
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
