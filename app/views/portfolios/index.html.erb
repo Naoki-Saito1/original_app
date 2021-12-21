@@ -32,15 +32,15 @@
  <% @portfolios.each do |portfolio| %>
    <div class="col-md-4">
      <div class="card-deck " style="width:22rem">
-    
+    <%= link_to  portfolio, data: {"turbolinks"=>false} do %>
        <div class="card card_topic pf-main">
 
        <div class="p-image">
-         
+       
        <% if portfolio.portfolio_image.url.present? %>
-          <%= link_to image_tag(portfolio.portfolio_image.url, size: '350x200', class: "card-img-top"), portfolio, data: {"turbolinks"=>false} %>
+          <%=  image_tag portfolio.portfolio_image.url, size: '350x200', class: "card-img-top", data: {"turbolinks"=>false} %>
        <% else %>
-          <%= link_to image_tag(asset_path("no_image.png"), size: '350x200', class: "card-img-top"), portfolio, data: {"turbolinks"=>false}%>
+          <%=  image_tag asset_path("no_image.png"), size: '350x200', class: "card-img-top", data: {"turbolinks"=>false}%>
        <% end %>
 
         
@@ -81,7 +81,7 @@
     </div>
     
 <% end %>
-
+<% end %>
   </div>
   
 </div>

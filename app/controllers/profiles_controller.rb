@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show edit update destroy]
   before_action :authenticate_user!
   def index
-    if current_user.try(:admin?)
+    if current_user.try(:corporate?) || current_user.try(:admin?)
       @profiles = Profile.all
       @q = Profile.ransack(params[:q])
       @profiles = @q.result(distinct: true).order(created_at: 'DESC').page(params[:page]).per(9)
