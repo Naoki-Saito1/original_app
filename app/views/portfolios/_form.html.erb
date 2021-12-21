@@ -60,13 +60,40 @@
   </div>
 
 
-
+<div id='editor'>
  <div class="field">
  <span class="hissu">*</span>
     <%= form.label :portfolio_body %>
-    <%= form.text_area :portfolio_body, placeholder: "1000字以内で自由に記入してください", class: "body-height" %>
+<%= form.text_area :portfolio_body, rows: 5, class: 'body-height', id: 'blog_diary', "v-model" => "input", name: "portfolio[portfolio_body]", placeholder: "1000字以内で自由に記入してください" %>
+<div v-html='input | marked'></div>
   </div>
 </div>
+
+
+
+
+
+<script type="text/javascript">
+window.onload = function() {
+new Vue({
+el: '#editor',
+data: {
+input: '<%== j @portfolio.portfolio_body %>',
+},
+filters: {
+marked: marked,
+},
+});
+};
+</script>
+</div>
+
+
+
+
+
+
+
 
 <div class="col-md-6">
 
@@ -130,3 +157,8 @@
   </div>
  </div>
 </div>
+
+
+
+
+

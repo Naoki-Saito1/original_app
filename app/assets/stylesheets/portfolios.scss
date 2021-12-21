@@ -237,7 +237,22 @@ a .card-img-top{
 .body-height{
   height: 200px;
   width: 100%;
+  padding: 0.5em;
+  border-radius: 0.67em;
+  
 }
+
+input[type="text"] {
+  border: 1px solid #999;
+}
+input[type="text"]:focus {
+  border: 1px solid #ff9900;
+  outline: 0;
+}
+
+
+
+
 .field{
   padding: 10px;
 }
