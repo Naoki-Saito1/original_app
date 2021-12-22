@@ -121,7 +121,9 @@
          <br>
         <div class="portfolio-profile-footer">   
           <%= link_to 'ユーザー詳細', profile_path(@portfolio.user.profile.id),class:"btn btn-outline-danger ", data: {"turbolinks"=>false} %><br> <br>
-         <%= link_to 'メッセージを送る', conversations_path(sender_id: current_user.id, recipient_id: @portfolio.user.profile.user.id), method: :post,class:"btn btn-outline-danger", data: {"turbolinks"=>false} %>
+         <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @portfolio.user.profile.user.id), method: :post,class:"btn btn-outline-danger", data: {"turbolinks"=>false} do %>メッセージを送る
+         <i class="far fa-comments"></i>
+         <% end %>
         </div>
         </div>
 
@@ -130,7 +132,7 @@
 
       </div>
       <% else %>
-        <h3>投稿者は自分</h3>
+        <h4>投稿者は<%= current_user.profile.name %>さん</h4>
  <% end %>
     </div>
     

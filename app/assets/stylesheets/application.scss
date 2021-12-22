@@ -27,11 +27,14 @@
   .navbar-toggler{
     background-color: whitesmoke;
   }
+  .top-header-profile-image{
+    margin: 25px 0 ;
+  }
   #sidebar_fixed {
   display: none;
   }
   .profile-footer{
-    margin-top: 60px;
+    margin: 60px 0 20px 0 ;
   }
   .navbar{
     background-color: black;
@@ -101,8 +104,11 @@ padding: 15px 0 0 10px;
     color: #ffffff;
     font-size: 16px;
     line-height: 1.5rem;
-    
   }
+.portfolio-index-h1{
+  font-size: 25px;
+}
+
  }
 
 
