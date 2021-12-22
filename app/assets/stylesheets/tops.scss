@@ -187,7 +187,6 @@ opacity: 0;
 
 
 
-
 .top-portfolio-title{
   font-family: 'Times New Roman', Times, serif;
   margin: 35px 0 0 60px;
@@ -216,13 +215,23 @@ opacity: 0;
   // background-image: image-url('top1.png');
   // background-position: center;
   // background-size: cover;
-  height: 600px;
+  height: 800px;
   width:100%;
   margin-bottom: 75px;
 }
 
 
-
+.hello h6{
+  color: aquamarine;
+  
+}
+.hello{
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  width: 300px;
+  height: 150px;
+}
 
 
 .top-top{
@@ -244,10 +253,10 @@ opacity: 0;
   
   
 }
-.description{
+// .description{
   
-  text-align: center;
-}
+//   text-align: center;
+// }
 
 
 .top-second-content{
@@ -355,6 +364,8 @@ font-size: 1.1rem;
   background-position: center;
   height: 200px;
   width:100%;
+  margin-top: 100px;
+  
   
 }
 
@@ -366,6 +377,7 @@ font-size: 1.1rem;
   background-position: center;
   height: 200px;
   width:100%;
+  margin-bottom: 100px;
 }
 
 
@@ -432,7 +444,9 @@ font-size: 1.1rem;
 //     font-weight: bold;
 //   } 
 
-
+.reason{
+  padding: 0px 50px;
+}
 
 .reason p{
   color: white;
@@ -441,3 +455,7 @@ font-size: 1.1rem;
 width: 100%;
 margin-top: 100px;
 }
+
+
+
+
