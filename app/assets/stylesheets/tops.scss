@@ -186,16 +186,37 @@ opacity: 0;
 
 
 
+
+
+.top-portfolio-title{
+  font-family: 'Times New Roman', Times, serif;
+  margin: 35px 0 0 60px;
+}
+.top-portfolio-title h1{
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+
+
+
+
+
+
 .top-wrapper{
   min-height: 3000px;
   padding: 65px;
   background-color: rgb(0, 0, 0);
 }
 .top-image{
-  background-image: image-url('top1.png');
-  background-position: center;
-  background-size: cover;
-  height: 850px;
+  // background-image: image-url('top1.png');
+  // background-position: center;
+  // background-size: cover;
+  height: 600px;
   width:100%;
   margin-bottom: 75px;
 }
@@ -205,9 +226,9 @@ opacity: 0;
 
 
 .top-top{
-  position: sticky;
-  top: 300px;
-  left: 800px;
+  position: absolute;
+  top: 400px;
+  left: 920px;
   height: 500px;
   width: 500px;
 }
@@ -366,50 +387,50 @@ font-size: 1.1rem;
 .index{
   color: black;
 }
-.function-post{
-height: 400px;
-width: 30%;
-background-color: rgb(246, 245, 245);
-margin:  30px;
-text-align: center;
-background-image: image-url('sidebar.png');
-}
-.function-message{
-  height: 400px;
-  width: 30%;
-  background-color: rgb(246, 245, 245);
-  margin:  30px;
-  text-align: center;
-  background-image: image-url('sidebar.png');
-  }
+// .function-post{
+// height: 400px;
+// width: 30%;
+// background-color: rgb(246, 245, 245);
+// margin:  30px;
+// text-align: center;
+// background-image: image-url('sidebar.png');
+// }
+// .function-message{
+//   height: 400px;
+//   width: 30%;
+//   background-color: rgb(246, 245, 245);
+//   margin:  30px;
+//   text-align: center;
+//   background-image: image-url('sidebar.png');
+//   }
 
-.function-like{
-  height: 400px;
-  width: 30%;
-  background-color: rgb(246, 245, 245);
-  margin:  30px;
-  text-align: center;
-  background-image: image-url('sidebar.png');
-  }
+// .function-like{
+//   height: 400px;
+//   width: 30%;
+//   background-color: rgb(246, 245, 245);
+//   margin:  30px;
+//   text-align: center;
+//   background-image: image-url('sidebar.png');
+//   }
 
-  .function-post p{
-    color: black;
-    margin: 0;  
-    font-family: sans-serif;
-    font-weight: bold;
-  } 
-   .function-like p{
-     color: black;
-     margin: 0;  
-     font-family: sans-serif;
-     font-weight: bold;
-   }
-  .function-message p{
-    color: black;
-    margin: 0;  
-    font-family: sans-serif;
-    font-weight: bold;
-  } 
+//   .function-post p{
+//     color: black;
+//     margin: 0;  
+//     font-family: sans-serif;
+//     font-weight: bold;
+//   } 
+//    .function-like p{
+//      color: black;
+//      margin: 0;  
+//      font-family: sans-serif;
+//      font-weight: bold;
+//    }
+//   .function-message p{
+//     color: black;
+//     margin: 0;  
+//     font-family: sans-serif;
+//     font-weight: bold;
+//   } 
 
 
 
