@@ -13,24 +13,34 @@
   <% end %>
 
 
-<div class="sns-form">
-  <div class="field">
-    <%= form.label :Twitter%>
-    <%= form.text_field :twitter, placeholder: "twitter(URL)"%>
-  </div>
+    <div class="sns-form">
+<p class="sns-p">*(任意です)アカウントのURLを入力してください*</p>  
 
-  <div class="field">
-    <%= form.label :Github%>
-    <%= form.text_field :github, placeholder: "Github(URL)"%>
-  </div>
+         <ul>
+            <div class="field">
+            <li>
+              <%= form.label :Twitter%><br>
+              <%= form.text_field :twitter, placeholder: "twitter(URL)"%>
+            </li>
+            </div>
 
-  <div class="field">
-    <%= form.label :Qiita%>
-    <%= form.text_field :qiita, placeholder: "Qiita(URL)"%>
-  </div>
+            <div class="field">
+            <li>
+              <%= form.label :Github%><br>
+              <%= form.text_field :github, placeholder: "Github(URL)"%>
+            </li>
+            </div>
 
-  <div class="actions">
-  <%= form.submit %>
-  </div>
-</div>
+            <div class="field">
+            <li>
+              <%= form.label :Qiita%><br>
+              <%= form.text_field :qiita, placeholder: "Qiita(URL)"%>
+            </li>
+            </div>
+
+            <div class="sns-submit">
+            <%= form.submit %>
+            </div>
+         </ul>
+    </div>
 <% end %>

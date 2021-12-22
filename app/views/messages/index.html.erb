@@ -1,10 +1,4 @@
-<script>
-'use strict';
- 
- 
-  }
- 
-</script>
+
 
 
 <div class="container">
@@ -77,10 +71,11 @@
                   <% end %>
                  
                     <div class="content">
-                      <div class="header"><span class="message-time"><%= message.message_time %></span><%= message.user.profile.name %>
+                      <div class="header">
                         <% if message.user == current_user %>
-                            <%= message.message_read ? '' : '/未読' %>
-                          <% end %>
+                            <%= message.message_read ? '' : '未読/' %> <% end %>
+                            <span class="message-time"><%= message.message_time %></span><%= message.user.profile.name %>
+                         
                       </div>
                       <div class="list">
                         <div class="item">
