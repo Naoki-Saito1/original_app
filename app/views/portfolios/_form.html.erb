@@ -31,7 +31,7 @@
 
 
   <div class="field">
-  <span class="hissu">*</span>
+  <span class="hissu">必須</span>
     <%= form.label :portfolio_title %><br>
     <%= form.text_field :portfolio_title, placeholder: "40字以内", class: "form-control-lg" %>
   </div>
@@ -62,7 +62,7 @@
 
 <div id='editor'>
  <div class="field">
- <span class="hissu">*</span>
+ <span class="hissu">必須</span>
     <%= form.label :portfolio_body %>
 <%= form.text_area :portfolio_body, rows: 5, class: 'body-height', id: 'blog_diary', "v-model" => "input", name: "portfolio[portfolio_body]", placeholder: "1000字以内で自由に記入してください" %>
 <div v-html='input | marked'></div>
@@ -145,7 +145,7 @@ marked: marked,
 
   <div class="field">
 
-  <span class="hissu">*</span>
+  <span class="hissu">必須</span>
     <%= form.label :portfolio_url %><br>
     <%= form.text_area :portfolio_url, placeholder: "URL" %>
   </div>

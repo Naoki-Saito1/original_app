@@ -15,11 +15,11 @@
 .comment{
   text-align: center;
     color: #292929;
-    background-color: #fcd98f;
-    border-left: 15px solid #df9700;
-    box-shadow: 0 5px 6px rgba(255, 255, 255, 0.5);
+    background-color: rgb(32, 32, 32);
+    border-left: 15px solid #ffffff;
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.5);
     padding: 10px;
-  
+  color: #ffffff ;
 }
 
 .profile-index-search{
@@ -135,11 +135,17 @@ text-align: right;
   padding: 0px 20px;
 }
 .hissu{
-  color: red;
+  width: 33px;
+  height: 15px;
+  background-color: rgb(255, 116, 116);
+  color: white;
+  font-size: 15px;
+  border: 2px solid rgb(255, 116, 116);
 }
 .prof-body-field{
   height: 200px;
   width: 100%;
+  padding: 0.3em;
 }
 label{
   color: #ffffff;
