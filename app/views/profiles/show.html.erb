@@ -8,7 +8,13 @@
       <div class="profile-main">
       
        <div class="profile-header"> 
-        
+        <div class=profile-share>
+
+          <%= link_to "http://twitter.com/share?url=#{request.url}/&text=ポートフォリオを共有しよう！/&hashtags=プログラミング", target: :_blank, rel: "noopener noreferrer" do %>
+          <i class="fab fa-twitter"></i>Twitterシェア
+          <% end %>
+
+           </div>
           <% if @profile.link.present? %>
               
           <div class="profile-social-links">
@@ -47,15 +53,18 @@
         </div>
        </div>
         <div class="profile-body">
+
+          
          
             <div class="profile-footer">
+
           <% if @profile.user_id == current_user.id && current_user.try(:admin?) %>
             <%= link_to '管理者ページ', rails_admin_path, class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %>
          
             <% end %>
 
           <% if @profile.user_id == current_user.id %>
-          <%= link_to 'プロフィール編集', edit_profile_path(@profile),class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %> 
+          <%= link_to  edit_profile_path(@profile),class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} do %>プロフィール編集<% end %> 
 
               <% if @profile.link.present? %>
                 <%= link_to 'SNS編集', edit_link_path(@profile.link.id),class:"btn btn-outline-primary btn-sm", data: {"turbolinks"=>false} %> 
@@ -90,6 +99,7 @@
             <%= @profile.body %>
           <% end %>
           </p>
+
          </div>
 
         </div>
@@ -102,7 +112,7 @@
 <%# ここから自分の投稿一覧 css/protfolio/index共通 %>
 
 <div class="container my-pf">
-<h2 class="comment">投稿一覧</h2>
+<h3 class="comment"><%= @profile.name %>の投稿一覧</h3>
   <div class="row">
 
 <% if  @profile.user.portfolios.present?%>
@@ -147,9 +157,10 @@
  </div>
 <% end %>
 <% else %>
+
 <div class="show-alert">
 <div class="alert alert-danger" role="alert">
- <h2 class="comment">*現在投稿はありません*</h2>
+ <h2>*現在投稿はありません*</h2>
 <h5>ポートフォリオを投稿するとこちらに表示されます。
 </h5>
  </div>

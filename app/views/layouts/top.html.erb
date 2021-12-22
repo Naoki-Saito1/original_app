@@ -30,6 +30,7 @@
           <li> <%= link_to "ログイン", new_user_session_path, data: {"turbolinks"=>false}%></li>  
           <li><%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %></li>  
           <li><%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %></li>  
+          <li><%= link_to 'ゲストログイン(企業)', users_guest_corporate_sign_in_path, method: :post %></li>
         </ul>
     </nav>
   </div>

@@ -15,7 +15,7 @@
 
     <ul class="navbar-nav mr">
  <li class="nav-item dropdown ">
-        <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <%# <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > %>
           <div class="top-header-profile-image">
 
  <% if current_user.profile.image? %>
@@ -23,16 +23,10 @@
           <% else %>
           <%= image_tag asset_path("no_image.jpg"), size: '55x55', class: "header-profile-image" %>
           <% end %>  
-       
+       <%= current_user.profile.name %>
           </div>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'お問い合わせ', portfolios_path, data: {"turbolinks"=>false}%>
-
-          <div class="dropdown-divider">
-          </div>
-          <a class="dropdown-item" href="#"></a>
-        </div>
+        <%# </a> %>
+      
       </li>
      
       
@@ -81,7 +75,9 @@
 
 <div class="logout">
   <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks"=>false},class:"btn btn-primary btn-sm" %>
+      <%= link_to destroy_user_session_path, method: :delete, data: {"turbolinks"=>false}, data: { confirm: 'ログアウトしますか？' }, class:"btn btn-primary btn-sm" do %>
+      <i class="fas fa-sign-out-alt"></i>ログアウト
+      <% end %>
 <% end %>
 
 </div>

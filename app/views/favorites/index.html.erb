@@ -2,7 +2,7 @@
 
 
 <div class="container my-pf">
-<h2 class="comment">お気に入り一覧</h2>
+<h3 class="comment"><%= current_user.profile.name %>お気に入り一覧</h3>
   <div class="row">
 
 <% if  @favorites.present?%>
@@ -57,7 +57,7 @@
 <% else %>
 <div class="show-alert">
  <div class="alert alert-danger" role="alert">
- <h2 class="comment">*現在お気に入りはありません*</h2>
+ <h2>*現在お気に入りはありません*</h2>
 <h5>ポートフォリオ一覧から投稿詳細を閲覧し<br>
 (いいね)したものがここに表示されます
 </h5>

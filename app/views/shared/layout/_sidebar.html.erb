@@ -49,6 +49,10 @@
       <li> <% if current_user && current_user.try(:admin?) %>
             <%= link_to '管理者ページ', rails_admin_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
             <% end %></li>     
+      <li> <% if current_user && current_user.try(:corporate?) %>
+    <%= link_to 'ユーザー一覧', profiles_path, class: "custom-btn btn-5", data: {"turbolinks"=>false} %>
+    <% end %></li>     
+    <%# <% binding.irb%> 
     </ul>
 </nav>
 

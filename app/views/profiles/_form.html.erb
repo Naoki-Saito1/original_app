@@ -20,7 +20,7 @@
     <% if profile.image? %>
       <%= image_tag profile.image.url, alt: "post-image", id: "img_prev", size: "120" %>
     <% else %>
-      <%= image_tag "no_image.png", alt: "post-image", id: :img_prev, size: "120" %>
+      <%= image_tag "no_image.jpg", alt: "post-image", id: :img_prev, size: "120" %>
     <% end %>
   </div>
     <%= form.label :image %><br>
@@ -47,7 +47,7 @@
 </div>
 
   <div class="field">
-  <span class="hissu">*</span>
+  <span class="hissu">必須</span>
     <%= form.label :name, class: "required"%><br>
     <%= form.text_field :name, placeholder: "25字以内" %>
   </div>

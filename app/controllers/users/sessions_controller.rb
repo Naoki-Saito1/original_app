@@ -14,6 +14,12 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to new_profile_path, notice: 'ゲストユーザー(管理者)としてログインしました。'
   end
 
+  def guest_sign_in_corporate
+    user = User.guest_corporate
+    sign_in user, notice: 'ゲストユーザー(企業)としてログインしました。'
+    redirect_to new_profile_path, notice: 'ゲストユーザー(企業)としてログインしました。'
+  end
+
   # GET /resource/sign_in
   def new
     super
