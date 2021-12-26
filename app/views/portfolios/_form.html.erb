@@ -102,7 +102,7 @@ marked: marked,
 
   <div class="field">
     <%= form.label :portfolio_language %><br>
-    <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください'} %>
+    <%= form.select :portfolio_language, Portfolio.portfolio_languages.keys.to_a,{include_blank: '選択してください', class: "select"} %>
   </div>
 
 
