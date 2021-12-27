@@ -11,7 +11,7 @@
      <%= f.fields_for :profile, @user.build_profile do |f| %>
  
      <%= f.label :name, {class: 'white'}  %><br>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザーネーム(25字以内)" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザーネーム(25字以内)",class:"text-field-boder" %>
     </div>
   <% end %>
       <div class="box-email">
