@@ -1,5 +1,117 @@
+<script>
+$(function(){
+
+ /*=================================================
+  Inview（画面に表示されたタイミングで処理を実行）
+  ===================================================*/
+  // BBBが選ばれる理由（スライド左）
+  $('.inview-slide-left').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+    if(isInView){
+      // 要素が表示されたらslide-leftクラスを追加
+      $(this).stop().addClass('slide-left');
+    }
+  });
+  // BBBが選ばれる理由（スライド右）
+  $('.inview-slide-right').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+    if(isInView){
+      // 要素が表示されたらslide-rightクラスを追加
+      $(this).stop().addClass('slide-right');
+    }
+  });
+  // 受講生の声（ふきだし）
+  $('.inview-balloon').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+    if(isInView){
+      // 要素が表示されたらballoonクラスを追加
+      $(this).stop().addClass('balloon');
+    }
+  });
+});
+
+
+  });
+
+
+</script>
 
 <div class="top-wrapper">
+
+
+  
+    <main>
+      <!-- メインビジュアル -->
+      <div id="mainvisual">
+        <div class="text">
+          <p class="title">こんな<br>ポートフォリオが<br>つくれる！</p>
+          <a class="btn" href="#">無料体験はこちら</a>
+        </div>
+        <ul class="fade">
+          <li><img src="img/mainvisual1.jpg" alt=""></li>
+          <li><img src="img/mainvisual2.jpg" alt=""></li>
+          <li><img src="img/mainvisual3.jpg" alt=""></li>
+        </ul>
+      </div>
+  <!-- スクールの概要 -->
+      <section id="summary">
+        <div class="wrapper">
+          <h2 class="section-title">プログラミンナの概要</h2>
+
+          <ul class="menu">
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">レッスン内容</span>
+                <span class="en">LESSON</span>
+              </h3>
+              <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            </li>
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">料金プラン</span>
+                <span class="en">PRICE</span>
+              </h3>
+              <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            </li>
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">講師のご紹介</span>
+                <span class="en">TEACHER</span>
+              </h3>
+              <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            </li>
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">BBBのQ&A</span>
+                <span class="en">Q&A</span>
+              </h3>
+              <p>テキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 無料体験申し込み -->
+      <div id="entry" class="wrapper">
+        <p class="title">どんな投稿があるかチェックしてみませんか？</p>
+        <p class="catchphrase">閲覧のみは登録不要！</p>
+        <a class="btn" href="#">無料体験に申し込む</a>
+      </div>
+    
+  </main>
+
+  <h2 class="section-title">開発した背景</h2>
+
+    <footer id="top-footer">
+    <p class=top-footer-p>
+      モノづくりの基本は作りたいモノがあり、作り方を学ぶというのが基本だと思います。
+      ぼくはプログラミングスクールに4ヶ月間通いました。正直作りたいモノは決まっていませんでしたし、
+      決まっていたとしても実際卒業までに限られた時間の中、どんなモノが作れるか想像もつきませんでした。
+      そんな中参考になったのが、先輩が作ったポートフォリオでした。そんな経験からポートフォリオをまとめて閲覧できる
+      アプリが欲しいと思いました。またせっかく作ったポートフォリオですが就職活動で使用して終わりなんて方も多いのではないでしょうか？すごくもったいないと思いました。
+      そんな経験からプログラミンナの開発を決意しました。
+
+    </p> 
+    </footer>
+
+  
 
 
 </div>
