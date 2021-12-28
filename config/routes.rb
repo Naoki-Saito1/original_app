@@ -19,4 +19,7 @@ Rails.application.routes.draw do
     post 'users/guest_admin_sign_in', to: 'users/sessions#guest_sign_in_admin'
     post 'users/guest_corporate_sign_in', to: 'users/sessions#guest_sign_in_corporate'
   end
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

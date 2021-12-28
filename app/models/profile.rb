@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   mount_uploader :image, ImageUploader
-  has_one :link
+  has_one :link, dependent: :destroy
   belongs_to :user
   # バリデーション
   validates :user_id, uniqueness: true
