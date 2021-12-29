@@ -300,7 +300,7 @@ Summary
 -------------------------------------------*/
 
 #summary {
-  background: url("../img/bg.gif") repeat;
+ 
   animation: fall 10s infinite linear;
   padding: 60px 0;
   margin-bottom: 120px;
@@ -444,7 +444,7 @@ Entry
 /*-------------------------------------------
 SP
 -------------------------------------------*/
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
   .wrapper {
     padding: 0 16px;
   }
@@ -483,8 +483,9 @@ SP
     width: 100%;
   }
 
+  
   /*-------------------------------------------
-  Reason
+  
   -------------------------------------------*/
   #reason {
     margin-bottom: 80px;
@@ -518,7 +519,7 @@ SP
   }
 
   /*-------------------------------------------
-  Summary
+  
   -------------------------------------------*/
   #summary {
     margin-bottom: 80px;
@@ -541,7 +542,7 @@ SP
   }
 
   /*-------------------------------------------
-  Entry
+
   -------------------------------------------*/
   #entry {
     margin-bottom: 80px;
