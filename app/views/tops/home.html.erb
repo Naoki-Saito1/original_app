@@ -1,37 +1,4 @@
-<script>
-$(function(){
 
- /*=================================================
-  Inview（画面に表示されたタイミングで処理を実行）
-  ===================================================*/
-  // BBBが選ばれる理由（スライド左）
-  $('.inview-slide-left').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
-    if(isInView){
-      // 要素が表示されたらslide-leftクラスを追加
-      $(this).stop().addClass('slide-left');
-    }
-  });
-  // BBBが選ばれる理由（スライド右）
-  $('.inview-slide-right').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
-    if(isInView){
-      // 要素が表示されたらslide-rightクラスを追加
-      $(this).stop().addClass('slide-right');
-    }
-  });
-  // 受講生の声（ふきだし）
-  $('.inview-balloon').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
-    if(isInView){
-      // 要素が表示されたらballoonクラスを追加
-      $(this).stop().addClass('balloon');
-    }
-  });
-});
-
-
-  });
-
-
-</script>
 
 <div class="top-wrapper">
 
@@ -45,13 +12,10 @@ $(function(){
           
           <%= link_to "投稿一覧はこちら！", open_portfolios_path, class:"btn", data: {"turbolinks"=>false} %>
         </div>
-        <ul class="fade">
-          <li><img src="img/mainvisual1.jpg" alt=""></li>
-          <li><img src="img/mainvisual2.jpg" alt=""></li>
-          <li><img src="img/mainvisual3.jpg" alt=""></li>
-        </ul>
+        <div class="mainvisual-image">
+        </div>
       </div>
-  <!-- スクールの概要 -->
+  
       <section id="summary">
         <div class="wrapper">
           <h2 class="section-title">プログラミンナの概要</h2>
@@ -89,7 +53,7 @@ $(function(){
         </div>
       </section>
 
-      <!-- 無料体験申し込み -->
+      
       <div id="entry" class="wrapper">
         <p class="title">どんな投稿があるかチェックしてみませんか？</p>
         <p class="catchphrase">閲覧のみは登録不要！</p>
