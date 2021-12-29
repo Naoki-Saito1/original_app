@@ -1,13 +1,20 @@
 <div class="portfolio-top-wrapper">
+
  <div class="portfolio-index-header">
-    <h2 class="portfolio-index-h1"><%= link_to "ポートフォリオ投稿一覧画面", portfolios_path %></h2>
+    <h2 class="portfolio-index-h1">ポートフォリオ投稿一覧画面</h2>
+
     <div class="portfolio-detail">
-    <h5><span class="name">*詳細を見るには画像をクリックしてください*</span></h5>
+     <%= link_to "TOPページに戻る",  root_path, class:"btn btn-primary", data: {"turbolinks"=>false} %>
+    <%= link_to "新規登録",  new_user_registration_path, class:"btn btn-primary", data: {"turbolinks"=>false} %>
+    
+    <h5><span class="name">※新規登録をすると詳細画面や他の機能も使用できます</span></h5>
     </div>
+
 </div>
 
+
 <div class="profile-search">
-    <%= search_form_for @q do |f| %>
+    <%= search_form_for @q, url: open_portfolios_path do |f| %>
     <div class="index-search">
       <%= f.label :主な言語 %>
       <%= f.select :portfolio_language_eq, Portfolio.portfolio_languages_i18n.invert.map{|key, value| [key, Portfolio.portfolio_languages[value]]}, { include_blank:'指定なし' } %>
@@ -18,7 +25,7 @@
       <%= f.submit "検索" %>
     <% end %>
     </div>
-    <h5 class="sort-index-search"><%= link_to "全て表示", portfolios_path %>/
+     <h5 class="sort-index-search"><%= link_to "全て表示", open_portfolios_path %>/
      <%= sort_link(@q, :created_at, "投稿日順並び変え") %></h5>
 </div>
 
@@ -32,13 +39,13 @@
 <div class="container">
   <div class="row">
 
- <% @portfolios.each do |portfolio| %>
+ <% @open_portfolios.each do |portfolio| %>
    <div class="col-md-4">
      <div class="card-deck " style="width:22rem">
-    <%= link_to  portfolio, data: {"turbolinks"=>false} do %>
+  
        <div class="card card_topic pf-main">
 
-       <div class="p-image">
+       <div class="p-open-image">
        
        <% if portfolio.portfolio_image.url.present? %>
           <%=  image_tag portfolio.portfolio_image.url, size: '350x200', class: "card-img-top", data: {"turbolinks"=>false} %>
@@ -69,13 +76,7 @@
           <p><%= portfolio.created_at.strftime("%Y-%m-%d") %></p>
         </div>
 
-        <div class="p-like">
-            <% if portfolio.user_id != current_user.id %>
-              <div id="likes_buttons<%= portfolio.id %>">
-              <%= render partial: 'favorites/favorite', locals: { portfolio: portfolio, favorite: @favorite} %>
-              </div>
-            <% end %>
-        </div>
+        
         
      </div>
 
@@ -83,14 +84,12 @@
       </div>
     </div>
     
-<% end %>
+
 <% end %>
   </div>
   
 </div>
 <% unless params[:hoge] == "true"  %>
-  <%= paginate (@portfolios) %>
+  <%= paginate (@open_portfolios) %>
 <% end %>
-
-
 

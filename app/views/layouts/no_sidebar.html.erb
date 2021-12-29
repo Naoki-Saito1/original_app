@@ -14,10 +14,7 @@
   </head>
 
   <body>
-<header id="header">
-  <%= render 'shared/layout/header' %>
-  <%= render 'shared/layout/message' %>  
-</header>
+
 
 <script>
   $(function() {
@@ -28,13 +25,13 @@
 
   <div class="row">
    
-    <div class="col-3">
+    <%# <div class="col-3">
       <div id="sidebar_nil">
      
       </div>
-    </div>
+    </div> %>
 
-    <div class="col-9">
+    <div class="col-12">
       <div class="main-wrapper">
        <%= render 'shared/layout/message' %> 
       <%= yield %>

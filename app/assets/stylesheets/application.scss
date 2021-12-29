@@ -158,12 +158,23 @@ padding: 15px 0 0 10px;
   z-index: 100;
 }
 
+.portfolio-top-wrapper{
+  flex-wrap: wrap;
+}
+  
+.profile-search{
+  flex-wrap: wrap;
+  margin-top: 140px;
+}
 
 
-
-
-
-
+.profile-name{
+  text-align: center;
+  padding-top: 80px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-family: monospace;
+}
 
 
 

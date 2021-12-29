@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'tops#home'
+  resources :open_portfolios, only: %i[ show index]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'

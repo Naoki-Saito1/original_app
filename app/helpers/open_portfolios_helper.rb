@@ -1,0 +1,2 @@
+module OpenPortfoliosHelper
+end
