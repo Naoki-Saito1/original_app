@@ -27,7 +27,7 @@
 #g-nav.panelactive{
   /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
   position:fixed;
-  z-index: 99;
+  z-index: 100;
 top: 0;
 width:100%;
   height: 100vh;
@@ -36,7 +36,7 @@ width:100%;
 /*丸の拡大*/
 .circle-bg{
   position: fixed;
-z-index:3;
+z-index:10;
   /*丸の形*/
   width: 100px;
   height: 100px;
@@ -58,7 +58,7 @@ transform: scale(50);/*クラスが付与されたらscaleを拡大*/
   display: none;/*はじめは表示なし*/
   /*ナビの数が増えた場合縦スクロール*/
   position: fixed;
-  z-index: 99; 
+  z-index: 10; 
   width: 100%;
   height: 100vh;
   overflow: auto;
@@ -74,15 +74,20 @@ transform: scale(50);/*クラスが付与されたらscaleを拡大*/
 opacity: 0;/*はじめは透過0*/
   /*ナビゲーション天地中央揃え※レイアウトによって調整してください。不必要なら削除*/
   position: absolute;
-  // z-index: 99;
-  top:50%;
+  z-index: 99;
+  top:-500%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
 
 /*背景が出現後にナビゲーションを表示*/
 #g-nav.panelactive ul {
-  opacity:1;
+  opacity:1; 
+  position: absolute;
+  z-index: 99;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 /* 背景が出現後にナビゲーション li を表示※レイアウトによって調整してください。不必要なら削除*/
@@ -126,6 +131,7 @@ position:fixed;
 top:10px;
 right: 10px;
 z-index: 999;/*ボタンを最前面に*/
+
 cursor: pointer;
   width: 50px;
   height:50px;
@@ -647,9 +653,9 @@ Entry
   margin-bottom: 40px;
 }
 #entry .btn {
-  background-color: #ff2a2a;
+  background-color: #007bff;
   border-radius: 40px;
-  border: solid 3px #ff2a2a;
+  border: solid 3px #0004ff;
   color: #fff;
   font-size: 1.75rem;
   font-weight: bold;
@@ -660,8 +666,8 @@ Entry
 }
 #entry .btn:hover {
   background-color: #fff;
-  border: solid 3px #ff2a2a;
-  color: #ff2a2a;
+  border: solid 3px #007bff;
+  color: #0004ff;
 }
 
 
