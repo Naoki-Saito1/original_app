@@ -1,5 +1,4 @@
-<p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
   <div class="box-auto">
 <div class="box">
   <div class="box-inner">
@@ -7,7 +6,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
    
    
-      <h1 class="white"> ログイン</h1>
+      <h2 class="white"> ログイン</h2>
       <div class="box-email">
         <%= f.label :email, "メールアドレス", {class: 'white'} %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
@@ -36,8 +35,9 @@
     <% end %>
 <p class="login-span"><span>----------</span> 初めてプログラミンナをご利用ですか？ <span>----------</span></p>
     <div class="box-newusr">
-      
+      <div class="box-links">
       <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
