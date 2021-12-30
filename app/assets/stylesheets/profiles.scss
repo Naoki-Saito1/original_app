@@ -51,7 +51,7 @@
 }
 .profile-name{
   text-align: center;
-  padding-top: 80px;
+  padding-top: 35px;
   color: #ffffff;
   font-size: 2.5rem;
   font-family: monospace;
@@ -118,6 +118,18 @@ text-align: right;
   opacity: 0.5;
 }
 
+.profile-corporate{
+  width: 45px;
+  height: 45px;
+  background-color: #007bff;
+  border-radius: 50%;
+}
+.profile-corporate p{
+  font-weight: bold;
+  text-align:center;
+  padding-top: 13px;
+  font-size: 14px;
+}
 
 
 // ここまで
