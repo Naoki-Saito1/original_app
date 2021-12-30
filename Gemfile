@@ -33,6 +33,15 @@ group :development, :test do
   gem 'rexml'
   gem 'rspec-rails', '~> 3.8'
   gem 'spring-commands-rspec'
+  gem 'capistrano', '3.16.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
+
+
 end
 
 group :development do
@@ -70,3 +79,4 @@ gem 'coderay'
 gem 'enumerize'
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem 'unicorn'
