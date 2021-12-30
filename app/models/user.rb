@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_one :profile
-  accepts_nested_attributes_for :profile
-  has_many :portfolios
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile, allow_destroy: true
+  has_many :portfolios, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :messages, dependent: :destroy
   validates :email, presence: true, length: { maximum: 150 }

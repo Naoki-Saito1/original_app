@@ -1,0 +1,95 @@
+<div class="portfolio-top-wrapper">
+
+ <div class="portfolio-index-header">
+    <h2 class="portfolio-index-h1">ポートフォリオ投稿一覧画面</h2>
+
+    <div class="portfolio-detail">
+     <%= link_to "TOPページに戻る",  root_path, class:"btn btn-primary", data: {"turbolinks"=>false} %>
+    <%= link_to "新規登録",  new_user_registration_path, class:"btn btn-primary", data: {"turbolinks"=>false} %>
+    
+    <h5><span class="name">※新規登録をすると詳細画面や他の機能も使用できます</span></h5>
+    </div>
+
+</div>
+
+
+<div class="profile-search">
+    <%= search_form_for @q, url: open_portfolios_path do |f| %>
+    <div class="index-search">
+      <%= f.label :主な言語 %>
+      <%= f.select :portfolio_language_eq, Portfolio.portfolio_languages_i18n.invert.map{|key, value| [key, Portfolio.portfolio_languages[value]]}, { include_blank:'指定なし' } %>
+    </div>  
+   <div class="index-search">
+      <%= f.label :framework_name, "使用したスキルで検索" %>
+      <%= f.search_field :frameworks_framework_name_cont, placeholder: "半角英数字(小文字)" %>
+      <%= f.submit "検索" %>
+    <% end %>
+    </div>
+     <h5 class="sort-index-search"><%= link_to "全て表示", open_portfolios_path %>/
+     <%= sort_link(@q, :created_at, "投稿日順並び変え") %></h5>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+
+ <% @open_portfolios.each do |portfolio| %>
+   <div class="col-md-4">
+     <div class="card-deck " style="width:22rem">
+  
+       <div class="card card_topic pf-main">
+
+       <div class="p-open-image">
+       
+       <% if portfolio.portfolio_image.url.present? %>
+          <%=  image_tag portfolio.portfolio_image.url, size: '350x200', class: "card-img-top", data: {"turbolinks"=>false} %>
+       <% else %>
+          <%=  image_tag asset_path("no_image.png"), size: '350x200', class: "card-img-top", data: {"turbolinks"=>false}%>
+       <% end %>
+
+        
+      </div>
+        
+     <div class="card-body ">
+       <h5 class="card-title">タイトル:<%= portfolio.portfolio_title %></h5>
+       <p>メイン言語:<%= portfolio.portfolio_language %></p>
+     <div class="framework-wrapper">
+       <p>使用したスキル</p>
+       <ul class="framework">
+       <% portfolio.frameworks.each do |p| %>
+            <% if p.framework_name.present? %>
+            <li><%= p.framework_name %></li>
+            <% end %>
+       <% end %>
+       </ul>
+     </div>
+     </div>
+
+     <div class="pf-footer">
+        <div class="p-footer">
+          <p><%= portfolio.created_at.strftime("%Y-%m-%d") %></p>
+        </div>
+
+        
+        
+     </div>
+
+      </div>
+      </div>
+    </div>
+    
+
+<% end %>
+  </div>
+  
+</div>
+<% unless params[:hoge] == "true"  %>
+  <%= paginate (@open_portfolios) %>
+<% end %>
+

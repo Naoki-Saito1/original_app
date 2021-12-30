@@ -18,7 +18,8 @@
       <%= f.submit "検索" %>
     <% end %>
     </div>
-     <h5 class="sort-index-search"><%= sort_link(@q, :created_at, "投稿日順並び変え") %></h5>
+    <h5 class="sort-index-search"><%= link_to "全て表示", portfolios_path %>/
+     <%= sort_link(@q, :created_at, "投稿日順並び変え") %></h5>
 </div>
 
     

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'tops#home'
+  resources :open_portfolios, only: %i[ show index]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
@@ -18,5 +19,8 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     post 'users/guest_admin_sign_in', to: 'users/sessions#guest_sign_in_admin'
     post 'users/guest_corporate_sign_in', to: 'users/sessions#guest_sign_in_corporate'
+  end
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 end

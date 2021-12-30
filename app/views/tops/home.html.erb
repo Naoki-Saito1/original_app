@@ -1,153 +1,84 @@
 
 
-
-
-
 <div class="top-wrapper">
-  <div class="top-image">
 
 
-
-  <div class="top-portfolio-title">
   
-   <h1>こんなポート<br>フォリオ<br>が作れる！</h1>
-   
-  </div>
+    <main>
+      <!-- メインビジュアル -->
+      <div id="mainvisual">
+        <div class="text">
+          <p class="title">こんな<br>ポートフォリオが<br>つくれる！</p>
+          
+          <%= link_to open_portfolios_path, class:"btn", data: {"turbolinks"=>false} do %>
+          投稿一覧はこちら！<span class="mini">(登録不要)</span>
+          <% end %>
+        </div>
+        <div class="mainvisual-image">
+        </div>
+      </div>
+  
+      <section id="summary">
+        <div class="wrapper">
+          <h2 class="section-title">プログラミンナの概要</h2>
 
-  <div class="hello">
-   <h6>ポートフォリオ投稿される方へ</h6>
-   <p>投稿する際にサムネイル画像が必要になります。<br>
-   トップページまたは一番見て欲しいページのスクリーンショットを１枚ご用意ください。</p>
-  </div>
+          <ul class="menu">
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">ポートフォリオ投稿機能</span>
+                <span class="en">CRUD</span>
+              </h3>
+              <p>ポートフォリオの閲覧や共有、また言語別やキーワードで検索出来る!!</p>
+            </li>
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">メッセージ機能</span>
+                <span class="en">MESSAGE</span>
+              </h3>
+              <p>気になる箇所や質問などユーザー同士で行えるメッセージ機能!!</p>
+            </li>
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">お気に入り機能</span>
+                <span class="en">FAVORITE</span>
+              </h3>
+              <p>気に入った投稿や後ですぐ見たい投稿など、お気に入りしストック可能!!</p>
+            </li>
+            <li>
+              <h3 class="menu-title">
+                <span class="ja">SNS登録機能</span>
+                <span class="en">SNS</span>
+              </h3>
+              <p>プロフィールページからtwitter,Github,Qiitaのアカウントを登録し新しい繋がりを増やせる!!</p>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-
-  <div class=top-top>
-    <div class="title">
-    <h1>ポートフォリオ共有アプリ</h1>
-    </div>
-    <div class="top-content">
-      <p class="description">
-        プログラミング言語を学習したいが実際どんなものが作れるか知りたいあなた、<br>
-        ポートフォリオ作りたいけどどんなものにしよう...<br>
-        頑張って作ったポートフォリオ就職活動後はどうしますか？<br>
-        ポートフォリオを一人でも多くの人に使ってもらいたいor自慢したい！<br>
-        日々の成果を形としてアウトプットしたい！<br>
-        アウトプットしながら就職活動もしたい！<br>
-        そんな方々に向けたアプリケーションとなっています！<br>
-      </p>
-    </div>
-  </div>
-    </div>
-
-
-
-
-
-<div class="second-top-image2">
+      
+      <div id="entry" class="wrapper">
+        <p class="title">どんな投稿があるかチェックしてみませんか？</p>
+        <p class="catchphrase">閲覧のみは登録不要！</p>
+        <%= link_to "新規登録はこちら", new_user_registration_path, class:"btn", data: {"turbolinks"=>false} %>
+      </div>
     
-    </div>
+  </main>
 
+  <h2 class="section-title">開発した背景</h2>
 
+    <footer id="top-footer">
+    <p class=top-footer-p>
+      
+      ぼくはプログラミングスクールに通いRubyを4ヶ月間学習しました。
+      モノづくりの基本は作りたいモノがあり、作り方を学ぶというのが基本だと思いますが、実際スクール卒業までにどんなモノが作れるか想像もつきませんでした。
+      そんな中参考になったのが、先輩が作ったポートフォリオでした。『こんなのがつくれるのか！』『この発想真似したいな！』などすごく参考なりました。<br>
+      そんな経験からポートフォリオをまとめて閲覧できるアプリケーションが欲しいと考えました。またせっかく作ったポートフォリオですが就職活動で使用して終わりなんて方も多いのではないでしょうか？すごくもったいないと思います。
+      そういった思いからプログラミンナの開発を決意しました。
 
+    </p> 
+    </footer>
 
-
-
-<h2 class="top-card-title">新規登録後使える機能説明</h2>
-    <div class="top-card">
-
-    <div class="card1">
-
-    <div class="inner-card1">
-    </div>
-    <div class="inner-font">
-    <p><span class="font-bold">ポートフォリオの閲覧、投稿機能</span><br>
-    <br>
-    どんな作品があるのか新規登録して見てみましょう！<br>
-    その他にもユーザーどうしで行えるメッセージ機能や、お気に入りしストックすることが出来ます。
-    <p>
-    </div>
-    </div>
-
-
-    <div class="card2">
-    <div class="inner-card2">
-    
-    </div>
-    <div class="inner-font">
-    <p><span class="font-bold">言語別やキーワード別で検索機能</span><br><br>
-    プログラミング学習を始めたい方または現在学習中の方言語によって作れるものは様々です。<br>
-    言語によってどのようなページが作れるのか実際に見てみまししょう！
-    
-    </p>
-    </div>
-    </div>
-
-
-    <div class="card3">
-    <div class="inner-card3">
-
-    </div>
-    <div class="inner-font">
-    <p><span class="font-bold">プロフィールSNS登録機能</span><br><br>
-    プロフィールにGithub,Twitter,Qiitaのアカウントを登録することができ
-    繋がりや、知識の共有なども出来ます。
-    </p>
-    </div>
-    </div>
-
-    </div>
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="second-top-image-flex">
-    
-<div class="second-top-image">
-    </div>
-    <%# <div class="second-top-image2">
-    </div> %>
-    </div>
-    
-
-
-
-
-
-    <div class="second-top-image-flex">
-<%#     
-<div class="second-top-image">
-    </div> %>
-   
-    </div>
-    
-<h2 class="top-card-title">アプリケーションの制作理由</h2>
-<div class="reason">
-<p>
-開発した背景:僕はプログラミングスクールに通いRubyonRailsを学びました。
-作りたいものがあり、作り方を学ぶ。それがものづくりの基本かもしれませんが、プログラミングにおいて、はそれはすごく難しいと感じました。RubyonRailsでどんなアプリが作れるのか？調べても答えは見つかりませんでした。
-そんな中参考になったのが通っていたスクールの先輩が作ったアプリケーションでした。
-またたくさんの時間をかけて作成したポートフォリオも就職活動時のみ使用して眠らせてしまう方も多いのではないでしょうか。
-そんな経験や思いからこのアプリケーションの開発を決意しました。
-</p>
-</div>
+  
 
 
 </div>

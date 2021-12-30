@@ -8,6 +8,12 @@
       <div class="profile-main">
       
        <div class="profile-header"> 
+       <% if @profile.user.corporate == true %>
+       <div class="profile-corporate">
+           <p>企業</p>
+       </div>
+        <% end %>
+
         <div class=profile-share>
 
           <%= link_to "http://twitter.com/share?url=#{request.url}/&text=ポートフォリオを共有しよう！/&hashtags=プログラミング", target: :_blank, rel: "noopener noreferrer" do %>
