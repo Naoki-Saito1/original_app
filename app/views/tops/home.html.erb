@@ -10,7 +10,9 @@
         <div class="text">
           <p class="title">こんな<br>ポートフォリオが<br>つくれる！</p>
           
-          <%= link_to "投稿一覧はこちら！", open_portfolios_path, class:"btn", data: {"turbolinks"=>false} %>
+          <%= link_to open_portfolios_path, class:"btn", data: {"turbolinks"=>false} do %>
+          投稿一覧はこちら！<span class="mini">(登録不要)</span>
+          <% end %>
         </div>
         <div class="mainvisual-image">
         </div>
