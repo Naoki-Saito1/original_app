@@ -64,7 +64,7 @@
  <div class="field">
  <span class="hissu">必須</span>
     <%= form.label :portfolio_body %>
-<%= form.text_area :portfolio_body, rows: 5, class: 'body-height', id: 'blog_diary', "v-model" => "input", name: "portfolio[portfolio_body]", placeholder: "1000字以内で自由に記入してください" %>
+<%= form.text_area :portfolio_body, rows: 5, class: 'body-height', id: 'blog_diary', "v-model" => "input", name: "portfolio[portfolio_body]", placeholder: "開発した経緯 作品の説明 こだわりなど自由にお書きください" %>
 <div v-html='input | marked'></div>
   </div>
 </div>
@@ -122,6 +122,9 @@ marked: marked,
     <%= render "framework_fields", f: t  %>
       <% end %>
       <%= form.fields_for :frameworks do |t| %>
+    <%= render "framework_fields", f: t  %>
+      <% end %>
+        <%= form.fields_for :frameworks do |t| %>
     <%= render "framework_fields", f: t  %>
       <% end %>
     </div>
